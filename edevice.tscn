@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
+[ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
+[ext_resource path="res://retrogaming-10.tres" type="DynamicFont" id=3]
+[ext_resource path="res://retrogaming-compressed.tres" type="DynamicFont" id=4]
+[ext_resource path="res://edevice.gd" type="Script" id=5]
+
+[node name="edevice" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 104, 0, 1, 105, 0, 2, 105, 0, 3, 105, 0, 4, 105, 0, 5, 105, 0, 6, 105, 0, 7, 105, 0, 8, 106, 0, 9, 104, 0, 10, 105, 0, 11, 105, 0, 12, 105, 0, 13, 105, 0, 14, 106, 0, 65536, 108, 0, 65537, 109, 0, 65538, 109, 0, 65539, 109, 0, 65540, 109, 0, 65541, 109, 0, 65542, 109, 0, 65543, 109, 0, 65544, 110, 0, 65545, 108, 0, 65546, 109, 0, 65547, 109, 0, 65548, 109, 0, 65549, 109, 0, 65550, 110, 0, 131072, 108, 0, 131073, 109, 0, 131074, 109, 0, 131075, 109, 0, 131076, 109, 0, 131077, 109, 0, 131078, 109, 0, 131079, 109, 0, 131080, 110, 0, 131081, 108, 0, 131082, 109, 0, 131083, 109, 0, 131084, 109, 0, 131085, 109, 0, 131086, 110, 0, 196608, 108, 0, 196609, 109, 0, 196610, 109, 0, 196611, 109, 0, 196612, 109, 0, 196613, 109, 0, 196614, 109, 0, 196615, 109, 0, 196616, 110, 0, 196617, 108, 0, 196618, 109, 0, 196619, 109, 0, 196620, 109, 0, 196621, 109, 0, 196622, 110, 0, 262144, 112, 0, 262145, 113, 0, 262146, 113, 0, 262147, 113, 0, 262148, 113, 0, 262149, 113, 0, 262150, 113, 0, 262151, 113, 0, 262152, 114, 0, 262153, 112, 0, 262154, 113, 0, 262155, 113, 0, 262156, 113, 0, 262157, 113, 0, 262158, 114, 0, 327680, 104, 0, 327681, 105, 0, 327682, 105, 0, 327683, 105, 0, 327684, 105, 0, 327685, 105, 0, 327686, 105, 0, 327687, 105, 0, 327688, 106, 0, 327689, 104, 0, 327690, 105, 0, 327691, 105, 0, 327692, 105, 0, 327693, 105, 0, 327694, 106, 0, 393216, 108, 0, 393217, 109, 0, 393218, 109, 0, 393219, 109, 0, 393220, 109, 0, 393221, 109, 0, 393222, 109, 0, 393223, 109, 0, 393224, 110, 0, 393225, 108, 0, 393226, 109, 0, 393227, 109, 0, 393228, 109, 0, 393229, 109, 0, 393230, 110, 0, 458752, 108, 0, 458753, 109, 0, 458754, 109, 0, 458755, 109, 0, 458756, 109, 0, 458757, 109, 0, 458758, 109, 0, 458759, 109, 0, 458760, 110, 0, 458761, 108, 0, 458762, 109, 0, 458763, 109, 0, 458764, 109, 0, 458765, 109, 0, 458766, 110, 0, 524288, 108, 0, 524289, 109, 0, 524290, 109, 0, 524291, 109, 0, 524292, 109, 0, 524293, 109, 0, 524294, 109, 0, 524295, 109, 0, 524296, 110, 0, 524297, 108, 0, 524298, 109, 0, 524299, 109, 0, 524300, 109, 0, 524301, 109, 0, 524302, 110, 0, 589824, 112, 0, 589825, 113, 0, 589826, 113, 0, 589827, 113, 0, 589828, 113, 0, 589829, 113, 0, 589830, 113, 0, 589831, 113, 0, 589832, 114, 0, 589833, 112, 0, 589834, 113, 0, 589835, 113, 0, 589836, 113, 0, 589837, 113, 0, 589838, 114, 0 )
+script = ExtResource( 5 )
+
+[node name="Scroller" type="VBoxContainer" parent="CanvasLayer/TileMap"]
+margin_left = 148.0
+margin_top = 4.0
+margin_right = 236.0
+margin_bottom = 156.0
+
+[node name="Label1" type="Label" parent="CanvasLayer/TileMap/Scroller"]
+margin_right = 88.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 3 )
+text = "Dracospark"
+
+[node name="Label2" type="Label" parent="CanvasLayer/TileMap/Scroller"]
+margin_top = 17.0
+margin_right = 88.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 3 )
+text = "Dracoflame"
+
+[node name="Label3" type="Label" parent="CanvasLayer/TileMap/Scroller"]
+margin_top = 34.0
+margin_right = 88.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 3 )
+text = "Dracoblaze"
+
+[node name="Label4" type="Label" parent="CanvasLayer/TileMap/Scroller"]
+margin_top = 51.0
+margin_right = 88.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 3 )
+text = "Mizukoi"
+
+[node name="Deets" type="VBoxContainer" parent="CanvasLayer/TileMap"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 140.0
+margin_bottom = 76.0
+
+[node name="Name" type="Label" parent="CanvasLayer/TileMap/Deets"]
+margin_right = 136.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dracospark (#XX)"
+
+[node name="Descriptor" type="Label" parent="CanvasLayer/TileMap/Deets"]
+margin_top = 18.0
+margin_right = 136.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 2 )
+text = "Drake Elecree"
+
+[node name="HTWT" type="Label" parent="CanvasLayer/TileMap/Deets"]
+margin_top = 36.0
+margin_right = 136.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 2 )
+text = "HT: 2 m, WT: 8.5 kg"
+
+[node name="Element" type="Label" parent="CanvasLayer/TileMap/Deets"]
+margin_top = 54.0
+margin_right = 136.0
+margin_bottom = 68.0
+custom_fonts/font = ExtResource( 2 )
+text = "ELEMENT: Fire"
+
+[node name="FlavorText" type="Label" parent="CanvasLayer/TileMap"]
+margin_left = 4.0
+margin_top = 84.0
+margin_right = 140.0
+margin_bottom = 156.0
+custom_fonts/font = ExtResource( 4 )
+autowrap = true

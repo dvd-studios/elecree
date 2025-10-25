@@ -1,7 +1,7 @@
 extends TileMap
 onready var global = get_node("/root/GlobalVars")
 var textbox: Node
-var menu_number: int = 1
+var menu_number: int = 7
 var in_save: bool = false
 var leaving_save: bool = false
 
@@ -39,7 +39,10 @@ func _process(delta):
 			in_save = false
 		match menu_number:
 			1:
-				pass
+				self.visible = false
+				EDevice.get_node("CanvasLayer/TileMap").visible = true
+				menu_number = 7
+				get_node("VBoxContainer/Label" + String(2)).add_color_override("font_color",Color(0, 0, 0, 1))
 			2:
 				self.visible = false
 				TeamScreen.reboot()

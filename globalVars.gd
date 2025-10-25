@@ -12,7 +12,7 @@ var last_pos: Vector2
 var last_loc: String
 var wildgen: Array
 var wild: bool
-var e_device_caught: Array = []
+var e_device_caught: Array = [0]
 var real_time: float = 0
 var time: String
 var credits: int = 300
