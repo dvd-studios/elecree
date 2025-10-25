@@ -7,6 +7,7 @@ const stamina_cost = [ 3,        0      ]
 const data = {
 	0: {
 		"name": "TestMonster",
+		"edevicedescriptor": "Test", 
 		"edeviceid": 00,
 		"edeviceentry": "This is a test monster used for debugging. It should not be seen in the final release",
 		"edeviceheight": 1.0,
