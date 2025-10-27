@@ -5,12 +5,14 @@ var offset: int = 0
 const one_to_four = [1,2,3,4]
 
 func _ready():
-	for i in one_to_four:
-			get_node("Scroller/Label" + str(select)).add_color_override("font_color", Color8(0xff, 0xff, 0xff))
+	get_node("Scroller/Label2").add_color_override("font_color", Color8(0xff, 0xff, 0xff))
+	get_node("Scroller/Label3").add_color_override("font_color", Color8(0xff, 0xff, 0xff))
+	get_node("Scroller/Label4").add_color_override("font_color", Color8(0xff, 0xff, 0xff))
 	get_node("Scroller/Label1").add_color_override("font_color", Color8(0x55, 0xe1, 0xff))
 
 func _process(delta: float):
 	if visible:
+		
 		
 		# REPLACE WITH BETTER CODE ONCE ALL CREATURES HAVE BEEN MADE
 		get_node("Deets/Name").text = (Creatures.data[offset + select]["name"] + " (#" + str(Creatures.data[offset + select]["edeviceid"]) + ")") if GlobalVars.e_device_caught.has(offset + select) else "---"
@@ -38,9 +40,10 @@ func _process(delta: float):
 				get_node("Scroller/Label" + str(select)).add_color_override("font_color", Color8(0x55, 0xe1, 0xff))
 				get_node("Scroller/Label" + str(select + 1)).add_color_override("font_color", Color8(0xff, 0xff, 0xff))
 			print("Up. Offset: " + str(offset) + " Select: " + str(select))
-	if Input.is_action_just_pressed("ui_cancel"):
-		visible = false
-		offset = 0
-		select = 1
-		_ready()
-		GlobalVars.cutscenePlaying = false
+			
+		if Input.is_action_just_pressed("ui_cancel"):
+			offset = 0
+			select = 1
+			_ready()
+			visible = false
+			GlobalVars.cutscenePlaying = false

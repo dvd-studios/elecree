@@ -8,8 +8,9 @@ var dictionaries: Dictionary
 var team_of_creatures: Array
 var in_details: bool = false
 var first_frame: bool = true
-
-	
+var switching: bool = false
+var switch_origin: int = 0
+var tempswitch: Elecree = null
 
 func hide_items():
 	get_node("CanvasLayer").hide()
@@ -105,11 +106,30 @@ func _process(delta: float):
 			cdetails.creature = creature
 			cdetails.creature_changed()
 			#print(str(creature) + ", " + str(cdetails.creature))
+		if Input.is_action_just_pressed("ui_right") && !switching:
+			switching = true
+			switch_origin = creature
+			labels[creature].add_color_override("font_color", Color(1, 0, 0))
+		if Input.is_action_just_pressed("ui_left") && switching:
+			tempswitch = team.team[switch_origin]
+			team.team[switch_origin] = team.team[creature]
+			team.team[creature] = tempswitch
+			switching = false
+			switch_origin = 0
+			reboot()
+			show_items()
+		
 	if get_node("CanvasLayer").visible:
 		first_frame = false
 	
 	for l in labels.size():
-		if l == creature:
-			labels[l].add_color_override("font_color", Color(1, 1, 1))
-		else:
-			labels[l].add_color_override("font_color", Color(0, 0, 0))
+		if !switching:
+			if l == creature:
+				labels[l].add_color_override("font_color", Color(1, 1, 1))
+			else:
+				labels[l].add_color_override("font_color", Color(0, 0, 0))
+		elif l != switch_origin:
+			if l == creature:
+				labels[l].add_color_override("font_color", Color(0, 0, 1))
+			else:
+				labels[l].add_color_override("font_color", Color(0, 0, 0))
