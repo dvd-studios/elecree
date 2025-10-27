@@ -17,6 +17,7 @@ var real_time: float = 0
 var time: String
 var credits: int = 300
 var player_name: String = "Fire" # Default player name, will be changeable in release
+var flags: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,6 +52,7 @@ func deserialize_save():
 			team.team.push_back(null)
 	_warpPlayer(Vector2(dict["x_position"], dict["y_position"]), dict["current_scene"])
 	bag.item_bag = dict["bag"]
+	flags = dict["flags"]
 
 func serialize_save() -> Dictionary:
 	var output: Dictionary = {}
@@ -70,6 +72,7 @@ func serialize_save() -> Dictionary:
 		else:
 			output["team"].push_back(null)
 	output["bag"] = bag.item_bag
+	output["flags"] = flags
 	return output
 
 func _warpPlayer(destination: Vector2, destination_scene: String, relative: bool = false):
@@ -92,6 +95,16 @@ func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id:
 	get_tree().change_scene("res://battle.tscn")
 	wild = true
 	wildgen = [hp, at, df, sp, st, lv, id]
+
+func get_flag(what: String) -> bool:
+	return flags.has(what)
+
+func set_flag(what: String, set: bool):
+	if set != flags.has(what):
+		if set:
+			flags.push_back(what)
+		else:
+			flags.pop_at(flags.find(what))
 
 
 func leading_zero(input: String) -> String:

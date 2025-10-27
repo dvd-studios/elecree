@@ -27,6 +27,7 @@ margin_bottom = 156.0
 [node name="Label1" type="Label" parent="CanvasLayer/TileMap/Scroller"]
 margin_right = 88.0
 margin_bottom = 13.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Dracospark"
 
@@ -34,6 +35,7 @@ text = "Dracospark"
 margin_top = 17.0
 margin_right = 88.0
 margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Dracoflame"
 
@@ -41,6 +43,7 @@ text = "Dracoflame"
 margin_top = 34.0
 margin_right = 88.0
 margin_bottom = 47.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Dracoblaze"
 
@@ -48,6 +51,7 @@ text = "Dracoblaze"
 margin_top = 51.0
 margin_right = 88.0
 margin_bottom = 64.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Mizukoi"
 
