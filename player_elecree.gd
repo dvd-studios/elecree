@@ -15,3 +15,10 @@ func attack(target: Elecree, attack: String):
 func defend():
 	yield(get_parent().display_text([data.get_name() + " defended!"]), "completed")
 	data.defend()
+
+func switch_creature(creature: int):
+	yield(get_parent().display_text([data.get_name() + ", come back!"]), "completed")
+	data.recharge = 0
+	data = team.team[creature]
+	get_parent().refresh_creatures()
+	yield(get_parent().display_text(["Go! " + data.get_name() + "!"]), "completed")
