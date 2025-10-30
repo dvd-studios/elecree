@@ -94,11 +94,11 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("ui_up"):
 			creature -= 1
 			creature = better_modulus(creature, size_without_nulls(team.team))
-		if Input.is_action_just_pressed("ui_cancel"):
+		if Input.is_action_just_pressed("ui_cancel") && !switching:
 			hide_items()
 			GlobalVars.cutscenePlaying = false
 			first_frame = true
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") && !switching:
 			in_details = true
 			var cdetails := get_node("CanvasLayer/CreatureDetails")
 			cdetails.show()
