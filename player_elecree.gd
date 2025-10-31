@@ -5,7 +5,10 @@ var data: Elecree
 func _ready():
 	var team = get_node("/root/team")
 	#data = Elecree.new(3,3,3,3,3,3,0)
-	data = team.team[0]
+	var first_alive_creature: int = 0
+	while team.team[first_alive_creature].currenthp <= 0:
+		first_alive_creature += 1
+	data = team.team[first_alive_creature]
 	print(team.team)
 
 func attack(target: Elecree, attack: String):

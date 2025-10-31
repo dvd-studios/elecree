@@ -23,6 +23,7 @@ export(int) var status: int
 export(int) var level: int
 export(float) var recharge: float
 export(Array) var attacks: Array
+export(String) var nickname: String = ""
 var dna_hp: int
 var dna_at: int
 var dna_df: int
@@ -48,6 +49,7 @@ func serialize() -> String:
 	mid_stage["dna_df"] = dna_df
 	mid_stage["dna_sp"] = dna_sp
 	mid_stage["dna_st"] = dna_st
+	mid_stage["nickname"] = nickname
 	return to_json(mid_stage)
 
 func deserialize(json: String):
@@ -71,6 +73,7 @@ func deserialize(json: String):
 	dna_df = mid_stage["dna_df"]
 	dna_sp = mid_stage["dna_sp"]
 	dna_st = mid_stage["dna_st"]
+	nickname = mid_stage["nickname"]
 
 func burn():
 	if status == StatusEffect.OK:
@@ -165,4 +168,6 @@ func heal():
 #	statst = fully_healed.statst
 
 func get_name() -> String:
-	return dict[species].name
+	if nickname != "":
+		return dict[species].name
+	return nickname

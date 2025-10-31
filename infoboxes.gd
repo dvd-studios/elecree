@@ -38,13 +38,18 @@ func _process(delta):
 		get_node("OpposingElecree").data.currenthp += get_node("OpposingElecree").data.currentst
 		get_node("OpposingElecree").data.currentst = 0
 	
-	if player.currenthp <= 0 && !flavortext:
+	if player.currenthp <= 0 && !flavortext && lock != 2:
 		yield(display_text([player.get_name() + " is defeated!"]), "completed")
-		player.recharge = 0
-		player.heal()
-		global.cutscenePlaying = false
-		#team.team[0] = player.duplicate(true)
-		global._warpPlayer(Vector2(64, 88), global.last_e_center)
+		if is_player_defeated():
+			yield(display_text([GlobalVars.player_name + "has no more usable Elecree!", GlobalVars.player_name + "lost the battle!"]), "completed")
+			player.recharge = 0
+			player.heal()
+			global.cutscenePlaying = false
+			#team.team[0] = player.duplicate(true)
+			global._warpPlayer(Vector2(64, 88), global.last_e_center)
+		else:
+			lock = 2
+			get_node("CreatureSwitcher").wait_and_show()
 	
 #	if opponent.currenthp <= 0 && !flavortext:
 #		player.recharge = 0
@@ -130,6 +135,12 @@ func display_text(text: Array):
 	get_node("CanvasLayer/InfoBox/FullBox").hide()
 	get_node("CanvasLayer/InfoBox/HBoxContainer").show()
 	flavortext = false
+
+func is_player_defeated() -> bool:
+	for e in team.team:
+		if e != null && e.currenthp > 0:
+			return false
+	return true
 
 func win_battle():
 	player.recharge = 0

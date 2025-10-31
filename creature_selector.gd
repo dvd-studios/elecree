@@ -68,6 +68,18 @@ func get_names_of_creatures(array: Array) -> Array: # deprecated
 		text += dictionaries[e.species].name
 		text += " :L"
 		text += str(e.level)
+		if e.currenthp <= 0:
+			text += " KO"
+		else:
+			match e.status:
+				0:
+					text += "OK"
+				1:
+					text += "Burn"
+				2:
+					text += "Poison"
+				3:
+					text += "Defend"
 		arr.push_back(text)
 	return arr
 	
