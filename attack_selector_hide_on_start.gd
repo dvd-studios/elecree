@@ -43,6 +43,10 @@ func _process(delta):
 		#get_node("TileMap").visible = false
 		get_parent().lock = 0
 	
+	elif self.visible && Input.is_action_just_pressed("ui_cancel"): # elif to avoid conflicts between accept and cancel
+		self.visible = false
+		get_parent().lock = 1
+	
 	
 	if select == 4:
 		page += 1

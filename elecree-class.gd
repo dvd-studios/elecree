@@ -168,6 +168,6 @@ func heal():
 #	statst = fully_healed.statst
 
 func get_name() -> String:
-	if nickname != "":
+	if nickname == "":
 		return dict[species].name
 	return nickname
