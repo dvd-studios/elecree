@@ -24,6 +24,8 @@ func get_creature_and_deets(number: int) -> String:
 	if creature == null:
 		return ""
 	else:
+		if creature.currenthp <= 0:
+			return creature.get_name() + " :L" + str(creature.level) + " KO"
 		match creature.status:
 			0:
 				status = "OK"
@@ -51,7 +53,8 @@ func _process(delta):
 	if self.visible && Input.is_action_just_pressed("ui_up"):
 		select -= 1 if select > 1 && (get_creature_and_deets(select - 1) != "") else 0
 	
-	if self.visible && Input.is_action_just_pressed("ui_accept") && get_parent().get_node("PlayerElecree").data != team.team[select]: # Do later: Summary before switching
+	if self.visible && Input.is_action_just_pressed("ui_accept") && get_parent().get_node("PlayerElecree").data != team.team[select - 1] && team.team[select - 1].currenthp > 0: # Do later: Summary before switching
+		print("Running switching operation")
 		visible = false
 		get_node("TileMap").visible = false
 		yield(get_parent().get_node("PlayerElecree").switch_creature(select - 1), "completed")
