@@ -53,14 +53,19 @@ func _process(delta):
 	if self.visible && Input.is_action_just_pressed("ui_up"):
 		select -= 1 if select > 1 && (get_creature_and_deets(select - 1) != "") else 0
 	
-	if self.visible && Input.is_action_just_pressed("ui_accept") && get_parent().get_node("PlayerElecree").data != team.team[select - 1] && team.team[select - 1].currenthp > 0: # Do later: Summary before switching
-		print("Running switching operation")
-		visible = false
-		get_node("TileMap").visible = false
-		yield(get_parent().get_node("PlayerElecree").switch_creature(select - 1), "completed")
-		#get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
-		#get_node("TileMap").visible = false
-		get_parent().lock = 0
+	if self.visible:
+		if Input.is_action_just_pressed("ui_accept") && get_parent().get_node("PlayerElecree").data != team.team[select - 1] && team.team[select - 1].currenthp > 0: # Do later: Summary before switching
+			print("Running switching operation")
+			visible = false
+			get_node("TileMap").visible = false
+			yield(get_parent().get_node("PlayerElecree").switch_creature(select - 1), "completed")
+			#get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
+			#get_node("TileMap").visible = false
+			get_parent().lock = 0
+	
+		elif Input.is_action_just_pressed("ui_cancel"): # elif to avoid conflicts between accept and cancel
+			self.visible = false
+			get_parent().lock = 1
 	
 	get_node("VBoxContainer/Label" ).add_color_override("font_color", Color(1, 1, 1) if select == 1 else Color(0, 0, 0))
 	get_node("VBoxContainer/Label2").add_color_override("font_color", Color(1, 1, 1) if select == 2 else Color(0, 0, 0))
