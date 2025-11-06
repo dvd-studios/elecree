@@ -52,6 +52,7 @@ func deserialize_save():
 			team.team.push_back(null)
 	_warpPlayer(Vector2(dict["x_position"], dict["y_position"]), dict["current_scene"])
 	bag.item_bag = dict["bag"]
+	bag.key_items = dict["key_items"]
 	flags = dict["flags"]
 
 func serialize_save() -> Dictionary:
@@ -73,6 +74,7 @@ func serialize_save() -> Dictionary:
 			output["team"].push_back(null)
 	output["bag"] = bag.item_bag
 	output["flags"] = flags
+	output["key_items"] = bag.key_items
 	return output
 
 func _warpPlayer(destination: Vector2, destination_scene: String, relative: bool = false):

@@ -158,14 +158,23 @@ func heal():
 	currentst = statst
 	status = StatusEffect.OK
 
-#func level_up():
-#	level += 1
-#	var fully_healed: Elecree = LevelUp.get_elecree(dna_hp, dna_at, dna_df, dna_sp, dna_st)
-#	stathp = fully_healed.stathp
-#	statat = fully_healed.statat
-#	statdf = fully_healed.statdf
-#	statsp = fully_healed.statsp
-#	statst = fully_healed.statst
+func not_an_init_but_a_dictionary_because_godot_3_is_dumb_and_doesnt_allow_cyclic_class_reference(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, id: int) -> Dictionary:
+	var not_an_elecree: Dictionary = {}
+	not_an_elecree["stathp"] = int ((dict[id].basehp * lv) / 10) + ( dnahp * lv )
+	not_an_elecree["statat"] = int ((dict[id].baseat * lv) / 10) + ( dnaat * lv )
+	not_an_elecree["statdf"] = int ((dict[id].basedf * lv) / 10) + ( dnadf * lv )
+	not_an_elecree["statsp"] = int ((dict[id].basesp * lv) / 10) + ( dnasp * lv )
+	not_an_elecree["statst"] = int ((dict[id].basest * lv) / 10) + ( dnast * lv )
+	return not_an_elecree
+
+func level_up():
+	level += 1
+	var fully_healed = not_an_init_but_a_dictionary_because_godot_3_is_dumb_and_doesnt_allow_cyclic_class_reference(dna_hp, dna_at, dna_df, dna_sp, dna_st, level + 1, species)
+	stathp = fully_healed["stathp"]
+	statat = fully_healed["statat"]
+	statdf = fully_healed["statdf"]
+	statsp = fully_healed["statsp"]
+	statst = fully_healed["statst"]
 
 func get_name() -> String:
 	if nickname == "":
