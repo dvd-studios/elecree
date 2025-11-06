@@ -10,7 +10,7 @@ git checkout -b $VERSION
 gh pr create
 clear
 echo "Building source..."
-mkdir ~/elecree-binaries/$VERSION
+mkdir ~/elecree_binaries/$VERSION
 cd ~/elecree-binaries/$VERSION
 mkdir lin64 win64 lin32 win32
 cd $PROJECTDIR
