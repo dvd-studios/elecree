@@ -19,11 +19,24 @@ var credits: int = 300
 var player_name: String = "Fire" # Default player name, will be changeable in release
 var flags: Array = []
 
+const usabilities: Dictionary = {
+	# MSB to LSB: Used on one of your creatures, usability in battle, usability out of battle
+	"Capture Cube": 2,
+	"Super Capture Cube": 2,
+	"Health Potion": 7,
+	"Stamina Potion": 7
+}
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Initialized globalVars.gd")
 	cutscenePlaying = false
 
+
+func get_usability_for_item(item: String) -> int:
+	return usabilities.get(item, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

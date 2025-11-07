@@ -18,6 +18,7 @@ func _process(delta: float):
 			for i in how_many_items:
 				print("Popping at " + str(get_parent().item_bag.find_last(which_item)))
 				get_parent().item_bag.pop_at(get_parent().item_bag.find_last(which_item))
+			get_parent().select = 0
 			get_parent().refresh()
 			visible = false
 		if Input.is_action_just_pressed("ui_cancel"):

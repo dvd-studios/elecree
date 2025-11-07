@@ -1,6 +1,6 @@
 extends Node2D
 
-var item_bag: Array = ["Capture Cube", "Capture Cube", "Super Capture Cube"]
+var item_bag: Array = ["Capture Cube", "Capture Cube", "Super Capture Cube", "Stamina Potion"]
 var key_items: Array = ["Grappling Hook"]
 var bag_ui: Array
 var offset: int
@@ -79,7 +79,7 @@ func _process(delta: float):
 		2:
 			get_node("CanvasLayer/HBoxContainer/KEY").add_color_override("font_color", Color(1,1,1))
 	
-	if visible && !get_node("TosserLayer").visible:
+	if visible && !get_node("TosserLayer").visible && !get_node("UseOnCreature").visible:
 		if Input.is_action_just_pressed("ui_down") && select + offset < bag_ui.size() - 1:
 			if select >= 8:
 				offset += 1
@@ -109,7 +109,10 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("ui_accept") && !first_frame:
 			match page:
 				0:
-					print(get_node("CanvasLayer/RichTextLabel").text.split("\n")[select].split("(")[0])
+					var item: String = get_node("CanvasLayer/RichTextLabel").text.split("\n")[select].split(" (")[0]
+					print("Usability:" + str(GlobalVars.get_usability_for_item(item)))
+					if GlobalVars.get_usability_for_item(item) & 5 == 5:
+						get_node("UseOnCreature").show_items(item)
 				1:
 					get_node("TosserLayer").toss_how_many(get_node("CanvasLayer/RichTextLabel").text.split("\n")[select].split(" (")[0], int(get_node("CanvasLayer/RichTextLabel").text.split("\n")[select].split("(")[1].substr(1).split(")")[0]))
 		if Input.is_action_just_pressed("ui_cancel"):
