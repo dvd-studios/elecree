@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var page: int = 0
 var select: int = 1
-var moves: Array = ["Attack", "Switch", "Defend"]
+var moves: Array = ["Attack", "Switch", "Item", "Defend"]
 
 func _ready():
 	self.visible = false
@@ -47,6 +47,10 @@ func _process(delta):
 				visible = false
 				get_parent().lock = 2
 				get_parent().get_node("CreatureSwitcher").wait_and_show()
+			"Item":
+				visible = false
+				get_parent().lock = 2
+				get_parent().get_node("BagInBattle").visible = true
 			"Defend":
 				visible = false
 				get_parent().lock = 2

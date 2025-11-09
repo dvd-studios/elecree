@@ -2,6 +2,7 @@ extends Node2D
 
 signal z_press()
 var lock: int = 0
+var lock_cache: int = 0
 var flavortext: bool = false
 onready var team = get_node("/root/team")
 onready var global = get_node("/root/GlobalVars")
@@ -11,9 +12,16 @@ onready var opponent = $OpposingElecree.data
 
 
 func _ready():
+	
+	
+	
 	print($OpposingElecree.data)
 
 func _process(delta):
+	if lock_cache != lock:
+		print("Lock changed to " + str(lock))
+		lock_cache = lock
+	
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("z_press")
 	
