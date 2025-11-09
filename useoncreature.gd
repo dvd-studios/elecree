@@ -148,3 +148,4 @@ func use_on_creature(item: String, elecree: Elecree) -> String:
 				elecree.currentst = elecree.statst
 			return elecree.get_name() + " restored 10 stamina."
 	return ""
+	
