@@ -67,6 +67,11 @@ func deserialize_save():
 	bag.item_bag = dict["bag"]
 	bag.key_items = dict["key_items"]
 	flags = dict["flags"]
+	team.creature_box = []
+	for elc in dict["creature_box"]:
+		var creature: Elecree = Elecree.new(0,0,0,0,0,0,0)
+		team.team.push_back(creature)
+		creature.deserialize(elc)
 
 func serialize_save() -> Dictionary:
 	var output: Dictionary = {}
@@ -88,6 +93,9 @@ func serialize_save() -> Dictionary:
 	output["bag"] = bag.item_bag
 	output["flags"] = flags
 	output["key_items"] = bag.key_items
+	output["creature_box"] = []
+	for elc in team.creature_box:
+		output["creature_box"].push_back(elc.serialize())
 	return output
 
 func _warpPlayer(destination: Vector2, destination_scene: String, relative: bool = false):
