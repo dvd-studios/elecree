@@ -90,6 +90,63 @@ func _process(delta: float):
 				if GlobalVars.get_usability_for_item(item) & 6 == 6:
 					selecting_creature = 1
 					get_node("UseOnCreature").show_items(item)
+				elif GlobalVars.get_usability_for_item(item) & 2 == 2:
+					hide()
+					var text_to_display = ["You used a " + item + "!"]
+					bag.item_bag.pop_at(bag.item_bag.find_last(item))
+					select = 0
+					refresh()
+					match item:
+						"Capture Cube":
+							if GlobalVars.wild:
+								var opponent: Elecree = get_parent().get_node("OpposingElecree").data
+								var captureability: float = Creatures.data[opponent.species]["captureability"]
+								captureability *= opponent.stathp / float(opponent.currenthp)
+								captureability *= Creatures.status_to_capture_mod(opponent.status)
+								var capture_attempt: float = randf()
+								text_to_display.push_back("It shakes.")
+								text_to_display.push_back("It shakes..")
+								text_to_display.push_back("It shakes....")
+								if capture_attempt <= captureability:
+									text_to_display.push_back("Congratulations, " + opponent.get_name() + " was caught!")
+									var team_size: int = team.get_team_size()
+									if team_size < 7:
+										team.team[team_size] = opponent
+									else:
+										team.creature_box.push_back(opponent)
+									yield(get_parent().display_text(text_to_display), "completed")
+								else:
+									text_to_display.push_back("The creature broke out of its cube!")
+							else:
+								text_to_display.push_back("But you can't use that on a Battler's Elecree, you thief!")
+						"Super Capture Cube":
+							if GlobalVars.wild:
+								var opponent: Elecree = get_parent().get_node("OpposingElecree").data
+								var captureability: float = Creatures.data[opponent.species]["captureability"]
+								captureability *= opponent.stathp / float(opponent.currenthp)
+								captureability *= Creatures.status_to_capture_mod(opponent.status)
+								captureability *= 1.3
+								var capture_attempt: float = randf()
+								text_to_display.push_back("It shakes.")
+								text_to_display.push_back("It shakes..")
+								text_to_display.push_back("It shakes...")
+								if capture_attempt <= captureability:
+									text_to_display.push_back("Congratulations, " + opponent.get_name() + " was caught!")
+									var team_size: int = team.get_team_size()
+									if team_size < 7:
+										team.team[team_size] = opponent
+									else:
+										team.creature_box.push_back(opponent)
+									yield(get_parent().display_text(text_to_display), "completed")
+									get_parent().win_battle()
+								else:
+									text_to_display.push_back("The creature broke out of its cube!")
+							else:
+								text_to_display.push_back("But you can't use that on a Battler's Elecree, you thief!")
+					yield(get_parent().display_text(text_to_display), "completed")
+					get_parent().get_node("PlayerElecree").data.recharge = 0
+					get_parent().lock = 0
+	
 		if Input.is_action_just_pressed("ui_cancel"):
 			visible = false
 			get_parent().lock = 1

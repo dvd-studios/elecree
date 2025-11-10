@@ -18,6 +18,7 @@ const data = {
 		"basesp": 30,
 		"basest": 30,
 		"basexp": 50,
+		"captureability": .5,
 		"attacks": ["Tackle"]
 }}
 
@@ -53,6 +54,17 @@ func _calculateStats(dnahp,dnaat,dnadf,dnasp,dnast,level,creature):
 	
 	return "HP: " + hpstr + " AT: " + atstr + " DF: " + dfstr + " SP: " + spstr + " ST: " + ststr
 
+
+static func status_to_capture_mod(status: int) -> float:
+	match status:
+		1:
+			return 1.3
+		2:
+			return 1.3
+		3:
+			return 0.7
+		_:
+			return 1.0
 # func _input(ev):
 	#var returnValue = _calculateStats(15,15,15,15,15,15,0)
 	#if ev is InputEventKey and ev.scancode == KEY_K:
