@@ -16,6 +16,7 @@ func hide_items():
 
 
 func show_items(which_item: String):
+	reboot()
 	current_item = which_item
 	show()
 	get_node("TileMap").show()
