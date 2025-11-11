@@ -106,7 +106,7 @@ func _process(delta: float):
 								var capture_attempt: float = randf()
 								text_to_display.push_back("It shakes.")
 								text_to_display.push_back("It shakes..")
-								text_to_display.push_back("It shakes....")
+								text_to_display.push_back("It shakes...")
 								if capture_attempt <= captureability:
 									text_to_display.push_back("Congratulations, " + opponent.get_name() + " was caught!")
 									var team_size: int = team.get_team_size()
@@ -115,6 +115,7 @@ func _process(delta: float):
 									else:
 										team.creature_box.push_back(opponent)
 									yield(get_parent().display_text(text_to_display), "completed")
+									get_parent().win_battle()
 								else:
 									text_to_display.push_back("The creature broke out of its cube!")
 							else:
