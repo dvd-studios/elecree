@@ -24,6 +24,7 @@ export(int) var level: int
 export(float) var recharge: float
 export(Array) var attacks: Array
 export(String) var nickname: String = ""
+export(int) var experience: int
 var dna_hp: int
 var dna_at: int
 var dna_df: int
@@ -50,6 +51,7 @@ func serialize() -> String:
 	mid_stage["dna_sp"] = dna_sp
 	mid_stage["dna_st"] = dna_st
 	mid_stage["nickname"] = nickname
+	mid_stage["experience"] = experience
 	return to_json(mid_stage)
 
 func deserialize(json: String):
@@ -74,6 +76,7 @@ func deserialize(json: String):
 	dna_sp = mid_stage["dna_sp"]
 	dna_st = mid_stage["dna_st"]
 	nickname = mid_stage["nickname"]
+	experience = mid_stage["experience"]
 
 func burn():
 	if status == StatusEffect.OK:
@@ -169,8 +172,12 @@ func not_an_init_but_a_dictionary_because_godot_3_is_dumb_and_doesnt_allow_cycli
 
 func level_up():
 	level += 1
-	var fully_healed = not_an_init_but_a_dictionary_because_godot_3_is_dumb_and_doesnt_allow_cyclic_class_reference(dna_hp, dna_at, dna_df, dna_sp, dna_st, level + 1, species)
-	stathp = fully_healed["stathp"]
+	var fully_healed = not_an_init_but_a_dictionary_because_godot_3_is_dumb_and_doesnt_allow_cyclic_class_reference(dna_hp, dna_at, dna_df, dna_sp, dna_st, level, species)
+	if currenthp == stathp:
+		stathp = fully_healed["stathp"]
+		currenthp = stathp
+	else:
+		stathp = fully_healed["stathp"]
 	statat = fully_healed["statat"]
 	statdf = fully_healed["statdf"]
 	statsp = fully_healed["statsp"]

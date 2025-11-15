@@ -96,15 +96,7 @@ func _process(delta):
 	
 	get_node("CanvasLayer/OpponentInfoBox/Name").text = dict[opponent.species].name
 	get_node("CanvasLayer/OpponentInfoBox/Level").text = ":L" + str(opponent.level)
-	match opponent.status:
-		0:
-			get_node("CanvasLayer/OpponentInfoBox/Status").text = "OK"
-		1:
-			get_node("CanvasLayer/OpponentInfoBox/Status").text = "Burn"
-		2:
-			get_node("CanvasLayer/OpponentInfoBox/Status").text = "Poison"
-		3:
-			get_node("CanvasLayer/OpponentInfoBox/Status").text = "Defend"
+	get_node("CanvasLayer/OpponentInfoBox/Status").text = Creatures.status_to_string(opponent.status)
 	get_node("CanvasLayer/OpponentInfoBox/Recharge").text = str(int(opponent.recharge))
 	get_node("CanvasLayer/OpponentHPBox/HP").text = "H: " + str(opponent.currenthp)
 	get_node("CanvasLayer/OpponentHPBox/SP").text = "S: " + str(opponent.currentst)
@@ -112,15 +104,7 @@ func _process(delta):
 	if !flavortext:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").text = dict[player.species].name
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").text = ":L" + str(player.level)
-		match player.status:
-			0:
-				get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = "OK"
-			1:
-				get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = "Burn"
-			2:
-				get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = "Poison"
-			3:
-				get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = "Defend"
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = Creatures.status_to_string(player.status)
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").text = str(int(player.recharge))
 		get_node("CanvasLayer/PlayerHPBox/HP").text = "H: " + str(player.currenthp)
 		get_node("CanvasLayer/PlayerHPBox/SP").text = "S: " + str(player.currentst)
