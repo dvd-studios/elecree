@@ -51,7 +51,9 @@ func deserialize_save():
 	var dict: Dictionary = parse_json(json)
 	devMode = dict["dev_mode"]
 	last_e_center = dict["last_e_center"]
-	e_device_caught = dict["caught_creatures"]
+	e_device_caught = []
+	for i in dict["caught_creatures"]:
+		e_device_caught.push_back(int(i))
 	real_time = dict["real_time"]
 	credits = dict["credits"]
 	player_name = dict["player_name"]

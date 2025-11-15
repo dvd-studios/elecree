@@ -71,15 +71,7 @@ func get_names_of_creatures(array: Array) -> Array: # deprecated
 		if e.currenthp <= 0:
 			text += " KO"
 		else:
-			match e.status:
-				0:
-					text += "OK"
-				1:
-					text += "Burn"
-				2:
-					text += "Poison"
-				3:
-					text += "Defend"
+			text += " " + Creatures.status_to_string(e.status)
 		arr.push_back(text)
 	return arr
 	
@@ -88,6 +80,11 @@ func get_name_of_creature(elecree: Elecree) -> String:
 	text += dictionaries[elecree.species].name
 	text += " :L"
 	text += str(elecree.level)
+	if elecree.currenthp <= 0:
+		text += " KO"
+	else:
+		text += " " + Creatures.status_to_string(elecree.status)
+		text += " HP: " + str(elecree.currenthp) + "/" + str(elecree.stathp)
 	return text
 	
 

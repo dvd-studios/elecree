@@ -54,6 +54,18 @@ func _calculateStats(dnahp,dnaat,dnadf,dnasp,dnast,level,creature):
 	
 	return "HP: " + hpstr + " AT: " + atstr + " DF: " + dfstr + " SP: " + spstr + " ST: " + ststr
 
+static func status_to_string(status: int) -> String:
+	match status:
+		0:
+			return "OK"
+		1:
+			return "Burn"
+		2:
+			return "Poison"
+		3:
+			return "Defend"
+		_:
+			return ""
 
 static func status_to_capture_mod(status: int) -> float:
 	match status:
@@ -70,3 +82,5 @@ static func status_to_capture_mod(status: int) -> float:
 	#if ev is InputEventKey and ev.scancode == KEY_K:
 		#_calculateStats(15,15,15,15,15,15,0)
 		#print(returnValue)
+static func exp_to_next_level(level: int) -> int:
+	return(int(100 * pow(level, 2)))

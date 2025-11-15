@@ -115,6 +115,10 @@ func _process(delta: float):
 									else:
 										team.creature_box.push_back(opponent)
 									yield(get_parent().display_text(text_to_display), "completed")
+									var player: Elecree = get_parent().get_node("PlayerElecree").data
+									var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
+									player.experience += player_exp
+									yield(get_parent().display_text([player.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
 									get_parent().win_battle()
 								else:
 									text_to_display.push_back("The creature broke out of its cube!")
@@ -139,6 +143,10 @@ func _process(delta: float):
 									else:
 										team.creature_box.push_back(opponent)
 									yield(get_parent().display_text(text_to_display), "completed")
+									var player: Elecree = get_parent().get_node("PlayerElecree").data
+									var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
+									player.experience += player_exp
+									yield(get_parent().display_text([player.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
 									get_parent().win_battle()
 								else:
 									text_to_display.push_back("The creature broke out of its cube!")
