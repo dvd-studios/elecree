@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://playermove.gd" type="Script" id=1]
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=2]
 [ext_resource path="res://charmove.gd" type="Script" id=3]
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=4]
 [ext_resource path="res://warp.gd" type="Script" id=5]
+[ext_resource path="res://ecenterclerk.gd" type="Script" id=6]
+[ext_resource path="res://MiscSprites/ecentercube.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7, 14.5 )
@@ -140,6 +142,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 15, 7 )
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 24.5, 9.5 )
+
 [node name="rebirthEcenter" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -187,4 +192,48 @@ coord = Vector2( 104, 408 )
 position = Vector2( 64, 136 )
 shape = SubResource( 10 )
 
+[node name="ECenterClerk" type="Area2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ECenterClerk"]
+position = Vector2( 44.5, 61.5 )
+shape = SubResource( 11 )
+
+[node name="Cube1" type="Sprite" parent="ECenterClerk"]
+visible = false
+position = Vector2( 40, 8 )
+texture = ExtResource( 7 )
+
+[node name="Cube2" type="Sprite" parent="ECenterClerk"]
+visible = false
+position = Vector2( 44, 12 )
+texture = ExtResource( 7 )
+
+[node name="Cube3" type="Sprite" parent="ECenterClerk"]
+visible = false
+position = Vector2( 44, 4 )
+texture = ExtResource( 7 )
+
+[node name="Cube4" type="Sprite" parent="ECenterClerk"]
+visible = false
+position = Vector2( 48, 8 )
+texture = ExtResource( 7 )
+
+[node name="Cube5" type="Sprite" parent="ECenterClerk"]
+visible = false
+position = Vector2( 52, 12 )
+texture = ExtResource( 7 )
+
+[node name="Cube6" type="Sprite" parent="ECenterClerk"]
+visible = false
+position = Vector2( 52, 4 )
+texture = ExtResource( 7 )
+
+[node name="Cube7" type="Sprite" parent="ECenterClerk"]
+visible = false
+position = Vector2( 56, 8 )
+texture = ExtResource( 7 )
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ECenterClerk" to="ECenterClerk" method="_on_ECenterClerk_body_entered"]
+[connection signal="body_exited" from="ECenterClerk" to="ECenterClerk" method="_on_ECenterClerk_body_exited"]

@@ -5,6 +5,7 @@
 [ext_resource path="res://question.gd" type="Script" id=3]
 
 [node name="yesno" type="Node2D"]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,6 +23,7 @@ margin_bottom = 160.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "<QUESTION>"
+autowrap = true
 script = ExtResource( 3 )
 
 [node name="YesLabel" type="Label" parent="CanvasLayer"]

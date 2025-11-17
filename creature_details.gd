@@ -44,7 +44,7 @@ func creature_changed():
 	var ecreature: Elecree = team.team[creature]
 	get_node("Stats").text = "HP: " + ("0" if ecreature.currenthp <= 0 else str(ecreature.currenthp)) + "/" + str(ecreature.stathp) + "\n" + "AT: " + str(ecreature.statat) + "\n" + "DF: " + str(ecreature.statdf) + "\n" + "SP: " + str(ecreature.statsp) + "\n" + "ST: " + str(ecreature.currentst) + "/" + str(ecreature.statst) 
 	get_node("ID").text = "No. " + str(ecreature.species)
-	get_node("NameAndLevel").text = ecreature.get_name() + " :L" + str(ecreature.level) + " " + (Creatures.status_to_string(ecreature.status) if ecreature.currenthp > 0 else "KO") + "\n" + "EXP: " + str(ecreature.experience)
+	get_node("NameAndLevel").text = ecreature.get_name() + " :L" + str(ecreature.level) + " " + (Creatures.status_to_string(ecreature.status) if ecreature.currenthp > 0 else "KO") + "\n" + "EXP: " + str(ecreature.experience) + " NEXT: " + str(Creatures.exp_to_next_level(ecreature.level)) 
 	get_node("Attacks").bbcode_text = color_lines(1)
 	#print(get_node("Attacks").bbcode_enabled)
 
