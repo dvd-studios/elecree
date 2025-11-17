@@ -135,7 +135,9 @@ func is_player_defeated() -> bool:
 	return true
 
 func win_battle():
-	player.recharge = 0
+	for i in team.team:
+		if i != null:
+			i.recharge = 0
 	#team.team[0] = player.duplicate()
 	#print(team.team[0].currenthp)
 	global.cutscenePlaying = false

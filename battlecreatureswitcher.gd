@@ -26,16 +26,7 @@ func get_creature_and_deets(number: int) -> String:
 	else:
 		if creature.currenthp <= 0:
 			return creature.get_name() + " :L" + str(creature.level) + " KO"
-		match creature.status:
-			0:
-				status = "OK"
-			1:
-				status = "Burn"
-			2:
-				status = "Poison"
-			3:
-				status = "Defend"
-		return creature.get_name() + " :L" + str(creature.level) + " " + status + " HP: " + str(creature.currenthp) + "/" + str(creature.stathp)
+		return creature.get_name() + " :L" + str(creature.level) + " " + Creatures.status_to_string(creature.status) + " HP: " + str(creature.currenthp) + "/" + str(creature.stathp)
 
 func _process(delta):
 	get_node("VBoxContainer/Label").text = get_creature_and_deets(1)

@@ -106,6 +106,7 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	recharge = 0
 	status = StatusEffect.OK
 	level = lv
+	experience = Creatures.exp_to_next_level(lv - 1)
 	#print("Generating attacks with level " + str(lv))
 	attacks = generate_attacks(lv, id)
 
