@@ -72,7 +72,7 @@ func deserialize_save():
 	team.creature_box = []
 	for elc in dict["creature_box"]:
 		var creature: Elecree = Elecree.new(0,0,0,0,0,0,0)
-		team.team.push_back(creature)
+		team.creature_box.push_back(creature)
 		creature.deserialize(elc)
 
 func serialize_save() -> Dictionary:

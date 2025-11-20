@@ -11,7 +11,7 @@ var asking: bool
 
 func _ready():
 	interactNumber = 0
-	print("Initialized loresign.gd")
+	print("Initialized ecenterclerk.gd")
 	cubes = [$Cube1, $Cube2, $Cube3, $Cube4, $Cube5, $Cube6, $Cube7]
 
 
@@ -37,6 +37,7 @@ func _process(delta):
 				interactNumber += 1
 				if healing:
 					textbox.visible = false
+					get_node("Sprite").frame = 6
 					for elc in team.team.size():
 						if team.team[elc] != null:
 							team.team[elc].heal()
@@ -54,6 +55,7 @@ func _process(delta):
 						cube.visible = false
 					asking = false
 					textbox.visible = true
+					get_node("Sprite").frame = 0
 					textboxlabel1.text = "Thank you for waiting!"
 					textboxlabel2.text = ""
 					textboxlabel3.text = ""

@@ -85,13 +85,15 @@ func _process(delta: float):
 	if data.currenthp <= 0 && !displaying_text && get_parent().get_node("PlayerElecree").data.currenthp > 0:
 		displaying_text = true
 		yield(get_parent().display_text(["The opposing " + data.get_name() + " is defeated!"]), "completed")
-		var player: Elecree = get_parent().get_node("PlayerElecree").data
-		var player_exp: int = Creatures.data[data.species]["basexp"] * data.level
-		player.experience += player_exp
-		yield(get_parent().display_text([player.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
-		if player.experience >= Creatures.exp_to_next_level(player.level):
-			player.level_up()
-			yield(get_parent().display_text([player.get_name() + "'s LV increased to " + str(player.level) + "!"]), "completed")
+		for player in get_parent().creatures_that_will_gain_exp:
+			if player.currenthp >= 0:
+				var player_exp: int = Creatures.data[data.species]["basexp"] * data.level
+				player.experience += player_exp
+				yield(get_parent().display_text([player.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
+				while player.experience >= Creatures.exp_to_next_level(player.level):
+					player.level_up()
+					yield(get_parent().display_text([player.get_name() + "'s LV increased to " + str(player.level) + "!"]), "completed")
+		get_parent().creatures_that_will_gain_exp = []
 		if ElecreeStatic.get_alive_creatures(party) != 0:
 			yield(get_parent().display_text([data.get_name() + " was sent out!"]), "completed")
 			data = party[ElecreeStatic.select_next_alive_creature(party)]
