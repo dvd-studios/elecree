@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://playermove.gd" type="Script" id=1]
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://warp.gd" type="Script" id=5]
 [ext_resource path="res://ecenterclerk.gd" type="Script" id=6]
 [ext_resource path="res://MiscSprites/ecentercube.png" type="Texture" id=7]
+[ext_resource path="res://OverSprites/sheet_e_center_clerk.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7, 14.5 )
@@ -233,6 +234,12 @@ texture = ExtResource( 7 )
 visible = false
 position = Vector2( 56, 8 )
 texture = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="ECenterClerk"]
+position = Vector2( 47, 35 )
+texture = ExtResource( 8 )
+hframes = 3
+vframes = 4
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ECenterClerk" to="ECenterClerk" method="_on_ECenterClerk_body_entered"]

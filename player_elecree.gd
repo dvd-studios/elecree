@@ -24,4 +24,6 @@ func switch_creature(creature: int):
 	data.recharge = 0
 	data = team.team[creature]
 	get_parent().refresh_creatures()
+	if !(get_parent().creatures_that_will_gain_exp.has(data)):
+		get_parent().creatures_that_will_gain_exp.push_back(data)
 	yield(get_parent().display_text(["Go! " + data.get_name() + "!"]), "completed")

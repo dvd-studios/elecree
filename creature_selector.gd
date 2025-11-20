@@ -41,8 +41,9 @@ func better_modulus(value: int, modulus: int) -> int:
 	return (value % modulus) if value >= 0 || modulus == 1 else (value % modulus) + modulus
 
 func set_texts(array: Array):
-	print(labels.size())
-	for creature in array.size():
+	print(team.team.size())
+	for creature in 7:
+		print(creature)
 		if array[creature] == null:
 			labels[creature].text = ""
 		else:

@@ -9,11 +9,11 @@ onready var global = get_node("/root/GlobalVars")
 onready var dict = load("res://creatures.tres").data
 onready var player = $PlayerElecree.data
 onready var opponent = $OpposingElecree.data
-
+var creatures_that_will_gain_exp: Array = []
 
 func _ready():
 	
-	
+	creatures_that_will_gain_exp.push_back(player)
 	
 	print($OpposingElecree.data)
 
