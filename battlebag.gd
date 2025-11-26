@@ -116,9 +116,20 @@ func _process(delta: float):
 										team.creature_box.push_back(opponent)
 									yield(get_parent().display_text(text_to_display), "completed")
 									var player: Elecree = get_parent().get_node("PlayerElecree").data
-									var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
-									player.experience += player_exp
-									yield(get_parent().display_text([player.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
+									for player_creature in get_parent().creatures_that_will_gain_exp:
+										if player_creature.currenthp >= 0:
+											var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
+											player_creature.experience += player_exp
+											yield(get_parent().display_text([player_creature.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
+											while player_creature.experience >= Creatures.exp_to_next_level(player.level):
+												player_creature.level_up()
+												yield(get_parent().display_text([player_creature.get_name() + "'s LV increased to " + str(player_creature.level) + "!"]), "completed")
+									get_parent().creatures_that_will_gain_exp = []
+									Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
+									var will_you_nickname: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
+									if will_you_nickname:
+										Nicknaming.get_a_nickname(opponent.get_name() + "'s nickname?")
+										opponent.nickname = yield(Nicknaming, "send_msg")
 									get_parent().win_battle()
 								else:
 									text_to_display.push_back("The creature broke out of its cube!")
@@ -144,9 +155,20 @@ func _process(delta: float):
 										team.creature_box.push_back(opponent)
 									yield(get_parent().display_text(text_to_display), "completed")
 									var player: Elecree = get_parent().get_node("PlayerElecree").data
-									var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
-									player.experience += player_exp
-									yield(get_parent().display_text([player.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
+									for player_creature in get_parent().creatures_that_will_gain_exp:
+										if player_creature.currenthp >= 0:
+											var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
+											player_creature.experience += player_exp
+											yield(get_parent().display_text([player_creature.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
+											while player_creature.experience >= Creatures.exp_to_next_level(player.level):
+												player_creature.level_up()
+												yield(get_parent().display_text([player_creature.get_name() + "'s LV increased to " + str(player_creature.level) + "!"]), "completed")
+									get_parent().creatures_that_will_gain_exp = []
+									Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
+									var will_you_nickname: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
+									if will_you_nickname:
+										Nicknaming.get_a_nickname(opponent.get_name() + "'s nickname?")
+										opponent.nickname = yield(Nicknaming, "send_msg")
 									get_parent().win_battle()
 								else:
 									text_to_display.push_back("The creature broke out of its cube!")

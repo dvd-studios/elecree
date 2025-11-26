@@ -4,6 +4,7 @@ var response: bool = true
 signal answer(yes_or_no)
 
 func _ready():
+	get_parent().layer = 102
 	get_parent().visible = false
 	get_parent().get_node("TileMap").visible = false
 	get_parent().get_node("YesLabel").add_color_override("font_color", Color(1,1,1))

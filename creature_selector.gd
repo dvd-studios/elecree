@@ -78,7 +78,7 @@ func get_names_of_creatures(array: Array) -> Array: # deprecated
 	
 func get_name_of_creature(elecree: Elecree) -> String:
 	var text: String = ""
-	text += dictionaries[elecree.species].name
+	text += elecree.get_name()
 	text += " :L"
 	text += str(elecree.level)
 	if elecree.currenthp <= 0:
