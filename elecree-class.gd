@@ -144,7 +144,7 @@ func generate_attacks(lv: int, id: int) -> Array:
 		#print("Adding new attack " + new_attack)
 		if new_attack != "":
 			attacks.push_back(new_attack)
-	print("Attacks" + str(attacks))
+	#print("Attacks" + str(attacks))
 	return attacks
 
 

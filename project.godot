@@ -74,6 +74,7 @@ Battlercard="*res://battlercard.tscn"
 Yesno="*res://yesno.tscn"
 EDevice="*res://edevice.tscn"
 Nicknaming="*res://nicknaming.tscn"
+Creaturebox="*res://creaturebox.tscn"
 
 [display]
 

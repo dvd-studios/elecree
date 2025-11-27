@@ -94,7 +94,7 @@ func _process(delta):
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").add_color_override("font_color", Color(0.0, 0.0, 0.0))
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").add_color_override("font_color", Color(0.0, 0.0, 0.0))
 	
-	get_node("CanvasLayer/OpponentInfoBox/Name").text = dict[opponent.species].name
+	get_node("CanvasLayer/OpponentInfoBox/Name").text = opponent.get_name() if !GlobalVars.wild else dict[opponent.species]["name"]
 	get_node("CanvasLayer/OpponentInfoBox/Level").text = ":L" + str(opponent.level)
 	get_node("CanvasLayer/OpponentInfoBox/Status").text = Creatures.status_to_string(opponent.status)
 	get_node("CanvasLayer/OpponentInfoBox/Recharge").text = str(int(opponent.recharge))
@@ -102,7 +102,7 @@ func _process(delta):
 	get_node("CanvasLayer/OpponentHPBox/SP").text = "S: " + str(opponent.currentst)
 	
 	if !flavortext:
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").text = dict[player.species].name
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").text = player.get_name()
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").text = ":L" + str(player.level)
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = Creatures.status_to_string(player.status)
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").text = str(int(player.recharge))
@@ -138,6 +138,8 @@ func win_battle():
 	for i in team.team:
 		if i != null:
 			i.recharge = 0
+			if i.status == 3:
+				i.status = i.last_status
 	#team.team[0] = player.duplicate()
 	#print(team.team[0].currenthp)
 	global.cutscenePlaying = false

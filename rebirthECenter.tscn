@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://playermove.gd" type="Script" id=1]
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ecenterclerk.gd" type="Script" id=6]
 [ext_resource path="res://MiscSprites/ecentercube.png" type="Texture" id=7]
 [ext_resource path="res://OverSprites/sheet_e_center_clerk.png" type="Texture" id=8]
+[ext_resource path="res://boxterm.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7, 14.5 )
@@ -141,7 +142,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 15, 7 )
+extents = Vector2( 15, 5 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 24.5, 9.5 )
@@ -190,7 +191,7 @@ destination = "rebirthTown"
 coord = Vector2( 104, 408 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 64, 136 )
+position = Vector2( 64, 134 )
 shape = SubResource( 10 )
 
 [node name="ECenterClerk" type="Area2D" parent="."]
@@ -241,6 +242,15 @@ texture = ExtResource( 8 )
 hframes = 3
 vframes = 4
 
+[node name="BoxTerm" type="Area2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxTerm"]
+position = Vector2( 142.5, 30 )
+shape = SubResource( 10 )
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ECenterClerk" to="ECenterClerk" method="_on_ECenterClerk_body_entered"]
 [connection signal="body_exited" from="ECenterClerk" to="ECenterClerk" method="_on_ECenterClerk_body_exited"]
+[connection signal="body_entered" from="BoxTerm" to="BoxTerm" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="BoxTerm" to="BoxTerm" method="_on_Area2D_body_exited"]

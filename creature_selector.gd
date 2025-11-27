@@ -107,6 +107,7 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("ui_cancel") && !switching:
 			hide_items()
 			GlobalVars.cutscenePlaying = false
+			creature = 0
 			first_frame = true
 		if Input.is_action_just_pressed("ui_accept") && !switching:
 			in_details = true
