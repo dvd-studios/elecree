@@ -91,8 +91,9 @@ func _process(delta):
 				GlobalVars.cutscenePlaying = false
 			6:
 				self.visible = false
-				global.cutscenePlaying = false
 				menu_number = 7
 				get_node("VBoxContainer/Label" + String(6)).add_color_override("font_color",Color(0, 0, 0, 1))
+				yield(get_tree(), "idle_frame")
+				global.cutscenePlaying = false
 			7:
 				pass
