@@ -49,7 +49,7 @@ func _process(delta):
 	if player.currenthp <= 0 && !flavortext && lock != 2:
 		yield(display_text([player.get_name() + " is defeated!"]), "completed")
 		if is_player_defeated():
-			yield(display_text([GlobalVars.player_name + "has no more usable Elecree!", GlobalVars.player_name + "lost the battle!"]), "completed")
+			yield(display_text([GlobalVars.player_name + " has no more usable Elecree!", GlobalVars.player_name + " lost the battle!"]), "completed")
 			player.recharge = 0
 			player.heal()
 			global.cutscenePlaying = false
@@ -74,7 +74,7 @@ func _process(delta):
 				player.status = player.last_status
 				player.recharge = 0
 		elif opponent.recharge >= 100:
-			if opponent.status != 3:
+			if opponent.status != 3 && opponent.currenthp > 0: # Assertation that currenthp > 0 (opponent is not KO) cuz im not gonna bother rewriting this just so this method doesn't get called lol
 				lock = -1
 				var attack = get_node("OpposingElecree").enemy_ai()
 				yield(get_node("OpposingElecree").attack(get_node("PlayerElecree").data, attack), "completed")
