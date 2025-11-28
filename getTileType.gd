@@ -27,4 +27,5 @@ func _process(delta):
 				print("Tries: " + String(how_many_tries))
 				how_many_tries = 0
 				global.start_wild_battle(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0,get_parent().get_node("Player").global_position,get_tree().current_scene.filename)
+				#global.start_wild_battle(3,3,0,3,3,3,0,get_parent().get_node("Player").global_position,get_tree().current_scene.filename)
 

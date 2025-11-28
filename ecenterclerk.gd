@@ -36,6 +36,7 @@ func _process(delta):
 				print("Healing:" + str(healing))
 				interactNumber += 1
 				if healing:
+					GlobalVars.last_e_center = get_tree().current_scene.filename
 					textbox.visible = false
 					get_node("Sprite").frame = 6
 					for elc in team.team.size():

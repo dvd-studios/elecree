@@ -16,6 +16,7 @@ func _process(delta: float):
 			change_creature(1)
 			#creature %= gparent.creatures
 		if Input.is_action_just_pressed("ui_cancel"):
+			gparent.creature = 0
 			gparent.in_details = false
 			gparent.hide_items()
 			hide()
