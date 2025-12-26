@@ -86,29 +86,32 @@ func poison():
 	if status == StatusEffect.OK:
 		status = StatusEffect.Poison
 
-func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, id: int):
-	stathp = int ((dict[id].basehp * lv) / 10) + ( dnahp * lv )
-	statat = int ((dict[id].baseat * lv) / 10) + ( dnaat * lv )
-	statdf = int ((dict[id].basedf * lv) / 10) + ( dnadf * lv )
-	statsp = int ((dict[id].basesp * lv) / 10) + ( dnasp * lv )
-	statst = int ((dict[id].basest * lv) / 10) + ( dnast * lv )
-	dna_hp = dnahp
-	dna_at = dnaat
-	dna_df = dnadf
-	dna_sp = dnasp
-	dna_st = dnast
-	species = id
-	currenthp = stathp
-	currentat = statat
-	currentdf = statdf
-	currentsp = statsp
-	currentst = statst
-	recharge = 0
-	status = StatusEffect.OK
-	level = lv
-	experience = Creatures.exp_to_next_level(lv - 1)
+func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, id: int, deser: String = ""):
+	if deser == "":
+		stathp = int ((dict[id].basehp * lv) / 10) + ( dnahp * lv )
+		statat = int ((dict[id].baseat * lv) / 10) + ( dnaat * lv )
+		statdf = int ((dict[id].basedf * lv) / 10) + ( dnadf * lv )
+		statsp = int ((dict[id].basesp * lv) / 10) + ( dnasp * lv )
+		statst = int ((dict[id].basest * lv) / 10) + ( dnast * lv )
+		dna_hp = dnahp
+		dna_at = dnaat
+		dna_df = dnadf
+		dna_sp = dnasp
+		dna_st = dnast
+		species = id
+		currenthp = stathp
+		currentat = statat
+		currentdf = statdf
+		currentsp = statsp
+		currentst = statst
+		recharge = 0
+		status = StatusEffect.OK
+		level = lv
+		experience = Creatures.exp_to_next_level(lv - 1)
 	#print("Generating attacks with level " + str(lv))
-	attacks = generate_attacks(lv, id)
+		attacks = generate_attacks(lv, id)
+	else:
+		deserialize(deser)
 
 func get_stamina(attack: String):
 	return stamina_cost[atk_list.find(attack)]
