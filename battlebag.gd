@@ -131,9 +131,9 @@ func _process(delta: float):
 										Nicknaming.get_a_nickname(opponent.get_name() + "'s nickname?")
 										opponent.nickname = yield(Nicknaming, "send_msg")
 									if team.team.has(opponent):
-										yield(get_parent().display_text([opponent.get_name() + "was added to the party."]), "completed")
+										yield(get_parent().display_text([opponent.get_name() + " was added to the party."]), "completed")
 									else:
-										yield(get_parent().display_text([opponent.get_name() + "was placed in the Creature Box."]), "completed")
+										yield(get_parent().display_text([opponent.get_name() + " was placed in the Creature Box."]), "completed")
 									get_parent().win_battle()
 								else:
 									text_to_display.push_back("The creature broke out of its cube!")
@@ -173,6 +173,10 @@ func _process(delta: float):
 									if will_you_nickname:
 										Nicknaming.get_a_nickname(opponent.get_name() + "'s nickname?")
 										opponent.nickname = yield(Nicknaming, "send_msg")
+									if team.team.has(opponent):
+										yield(get_parent().display_text([opponent.get_name() + " was added to the party."]), "completed")
+									else:
+										yield(get_parent().display_text([opponent.get_name() + " was placed in the Creature Box."]), "completed")
 									get_parent().win_battle()
 								else:
 									text_to_display.push_back("The creature broke out of its cube!")

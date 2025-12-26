@@ -75,6 +75,7 @@ Yesno="*res://yesno.tscn"
 EDevice="*res://edevice.tscn"
 Nicknaming="*res://nicknaming.tscn"
 Creaturebox="*res://creaturebox.tscn"
+Mart="*res://mart.tscn"
 
 [display]
 
