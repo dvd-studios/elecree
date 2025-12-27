@@ -125,6 +125,14 @@ func _process(delta: float):
 												player_creature.level_up()
 												yield(get_parent().display_text([player_creature.get_name() + "'s LV increased to " + str(player_creature.level) + "!"]), "completed")
 									get_parent().creatures_that_will_gain_exp = []
+									if !GlobalVars.e_device_caught.has(opponent.species):
+										yield(get_parent().display_text([str(opponent.get_name()) + "'s data will be added to the E-Device."]), "completed")
+										GlobalVars.e_device_caught.push_back(opponent.species)
+										get_parent().get_node("EDeviceLayer/TileMap").visible = true
+										get_parent().get_node("EDeviceLayer/TileMap").set_number(opponent.species)
+										yield(get_parent(), "z_press")
+										get_parent().get_node("EDeviceLayer/TileMap").visible = false
+										
 									Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
 									var will_you_nickname: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
 									if will_you_nickname:
@@ -168,6 +176,13 @@ func _process(delta: float):
 												player_creature.level_up()
 												yield(get_parent().display_text([player_creature.get_name() + "'s LV increased to " + str(player_creature.level) + "!"]), "completed")
 									get_parent().creatures_that_will_gain_exp = []
+									if !GlobalVars.e_device_caught.has(opponent.species):
+										yield(get_parent().display_text([str(opponent.get_name()) + "'s data will be added to the E-Device."]), "completed")
+										GlobalVars.e_device_caught.push_back(opponent.species)
+										get_parent().get_node("EDeviceLayer/TileMap").visible = true
+										get_parent().get_node("EDeviceLayer/TileMap").set_number(opponent.species)
+										yield(get_parent(), "z_press")
+										get_parent().get_node("EDeviceLayer/TileMap").visible = false
 									Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
 									var will_you_nickname: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
 									if will_you_nickname:

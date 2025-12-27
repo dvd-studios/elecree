@@ -2,9 +2,8 @@ extends Area2D
 var interactNumber: int
 onready var global = get_node("/root/GlobalVars")
 onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel1 = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
-onready var textboxlabel2 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer/Label")
-onready var textboxlabel3 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer2/Label")
+onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
+
 var cubes: Array
 var healing: bool
 var asking: bool
@@ -23,9 +22,7 @@ func _process(delta):
 			if interactNumber == 0 && !global.cutscenePlaying:
 				global.cutscenePlaying = true
 				textbox.visible = true
-				textboxlabel1.text = "Welcome to the Elecree"
-				textboxlabel2.text = "Building!"
-				textboxlabel3.text = ""
+				textboxlabel.text = "Welcome to the Elecree Building!"
 				interactNumber += 1
 			elif interactNumber == 1:
 				print("Interact is 1 and started")
@@ -57,9 +54,7 @@ func _process(delta):
 					asking = false
 					textbox.visible = true
 					get_node("Sprite").frame = 0
-					textboxlabel1.text = "Thank you for waiting!"
-					textboxlabel2.text = ""
-					textboxlabel3.text = ""
+					textboxlabel.text = "Thank you for waiting!"
 					print("How often is this being called? Anyways the interact number is " + str(interactNumber))
 				else:
 					asking = false
@@ -67,14 +62,10 @@ func _process(delta):
 					textbox.visible = false
 					GlobalVars.cutscenePlaying = false
 			elif interactNumber == 2:
-				textboxlabel1.text = "Your creatures have been"
-				textboxlabel2.text = "healed to full health."
-				textboxlabel3.text = ""
+				textboxlabel.text = "Your creatures have been healed to full health."
 				interactNumber += 1
 			elif interactNumber == 3:
-				textboxlabel1.text = "Have a nice day!"
-				textboxlabel2.text = ""
-				textboxlabel3.text = ""
+				textboxlabel.text = "Have a nice day!"
 				interactNumber += 1
 			elif interactNumber == 4:
 				textbox.visible = false
@@ -92,4 +83,5 @@ func _on_ECenterClerk_body_entered(body):
 		global.closestInteractable = "ecenterclerk"
 	
 func _on_ECenterClerk_body_exited(body):
-	global.closestInteractable = "null"
+	if global.closestInteractable == "ecenterclerk":
+		global.closestInteractable = "null"

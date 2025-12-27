@@ -11,6 +11,10 @@ script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 240.0
+margin_bottom = 160.0
+
 [node name="TileMap" type="TileMap" parent="CanvasLayer"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )

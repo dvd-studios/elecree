@@ -2,9 +2,7 @@ extends Area2D
 var interactNumber: int
 onready var global = get_node("/root/GlobalVars")
 onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel1 = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
-onready var textboxlabel2 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer/Label")
-onready var textboxlabel3 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer2/Label")
+onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
 var cubes: Array
 var healing: bool
 var asking: bool
@@ -22,9 +20,7 @@ func _process(delta):
 			if interactNumber == 0 && !global.cutscenePlaying:
 				global.cutscenePlaying = true
 				textbox.visible = true
-				textboxlabel1.text = "Welcome to the E-Mart!"
-				textboxlabel2.text = ""
-				textboxlabel3.text = ""
+				textboxlabel.text = "Welcome to the E-Mart!"
 				interactNumber += 1
 			elif interactNumber == 1:
 				textbox.visible = false
@@ -43,4 +39,5 @@ func _on_ECenterClerk_body_entered(body):
 		global.closestInteractable = "emartclerk"
 	
 func _on_ECenterClerk_body_exited(body):
-	global.closestInteractable = "null"
+	if global.closestInteractable == "emartclerk":
+		global.closestInteractable = "null"
