@@ -2,9 +2,7 @@ extends Area2D
 var interactNumber: int
 onready var global = get_node("/root/GlobalVars")
 onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel1 = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
-onready var textboxlabel2 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer/Label")
-onready var textboxlabel3 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer2/Label")
+onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
 
 
 func _ready():
@@ -20,36 +18,24 @@ func _process(delta):
 			if interactNumber == 0 && !global.cutscenePlaying:
 				global.cutscenePlaying = true
 				textbox.visible = true
-				textboxlabel1.text = "In the year 22, we"
-				textboxlabel2.text = "were at war."
-				textboxlabel3.text = "It was clear that we"
+				textboxlabel.text = "In the year 22, we were at war. It was clear that we"
 				interactNumber += 1
 			elif interactNumber == 1:
 				print(global.cutscenePlaying)
-				textboxlabel1.text = "were not going to win."
-				textboxlabel2.text = "However, our enemy, Rubia"
-				textboxlabel3.text = "had a powerful weapon:"
+				textboxlabel.text = "were not going to win. However, our enemy, Rubia, had a powerful weapon:"
 				interactNumber += 1
 			elif interactNumber == 2:
 				print(global.cutscenePlaying)
-				textboxlabel1.text = "The legendary Elecree, "
-				textboxlabel2.text = "Victorium."
-				textboxlabel3.text = "Through Victorium, they"
+				textboxlabel.text = "The legendary Elecree, Victorium. Through Victorium, they"
 				interactNumber += 1
 			elif interactNumber == 3:
-				textboxlabel1.text = "dropped two power spheres"
-				textboxlabel2.text = "on this country. One here,"
-				textboxlabel3.text = "and one in New Life City,"
+				textboxlabel.text = "dropped two power spheres on this country. One here, and one in New Life City,"
 				interactNumber += 1
 			elif interactNumber == 4:
-				textboxlabel1.text = "then known as Wide Isle City."
-				textboxlabel2.text = "The spheres left enourmous"
-				textboxlabel3.text = "craters, that are unsafe"
+				textboxlabel.text = "then known as Wide Isle City. The spheres left enormous craters, that are unsafe"
 				interactNumber += 1
 			elif interactNumber == 5:
-				textboxlabel1.text = "to enter, even today."
-				textboxlabel2.text = ""
-				textboxlabel3.text = ""
+				textboxlabel.text = "to enter, even today."
 				interactNumber += 1
 			elif interactNumber == 6:
 				textbox.visible = false

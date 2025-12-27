@@ -1,9 +1,7 @@
 extends Area2D
 onready var global = get_node("/root/GlobalVars")
 onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel1 = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
-onready var textboxlabel2 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer/Label")
-onready var textboxlabel3 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer2/Label")
+onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
 var interactNumber: int
 
 # Declare member variables here. Examples:
@@ -25,14 +23,10 @@ func _process(delta):
 			if interactNumber == 0 && !global.cutscenePlaying:
 				global.cutscenePlaying = true
 				textbox.visible = true
-				textboxlabel1.text = "Dev L. Oper:"
-				textboxlabel2.text = "This area is under"
-				textboxlabel3.text = "construction."
+				textboxlabel.text = "Dev L. Oper:\nThis area is under construction."
 				interactNumber += 1
 			elif interactNumber == 1:
-				textboxlabel1.text = ""
-				textboxlabel2.text = ""
-				textboxlabel3.text = ""
+				textboxlabel.text = ""
 				textbox.visible = false
 				global.cutscenePlaying = false
 				interactNumber = 0

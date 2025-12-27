@@ -53,8 +53,8 @@ func generate_current_items():
 			break
 	current_items.sort_custom(self, "a_comes_first")
 
-func a_comes_first(a: String, b: String):
-	return a < b
+func a_comes_first(a: MartItem, b: MartItem):
+	return a.name < b.name
 
 func get_total_due() -> int:
 	var total_due: int = 0

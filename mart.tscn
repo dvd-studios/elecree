@@ -8,11 +8,11 @@
 visible = false
 script = ExtResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_right = 240.0
 margin_bottom = 160.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TileMap" type="TileMap" parent="CanvasLayer"]
 tile_set = ExtResource( 1 )

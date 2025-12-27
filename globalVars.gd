@@ -12,7 +12,7 @@ var last_pos: Vector2
 var last_loc: String
 var wildgen: Array
 var wild: bool
-var e_device_caught: Array = [0]
+var e_device_caught: Array = []
 var real_time: float = 0
 var time: String
 var credits: int = 300
@@ -150,6 +150,10 @@ func _process(delta):
 	
 	if Input.is_key_pressed(KEY_B):
 		print("Bag is open: " + String(bag.visible))
+		
+	
+	if Input.is_key_pressed(KEY_C):
+		print(closestInteractable)
 	
 	if Input.is_action_just_pressed("ui_up") && (devCode == 0 || devCode == 1):
 		devCode += 1
