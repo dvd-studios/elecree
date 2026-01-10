@@ -138,6 +138,7 @@ func win_battle():
 	for i in team.team:
 		if i != null:
 			i.recharge = 0
+			i.partheal()
 			if i.status == 3:
 				i.status = i.last_status
 	#team.team[0] = player.duplicate()

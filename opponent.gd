@@ -3,7 +3,7 @@ onready var global = get_node("/root/GlobalVars")
 onready var wildgen = global.wildgen
 
 # Arrays for the AI
-var low_stamina: Array = ["Tackle", "Defend"]
+var low_stamina: Array = ["Tackle", "Defend", "Leer"]
 var stamina_10: Array = []
 var stamina_20: Array = []
 var stamina_30: Array = []
@@ -67,7 +67,9 @@ func enemy_ai() -> String:
 func attack(target: Elecree, attack: String):
 	if attack != "Defend":
 		yield(get_parent().display_text(["The opposing " + data.get_name() + " used " + attack + "!"]), "completed")
-		data.attack(target, attack)
+		var result = get_parent().display_text(data.attack(target, attack, true))
+		if result is Object:
+			yield(result, "completed")
 	else:
 		yield(get_parent().display_text(["The opposing " + data.get_name() + " defended!"]), "completed")
 		data.defend()
@@ -82,6 +84,9 @@ func get_weighted_random(array: Array):
 	return array[-1]
 
 func _process(delta: float):
+	data.currentat = ceil(data.floatat)
+	data.currentdf = ceil(data.floatdf)
+	data.currentsp = ceil(data.floatsp)
 	if data.currenthp <= 0 && !displaying_text && get_parent().get_node("PlayerElecree").data.currenthp > 0:
 		displaying_text = true
 		yield(get_parent().display_text(["The opposing " + data.get_name() + " is defeated!"]), "completed")
@@ -93,6 +98,9 @@ func _process(delta: float):
 				while player.experience >= Creatures.exp_to_next_level(player.level):
 					player.level_up()
 					yield(get_parent().display_text([player.get_name() + "'s LV increased to " + str(player.level) + "!"]), "completed")
+					if ![null, ""].has(Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1)):
+						yield(get_parent().display_text([player.get_name() + " learned " + Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1) + "!"]), "completed")
+						player.attacks.push_back(Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1))
 		get_parent().creatures_that_will_gain_exp = []
 		if ElecreeStatic.get_alive_creatures(party) != 0:
 			yield(get_parent().display_text([data.get_name() + " was sent out!"]), "completed")
