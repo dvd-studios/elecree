@@ -11,9 +11,16 @@ func _ready():
 	data = team.team[first_alive_creature]
 	print(team.team)
 
+func _process(delta: float):
+	data.currentat = ceil(data.floatat)
+	data.currentdf = ceil(data.floatdf)
+	data.currentsp = ceil(data.floatsp)
+
 func attack(target: Elecree, attack: String):
 	yield(get_parent().display_text([data.get_name() + " used " + attack + "!"]), "completed")
-	data.attack(target, attack)
+	var result = get_parent().display_text(data.attack(target, attack))
+	if result is Object:
+		yield(result, "completed")
 
 func defend():
 	yield(get_parent().display_text([data.get_name() + " defended!"]), "completed")

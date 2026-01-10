@@ -124,6 +124,9 @@ func _process(delta: float):
 											while player_creature.experience >= Creatures.exp_to_next_level(player.level):
 												player_creature.level_up()
 												yield(get_parent().display_text([player_creature.get_name() + "'s LV increased to " + str(player_creature.level) + "!"]), "completed")
+												if ![null, ""].has(Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1)):
+													yield(get_parent().display_text([player.get_name() + " learned " + Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1) + "!"]), "completed")
+													player.attacks.push_back(Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1))
 									get_parent().creatures_that_will_gain_exp = []
 									if !GlobalVars.e_device_caught.has(opponent.species):
 										yield(get_parent().display_text([str(opponent.get_name()) + "'s data will be added to the E-Device."]), "completed")
@@ -175,6 +178,9 @@ func _process(delta: float):
 											while player_creature.experience >= Creatures.exp_to_next_level(player.level):
 												player_creature.level_up()
 												yield(get_parent().display_text([player_creature.get_name() + "'s LV increased to " + str(player_creature.level) + "!"]), "completed")
+												if ![null, ""].has(Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1)):
+													yield(get_parent().display_text([player.get_name() + " learned " + Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level + 1) - "!"]), "completed")
+													player.attacks.push_back(Creatures.data[player.species]["attacks"].duplicate().pop_at(player.level - 1))
 									get_parent().creatures_that_will_gain_exp = []
 									if !GlobalVars.e_device_caught.has(opponent.species):
 										yield(get_parent().display_text([str(opponent.get_name()) + "'s data will be added to the E-Device."]), "completed")

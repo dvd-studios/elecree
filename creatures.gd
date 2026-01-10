@@ -1,8 +1,8 @@
 extends Resource
 class_name Creatures
 
-const attack_list = [ "Tackle", "Defend"]
-const stamina_cost = [ 3,        0      ]
+const attack_list = [ "Tackle", "Defend", "Leer"]
+const stamina_cost = [ 3,        0      ,  1    ]
 
 const data = {
 	0: {
@@ -19,7 +19,7 @@ const data = {
 		"basest": 30,
 		"basexp": 50,
 		"captureability": .5,
-		"attacks": ["Tackle"]
+		"attacks": ["Tackle", "", "Leer"]
 }}
 
 func _ready():

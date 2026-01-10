@@ -15,9 +15,9 @@ export(int) var statsp: int
 export(int) var statst: int
 export(int) var species: int
 export(int) var currenthp: int
-export(int) var currentat: int
-export(int) var currentdf: int
-export(int) var currentsp: int
+export(int) var currentat: int; var floatat: float
+export(int) var currentdf: int; var floatdf: float
+export(int) var currentsp: int; var floatsp: float
 export(int) var currentst: int
 export(int) var status: int
 export(int) var level: int
@@ -64,8 +64,11 @@ func deserialize(json: String):
 	species = mid_stage["species"]
 	currenthp = mid_stage["currenthp"]
 	currentat = statat
+	floatat = currentat
 	currentdf = statdf
+	floatdf = currentdf
 	currentsp = statsp
+	floatsp = currentsp
 	currentst = mid_stage["currentst"]
 	status = mid_stage["status"]
 	level = mid_stage["level"]
@@ -101,8 +104,11 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 		species = id
 		currenthp = stathp
 		currentat = statat
+		floatat = currentat
 		currentdf = statdf
+		floatdf = currentdf
 		currentsp = statsp
+		floatsp = currentsp
 		currentst = statst
 		recharge = 0
 		status = StatusEffect.OK
@@ -116,13 +122,19 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 func get_stamina(attack: String):
 	return stamina_cost[atk_list.find(attack)]
 
-func attack(target: Elecree, attack: String) -> Array:
+func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Array:
 	currentst -= stamina_cost[atk_list.find(attack)]
 	recharge = 0
 	match attack:
 		"Tackle":
 			damage(target, 30)
 			return [""]
+		"Leer":
+			if target.floatdf < (float(target.statdf) / (pow(1.5, 6))):
+				return ["But it failed!"]
+			else:
+				target.floatdf /= 1.5
+				return [("" if from_opponent else "The opposing ") + target.get_name() + "'s defense down!"]
 		_:
 			return [""]
 
@@ -160,10 +172,18 @@ func get_attack(lv: int, id: int) -> String:
 func heal():
 	currenthp = stathp
 	currentat = statat
+	floatat = currentat
 	currentdf = statdf
+	floatdf = currentdf
 	currentsp = statsp
+	floatsp = currentsp
 	currentst = statst
 	status = StatusEffect.OK
+
+func partheal():
+	floatat = statat
+	floatdf = statdf
+	floatsp = statsp
 
 func not_an_init_but_a_dictionary_because_godot_3_is_dumb_and_doesnt_allow_cyclic_class_reference(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, id: int) -> Dictionary:
 	var not_an_elecree: Dictionary = {}
