@@ -87,6 +87,7 @@ func _process(delta: float):
 						shifted = !shifted
 					1:
 						emit_signal("send_msg", text)
+						text = ""
 						visible = false
 					2:
 						text = text.substr(0, text.length() - 1)

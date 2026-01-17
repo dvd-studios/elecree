@@ -18,7 +18,7 @@ func _process(delta: float):
 		get_node("Deets/Name").text = (Creatures.data[offset + select]["name"] + " (#" + str(Creatures.data[offset + select]["edeviceid"]) + ")") if GlobalVars.e_device_caught.has(offset + select) else "---"
 		get_node("Deets/Descriptor").text = (Creatures.data[offset + select]["edevicedescriptor"] + " Elecree") if GlobalVars.e_device_caught.has(offset + select) else "---"
 		get_node("Deets/HTWT").text = ("HT: " + str(Creatures.data[offset + select]["edeviceheight"]) + " m, WT: " + str(Creatures.data[offset + select]["edeviceweight"]) + " kg") if GlobalVars.e_device_caught.has(offset + select) else "HT: --, WT: --" # LOCALIZE THIS ON RELEASE
-		get_node("Deets/Element").text = "ELEMENT: --" # CHANGE ONCE ELEMENTS ARE ADDED
+		get_node("Deets/Element").text = ("ELEMENT: " + Creatures.element_names[Creatures.data[offset + select]["element"]]) if GlobalVars.e_device_caught.has(offset + select) else "ELEMENT: --"
 		get_node("FlavorText").text = (Creatures.data[offset + select]["edeviceentry"]) if GlobalVars.e_device_caught.has(offset + select) else "---"
 		
 		for i in one_to_four:

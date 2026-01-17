@@ -19,8 +19,47 @@ const data = {
 		"basest": 30,
 		"basexp": 50,
 		"captureability": .5,
-		"attacks": ["Tackle", "", "Leer"]
+		"attacks": ["Tackle", "", "Leer"],
+		"element": 0
 }}
+
+const element_names = {
+	0: "NEUTRAL",
+	1: "FIRE",
+	2: "WATER",
+	3: "THUNDER",
+	4: "EARTH",
+	5: "WIND",
+	8: "STEAM",
+	9: "BLAZE",
+	10: "LAVA",
+	11: "SCORCH",
+	15: "STORM",
+	16: "WOOD",
+	17: "ICE",
+	22: "EXPLODE",
+	23: "MAGNET",
+	29: "CRYSTAL"
+}
+
+const element_names_short = {
+	0: "NEUT",
+	1: "FIRE",
+	2: "WATR",
+	3: "TNDR",
+	4: "ERTH",
+	5: "WIND",
+	8: "STEA",
+	9: "BLZE",
+	10: "LAVA",
+	11: "SCRC",
+	15: "STRM",
+	16: "WOOD",
+	17: "ICE",
+	22: "XPLD",
+	23: "MGNT",
+	29: "CRYS"
+}
 
 func _ready():
 	print("Initialized creatures.gd")
@@ -84,3 +123,32 @@ static func status_to_capture_mod(status: int) -> float:
 		#print(returnValue)
 static func exp_to_next_level(level: int) -> int:
 	return(int(100 * pow(level, 2)))
+
+
+# 1 = Fire, 2 = Water, 3 = Thunder, 4 = Earth, 5 = Wind
+static func primary_element_multiplier(attack: int, defense: int) -> float:
+	if attack == 0 || defense == 0:
+		return 1.0
+	var multiplier: Array = [
+		[1.0, .67, 1.5, .67, 1.5],
+		[1.5, 1.0, .67, 1.5, .67],
+		[.67, 1.5, 1.0, .67, 1.5],
+		[1.5, .67, 1.5, 1.0, .67],
+		[.67, 1.5, .67, 1.5, 1.0]
+	]
+	return multiplier[attack - 1][defense - 1]
+
+# 8 = Steam, 9 = Blaze, 10 = Lava, 11 = Scorch, 15 = Storm, 16 = Wood, 17 = Ice, 22 = Explosion, 23 = Magnet, 29 = Crystal
+static func multiplier(attack: int, defense: int) -> float:
+	var attack_arr: Array = [attack % 6, attack / 6]
+	var defense_arr: Array = [defense % 6, defense / 6]
+	return primary_element_multiplier(attack_arr[0], defense_arr[0]) * primary_element_multiplier(attack_arr[1], defense_arr[0]) * primary_element_multiplier(attack_arr[0], defense_arr[1]) * primary_element_multiplier(attack_arr[1], defense_arr[1])
+
+static func get_element(attack: String) -> int:
+	match attack:
+		"Tackle":
+			return 0
+		"Leer":
+			return 0
+		_:
+			return 0

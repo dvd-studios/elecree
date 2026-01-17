@@ -51,7 +51,9 @@ func _process(delta):
 		if is_player_defeated():
 			yield(display_text([GlobalVars.player_name + " has no more usable Elecree!", GlobalVars.player_name + " lost the battle!"]), "completed")
 			player.recharge = 0
-			player.heal()
+			for elc in team.team:
+				if elc != null:
+					elc.heal()
 			global.cutscenePlaying = false
 			#team.team[0] = player.duplicate(true)
 			global._warpPlayer(Vector2(64, 88), global.last_e_center)
