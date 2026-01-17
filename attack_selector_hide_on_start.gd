@@ -19,7 +19,7 @@ func get_attack(pg: int, number: int) -> String:
 func get_attack_and_stamina(pg: int, number: int) -> String:
 	var attack = get_attack(pg, number)
 	if attack != "":
-		return attack + " (" + str(get_parent().get_node("PlayerElecree").data.get_stamina(attack)) + ")"
+		return attack + " | " + Creatures.element_names_short[Creatures.get_element(attack)] + " | " + str(get_parent().get_node("PlayerElecree").data.get_stamina(attack))
 	else:
 		return ""
 

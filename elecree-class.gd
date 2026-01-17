@@ -125,18 +125,20 @@ func get_stamina(attack: String):
 func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Array:
 	currentst -= stamina_cost[atk_list.find(attack)]
 	recharge = 0
+	var array_to_return: Array = []
 	match attack:
 		"Tackle":
-			damage(target, 30)
-			return [""]
+			array_to_return.push_back(damage(target, 30))
+			array_to_return.push_back("")
 		"Leer":
-			if target.floatdf < (float(target.statdf) / (pow(1.5, 6))):
-				return ["But it failed!"]
+			if target.floatdf < (float(target.statdf) / (pow(1.3, 5.5))):
+				array_to_return.push_back("But it failed!")
 			else:
-				target.floatdf /= 1.5
-				return [("" if from_opponent else "The opposing ") + target.get_name() + "'s defense down!"]
+				target.floatdf /= 1.3
+				array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s defense down!")
 		_:
-			return [""]
+			array_to_return.push_back("")
+	return array_to_return
 
 func defend():
 	currentst = statst
@@ -144,14 +146,31 @@ func defend():
 	last_status = status
 	status = 3
 
-func damage(target: Elecree, power: int):
-	var dmg: int = (power * level * (float(currentat) / float(target.currentdf))) / 10
+func damage(target: Elecree, power: int, element: int = 0) -> String:
+	var effectiveness_text: String = ""
+	var effectiveness: float = Creatures.multiplier(element, Creatures.data[target.species]["element"])
+	var effectiveness_log = log(effectiveness) / log(1.5)
+	if effectiveness_log < -2.5:
+		effectiveness_text = "It's barely effective..."
+	elif effectiveness_log < -1.5:
+		effectiveness_text = "It's somewhat effective..."
+	elif effectiveness_log < -0.5:
+		effectiveness_text = "It's not very effective..."
+	elif effectiveness_log < .5:
+		effectiveness_text = ""
+	elif effectiveness_log < 1.5:
+		effectiveness_text = "It's super effective!"
+	elif effectiveness_log < 2.5:
+		effectiveness_text = "It's hyper effective!"
+	else:
+		effectiveness_text = "It's EXTREMELY effective!"
+	var dmg: int = (power * level * (float(currentat) / float(target.currentdf)) * effectiveness) / 10
 	if target.status == 3:
 		dmg /= 1.5
 	#print("Power" + str(power) + "Level" + str(level) + "Attack" + str(currentat) + "Defense" + str(target.currentdf))
 	target.currenthp -= dmg
-	#print(target.currenthp)
-
+	return effectiveness_text
+	
 func generate_attacks(lv: int, id: int) -> Array:
 	var attacks: Array
 	for i in range(0, lv):
