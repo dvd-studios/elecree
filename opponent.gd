@@ -14,6 +14,8 @@ var stamina_70: Array = []
 var stamina_80: Array = []
 var stamina_90: Array = []
 var high_stamina: Array = []
+var damaging_attacks: Array = ["Tackle"]
+
 
 var party: Array = [null, null, null, null, null, null, null]
 var data: Elecree
@@ -51,6 +53,11 @@ func get_attack_scores() -> Array:
 			attack_scores[i] += 8 if data.currentst >= 80 else -(90 - data.currentst) / 10
 		if stamina_90.has(attacks[i]):
 			attack_scores[i] += 9 if data.currentst >= 10 else -(100 - data.currentst) / 10
+		if damaging_attacks.has(attacks[i]):
+			var player: Elecree = get_parent().get_node("PlayerElecree").data
+			if player.currenthp <= float(player.stathp) / 10:
+				attack_scores[i] += 3
+			attack_scores[i] += int(log(player.floatdf / player.statdf) / log(1.5))
 	return attack_scores
 		
 func sort_by_score(a, b) -> bool:
@@ -91,7 +98,7 @@ func _process(delta: float):
 		displaying_text = true
 		yield(get_parent().display_text(["The opposing " + data.get_name() + " is defeated!"]), "completed")
 		for player in get_parent().creatures_that_will_gain_exp:
-			if player.currenthp >= 0:
+			if player.currenthp > 0:
 				var player_exp: int = Creatures.data[data.species]["basexp"] * data.level
 				player.experience += player_exp
 				yield(get_parent().display_text([player.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")

@@ -38,21 +38,25 @@ func _process(delta):
 	get_node("VBoxContainer/Label7").text = get_creature_and_deets(7)
 	
 	
-	if self.visible && Input.is_action_just_pressed("ui_down"):
+	if self.visible && Input.is_action_just_pressed("ui_down") && !get_node("CreatureDetails").visible:
 		select += 1 if select < 7 && (get_creature_and_deets(select + 1) != "") else 0
 	
-	if self.visible && Input.is_action_just_pressed("ui_up"):
+	if self.visible && Input.is_action_just_pressed("ui_up") && !get_node("CreatureDetails").visible:
 		select -= 1 if select > 1 && (get_creature_and_deets(select - 1) != "") else 0
 	
-	if self.visible:
-		if Input.is_action_just_pressed("ui_accept") && get_parent().get_node("PlayerElecree").data != team.team[select - 1] && team.team[select - 1].currenthp > 0: # Do later: Summary before switching
-			print("Running switching operation")
-			visible = false
-			get_node("TileMap").visible = false
-			yield(get_parent().get_node("PlayerElecree").switch_creature(select - 1), "completed")
-			#get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
-			#get_node("TileMap").visible = false
-			get_parent().lock = 0
+	if self.visible && !get_node("CreatureDetails").visible:
+		
+		if Input.is_action_just_pressed("ui_accept"): # Do later: Summary before switching
+			get_node("CreatureDetails").wait_and_show()
+			get_node("CreatureDetails").creature = select - 1
+			get_node("CreatureDetails").creature_changed()
+#			print("Running switching operation")
+#			visible = false
+#			get_node("TileMap").visible = false
+#			yield(get_parent().get_node("PlayerElecree").switch_creature(select - 1), "completed")
+#			#get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
+#			#get_node("TileMap").visible = false
+#			get_parent().lock = 0
 	
 		elif Input.is_action_just_pressed("ui_cancel"): # elif to avoid conflicts between accept and cancel
 			self.visible = false
@@ -65,7 +69,16 @@ func _process(delta):
 	get_node("VBoxContainer/Label5").add_color_override("font_color", Color(1, 1, 1) if select == 5 else Color(0, 0, 0))
 	get_node("VBoxContainer/Label6").add_color_override("font_color", Color(1, 1, 1) if select == 6 else Color(0, 0, 0))
 	get_node("VBoxContainer/Label7").add_color_override("font_color", Color(1, 1, 1) if select == 7 else Color(0, 0, 0))
-	
+
+func switch_creature():
+	if get_parent().get_node("PlayerElecree").data != team.team[select - 1] && team.team[select - 1].currenthp > 0: # Do later: Summary before switching
+			print("Running switching operation")
+			visible = false
+			get_node("TileMap").visible = false
+			yield(get_parent().get_node("PlayerElecree").switch_creature(select - 1), "completed")
+			get_parent().lock = 0
+
+
 func wait_and_show():
 	yield(get_tree(), "idle_frame")
 	visible = true
