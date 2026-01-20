@@ -140,3 +140,5 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 4
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
+
+[node name="MoveDetails" type="Node2D" parent="CanvasLayer/CreatureDetails"]

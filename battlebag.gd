@@ -117,7 +117,7 @@ func _process(delta: float):
 									yield(get_parent().display_text(text_to_display), "completed")
 									var player: Elecree = get_parent().get_node("PlayerElecree").data
 									for player_creature in get_parent().creatures_that_will_gain_exp:
-										if player_creature.currenthp >= 0:
+										if player_creature.currenthp > 0:
 											var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
 											player_creature.experience += player_exp
 											yield(get_parent().display_text([player_creature.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
@@ -171,7 +171,7 @@ func _process(delta: float):
 									yield(get_parent().display_text(text_to_display), "completed")
 									var player: Elecree = get_parent().get_node("PlayerElecree").data
 									for player_creature in get_parent().creatures_that_will_gain_exp:
-										if player_creature.currenthp >= 0:
+										if player_creature.currenthp > 0:
 											var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
 											player_creature.experience += player_exp
 											yield(get_parent().display_text([player_creature.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
