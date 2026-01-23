@@ -9,6 +9,10 @@ onready var global = get_node("/root/GlobalVars")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Initialized charmove.gd")
+	if GlobalVars.playing_as_ice:
+		get_parent().texture = load("res://OverSprites/sheet_ice.png")
+	else:
+		get_parent().texture = load("res://OverSprites/sheet_fire.png")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

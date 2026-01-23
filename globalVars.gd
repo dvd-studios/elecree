@@ -18,6 +18,7 @@ var time: String
 var credits: int = 300
 var player_name: String = "Fire" # Default player name, will be changeable in release
 var flags: Array = []
+var playing_as_ice: bool = false
 
 const usabilities: Dictionary = {
 	# MSB to LSB: Used on one of your creatures, usability in battle, usability out of battle
@@ -66,6 +67,9 @@ func deserialize_save():
 		else:
 			team.team.push_back(null)
 	_warpPlayer(Vector2(dict["x_position"], dict["y_position"]), dict["current_scene"])
+	playing_as_ice = dict["playing_as_ice"]
+	if playing_as_ice:
+		Battlercard.get_node("CanvasLayer/Sprite").texture = load("res://OverSprites/sheet_ice.png")
 	bag.item_bag = dict["bag"]
 	bag.key_items = dict["key_items"]
 	flags = dict["flags"]
@@ -86,6 +90,7 @@ func serialize_save() -> Dictionary:
 	output["player_name"] = player_name
 	output["x_position"] = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position.x
 	output["y_position"] = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position.y
+	output["playing_as_ice"] = playing_as_ice
 	output["team"] = []
 	for elc in team.team:
 		if elc != null:

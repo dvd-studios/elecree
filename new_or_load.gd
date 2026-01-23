@@ -37,6 +37,6 @@ func _process(delta: float):
 				get_node("VBoxContainer/Label3").visible = true
 			else:
 				GlobalVars.cutscenePlaying = false
-				get_tree().change_scene("res://rebirthTown.tscn")
+				get_tree().change_scene("res://charcreator.tscn")
 	labels[option].add_color_override("font_color", Color(1, 1, 1))
 	labels[abs(option - 1)].add_color_override("font_color", Color(0, 0, 0))
