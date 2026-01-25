@@ -48,7 +48,8 @@ func _ready():
 	textbox_label.text = "From the Nioan Elecree Association, good luck!"
 	yield(self, "z_press")
 	textbox.hide()
-	GlobalVars._warpPlayer(Vector2(32, 64), "rebirthHouse1")
+	GlobalVars.cutscenePlaying = false
+	GlobalVars._warpPlayer(Vector2(304, 64), "rebirthHouse1")
 
 func _process(delta: float):
 	if Input.is_action_just_pressed("ui_accept"):

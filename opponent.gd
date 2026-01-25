@@ -57,7 +57,7 @@ func get_attack_scores() -> Array:
 			var player: Elecree = get_parent().get_node("PlayerElecree").data
 			if player.currenthp <= float(player.stathp) / 10:
 				attack_scores[i] += 3
-			attack_scores[i] += int(log(player.floatdf / player.statdf) / log(1.5))
+			attack_scores[i] += int(log(player.statdf / player.floatdf) / log(1.5))
 	return attack_scores
 		
 func sort_by_score(a, b) -> bool:
