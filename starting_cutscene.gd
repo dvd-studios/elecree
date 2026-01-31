@@ -1,0 +1,65 @@
+extends KinematicBody2D
+
+var step: int = -1
+var velocity: Vector2 = Vector2.ZERO
+var friend_name: String = "Ice"
+onready var anim: AnimationPlayer = get_node("Sprite/AnimationPlayer")
+onready var player_anim: AnimationPlayer = get_tree().current_scene.get_node("Player/Sprite/AnimationPlayer")
+
+func _ready():
+	if !GlobalVars.get_flag("rebirth_town:starting_cutscene"):
+		step = 0
+		GlobalVars.cutscenePlaying = true
+		visible = true
+		get_node("CollisionShape2D").disabled = false
+		if GlobalVars.playing_as_ice:
+			friend_name = "Fire"
+			get_node("Sprite").texture = load("res://OverSprites/sheet_fire.png")
+		anim.play("walk_w")
+		velocity = Vector2(-1, 0)
+
+func _process(delta: float):
+	var conditions_for_advance: Array = [
+		step == 0 && position.x <= 352,
+		step >= 1 && step <= 8 && Input.is_action_just_pressed("ui_accept"),
+		step == 9 && position.x >= 432
+		]
+	if conditions_for_advance.has(true):
+		advance()
+
+
+func _physics_process(delta: float):
+	move_and_collide(velocity)
+
+func advance():
+	match step:
+		0:
+			anim.play("idle_w")
+			velocity = Vector2.ZERO
+			player_anim.lastdir = "e"
+			Textbox.show_text(friend_name + ": " + GlobalVars.player_name + "! " + GlobalVars.player_name + "! " + GlobalVars.player_name + "! ")
+		1:
+			Textbox.show_text(friend_name + ": I can't believe it! We're finally getting our Elecree today!")
+		2:
+			Textbox.show_text(friend_name + ": I wonder which one I'll get...")
+		3:
+			Textbox.show_text(friend_name + ": Perhaps Dracospark, maybe Watty... ooh! What about Earthle?")
+		4:
+			Textbox.show_text(friend_name + ": I really don't know, I'm just so excited! Just imagine this: ")
+		5:
+			Textbox.show_text(friend_name + ": " + GlobalVars.player_name + " and " + friend_name + ", standing on top of the world with 10 Medallions!")
+		6:
+			Textbox.show_text(friend_name + ": But that can't happen by just sitting around, so c'mon! Whatcha waiting for?")
+		7:
+			Textbox.show_text(friend_name + ": Let's get to the Elecree Building already!")
+		8:
+			Textbox.hide_text()
+			anim.play("walk_e")
+			velocity = Vector2(1, 0)
+		9:
+			GlobalVars.set_flag("rebirth_town:starting_cutscene", true)
+			velocity = Vector2(0, 0)
+			visible = false
+			get_node("CollisionShape2D").disabled = true
+			GlobalVars.cutscenePlaying = false
+	step += 1

@@ -16,5 +16,6 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	print("Warping...")
-	global._warpPlayer(coord, destination, relative)
+	if body.name == "Player":
+		print("Warping...")
+		global._warpPlayer(coord, destination, relative)
