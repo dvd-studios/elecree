@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
 [ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
 [ext_resource path="res://textbox_script.gd" type="Script" id=3]
 [ext_resource path="res://menu.gd" type="Script" id=4]
+[ext_resource path="res://textbox_manager.gd" type="Script" id=5]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 5 )
 
 [node name="TextBox" type="TileMap" parent="."]
 visible = false
