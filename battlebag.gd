@@ -97,12 +97,16 @@ func _process(delta: float):
 					select = 0
 					refresh()
 					match item:
-						"Capture Cube":
+						"Capture Cube", "Super Capture Cube":
 							if GlobalVars.wild:
 								var opponent: Elecree = get_parent().get_node("OpposingElecree").data
 								var captureability: float = Creatures.data[opponent.species]["captureability"]
+								match item:
+									"Super Capture Cube":
+										captureability *= 1.3
 								captureability *= opponent.stathp / float(opponent.currenthp)
 								captureability *= Creatures.status_to_capture_mod(opponent.status)
+								captureability /= sqrt(opponent.level)
 								var capture_attempt: float = randf()
 								text_to_display.push_back("It shakes.")
 								text_to_display.push_back("It shakes..")
@@ -136,59 +140,6 @@ func _process(delta: float):
 										yield(get_parent(), "z_press")
 										get_parent().get_node("EDeviceLayer/TileMap").visible = false
 										
-									Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
-									var will_you_nickname: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
-									if will_you_nickname:
-										Nicknaming.get_a_nickname(opponent.get_name() + "'s nickname?")
-										opponent.nickname = yield(Nicknaming, "send_msg")
-									if team.team.has(opponent):
-										yield(get_parent().display_text([opponent.get_name() + " was added to the party."]), "completed")
-									else:
-										yield(get_parent().display_text([opponent.get_name() + " was placed in the Creature Box."]), "completed")
-									get_parent().win_battle()
-								else:
-									text_to_display.push_back("The creature broke out of its cube!")
-							else:
-								text_to_display.push_back("But you can't use that on a Battler's Elecree, you thief!")
-						"Super Capture Cube":
-							if GlobalVars.wild:
-								var opponent: Elecree = get_parent().get_node("OpposingElecree").data
-								var captureability: float = Creatures.data[opponent.species]["captureability"]
-								captureability *= opponent.stathp / float(opponent.currenthp)
-								captureability *= Creatures.status_to_capture_mod(opponent.status)
-								captureability *= 1.3
-								var capture_attempt: float = randf()
-								text_to_display.push_back("It shakes.")
-								text_to_display.push_back("It shakes..")
-								text_to_display.push_back("It shakes...")
-								if capture_attempt <= captureability:
-									text_to_display.push_back("Congratulations, " + opponent.get_name() + " was caught!")
-									var team_size: int = team.get_team_size()
-									if team_size < 7:
-										team.team[team_size] = opponent
-									else:
-										team.creature_box.push_back(opponent)
-									yield(get_parent().display_text(text_to_display), "completed")
-									var player: Elecree = get_parent().get_node("PlayerElecree").data
-									for player_creature in get_parent().creatures_that_will_gain_exp:
-										if player_creature.currenthp > 0:
-											var player_exp: int = Creatures.data[opponent.species]["basexp"] * opponent.level
-											player_creature.experience += player_exp
-											yield(get_parent().display_text([player_creature.get_name() + " gained " + str(player_exp) + " EXP!"]), "completed")
-											while player_creature.experience >= Creatures.exp_to_next_level(player.level):
-												player_creature.level_up()
-												yield(get_parent().display_text([player_creature.get_name() + "'s LV increased to " + str(player_creature.level) + "!"]), "completed")
-												if ![null, ""].has(Creatures.data[player_creature.species]["attacks"].duplicate().pop_at(player_creature.level - 1)):
-													yield(get_parent().display_text([player_creature.get_name() + " learned " + Creatures.data[player_creature.species]["attacks"].duplicate().pop_at(player_creature.level - 1) + "!"]), "completed")
-													player_creature.attacks.push_back(Creatures.data[player_creature.species]["attacks"].duplicate().pop_at(player_creature.level - 1))
-									get_parent().creatures_that_will_gain_exp = []
-									if !GlobalVars.e_device_caught.has(opponent.species):
-										yield(get_parent().display_text([str(opponent.get_name()) + "'s data will be added to the E-Device."]), "completed")
-										GlobalVars.e_device_caught.push_back(opponent.species)
-										get_parent().get_node("EDeviceLayer/TileMap").visible = true
-										get_parent().get_node("EDeviceLayer/TileMap").set_number(opponent.species)
-										yield(get_parent(), "z_press")
-										get_parent().get_node("EDeviceLayer/TileMap").visible = false
 									Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
 									var will_you_nickname: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
 									if will_you_nickname:

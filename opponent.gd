@@ -3,7 +3,7 @@ onready var global = get_node("/root/GlobalVars")
 onready var wildgen = global.wildgen
 
 # Arrays for the AI
-var low_stamina: Array = ["Tackle", "Defend", "Leer"]
+var low_stamina: Array = ["Defend", "Flare", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
 var stamina_10: Array = []
 var stamina_20: Array = []
 var stamina_30: Array = []
@@ -14,7 +14,7 @@ var stamina_70: Array = []
 var stamina_80: Array = []
 var stamina_90: Array = []
 var high_stamina: Array = []
-var damaging_attacks: Array = ["Tackle"]
+var damaging_attacks: Array = ["Flare", "Gust", "Peck", "Splash", "Tackle", "Tremor", "Zap"]
 
 
 var party: Array = [null, null, null, null, null, null, null]
@@ -58,6 +58,7 @@ func get_attack_scores() -> Array:
 			if player.currenthp <= float(player.stathp) / 10:
 				attack_scores[i] += 3
 			attack_scores[i] += int(log(player.statdf / player.floatdf) / log(1.5))
+			attack_scores[i] += int(log(Creatures.multiplier(Creatures.get_element(attacks[i]), Creatures.data[player.species]["element"]) / log(1.5)))
 	return attack_scores
 		
 func sort_by_score(a, b) -> bool:
@@ -96,6 +97,8 @@ func _process(delta: float):
 	data.currentsp = ceil(data.floatsp)
 	if data.currenthp <= 0 && !displaying_text && get_parent().get_node("PlayerElecree").data.currenthp > 0:
 		displaying_text = true
+		while get_parent().lock != 0:
+			yield(get_tree(), "idle_frame")
 		yield(get_parent().display_text(["The opposing " + data.get_name() + " is defeated!"]), "completed")
 		for player in get_parent().creatures_that_will_gain_exp:
 			if player.currenthp > 0:

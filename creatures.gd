@@ -1,8 +1,8 @@
 extends Resource
 class_name Creatures
 
-const attack_list = [ "Tackle", "Defend", "Leer"]
-const stamina_cost = [ 3,        0      ,  1    ]
+const attack_list =  ["Defend", "Flare", "Growl", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
+const stamina_cost = [ 0,        6,       1,       6,      1,      3,      3,         6,        3,        6,        6   ]
 
 const data = {
 	0: {
@@ -21,7 +21,93 @@ const data = {
 		"captureability": .5,
 		"attacks": ["Tackle", "", "Leer"],
 		"element": 0
-}}
+	},
+	1: {
+		"name": "Dracospark",
+		"edevicedescriptor": "Drake", 
+		"edeviceid": 01,
+		"edeviceentry": "Dracosparks can be chaotic, but are fiercely protective of what they hold dear.",
+		"edeviceheight": .6,
+		"edeviceweight": 9.6,
+		"basehp": 30,
+		"baseat": 40,
+		"basedf": 20,
+		"basesp": 40,
+		"basest": 20,
+		"basexp": 35,
+		"captureability": .45,
+		"attacks": ["Scratch", "", "Growl", "", "", "Flare"],
+		"element": 1
+	},
+	4: {
+		"name": "Mizukoi",
+		"edevicedescriptor": "Fish", 
+		"edeviceid": 04,
+		"edeviceentry": "Mizukoi are very common Elecree, able to be found in every river in Nio.",
+		"edeviceheight": .3,
+		"edeviceweight": 1.5,
+		"basehp": 30,
+		"baseat": 25,
+		"basedf": 25,
+		"basesp": 35,
+		"basest": 35,
+		"basexp": 35,
+		"captureability": .45,
+		"attacks": ["Tackle", "", "Leer", "", "", "Splash"],
+		"element": 2
+	},
+	7: {
+		"name": "Watty",
+		"edevicedescriptor": "Static", 
+		"edeviceid": 07,
+		"edeviceentry": "When a Watty is scared, it will jump high and give an electric shock.",
+		"edeviceheight": .15,
+		"edeviceweight": .5,
+		"basehp": 30,
+		"baseat": 40,
+		"basedf": 20,
+		"basesp": 40,
+		"basest": 20,
+		"basexp": 35,
+		"captureability": .45,
+		"attacks": ["Scratch", "", "Leer", "", "", "Zap"],
+		"element": 3
+	},
+	10: {
+		"name": "Earthle",
+		"edevicedescriptor": "Tortoise", 
+		"edeviceid": 10,
+		"edeviceentry": "Earthles send tremors through the ground to ward off threats.",
+		"edeviceheight": .75,
+		"edeviceweight": 10.0,
+		"basehp": 40,
+		"baseat": 30,
+		"basedf": 40,
+		"basesp": 20,
+		"basest": 20,
+		"basexp": 35,
+		"captureability": .45,
+		"attacks": ["Tackle", "", "Growl", "", "", "Tremor"],
+		"element": 4
+	},
+	13: {
+		"name": "Futori",
+		"edevicedescriptor": "Sparrow", 
+		"edeviceid": 13,
+		"edeviceentry": "Futori, known for their outstanding stamina, can fly to the peak of Pear Mountain.",
+		"edeviceheight": .3,
+		"edeviceweight": 1.5,
+		"basehp": 30,
+		"baseat": 20,
+		"basedf": 20,
+		"basesp": 40,
+		"basest": 40,
+		"basexp": 35,
+		"captureability": .45,
+		"attacks": ["Peck", "", "Leer", "", "", "Gust"],
+		"element": 5
+	}
+}
 
 const element_names = {
 	0: "NEUTRAL",
@@ -146,9 +232,25 @@ static func multiplier(attack: int, defense: int) -> float:
 
 static func get_element(attack: String) -> int:
 	match attack:
-		"Tackle":
+		"Flare":
+			return 1
+		"Growl":
 			return 0
+		"Gust":
+			return 5
 		"Leer":
 			return 0
+		"Peck":
+			return 5
+		"Scratch":
+			return 0
+		"Splash":
+			return 2
+		"Tackle":
+			return 0
+		"Tremor":
+			return 4
+		"Zap":
+			return 3
 		_:
 			return 0
