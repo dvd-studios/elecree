@@ -127,15 +127,42 @@ func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Arr
 	recharge = 0
 	var array_to_return: Array = []
 	match attack:
-		"Tackle":
-			array_to_return.push_back(damage(target, 30))
+		"Flare":
+			array_to_return.push_back(damage(target, 30, 1))
 			array_to_return.push_back("")
+		"Gust":
+			array_to_return.push_back(damage(target, 30, 5))
+			array_to_return.push_back("")
+		"Growl":
+			if target.floatat < (float(target.statat) / (pow(1.3, 5.5))):
+				array_to_return.push_back("But it failed!")
+			else:
+				target.floatat /= 1.3
+				array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s attack down!")
 		"Leer":
 			if target.floatdf < (float(target.statdf) / (pow(1.3, 5.5))):
 				array_to_return.push_back("But it failed!")
 			else:
 				target.floatdf /= 1.3
 				array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s defense down!")
+		"Peck":
+			array_to_return.push_back(damage(target, 25, 5))
+			array_to_return.push_back("")
+		"Scratch":
+			array_to_return.push_back(damage(target, 30))
+			array_to_return.push_back("")
+		"Splash":
+			array_to_return.push_back(damage(target, 30, 2))
+			array_to_return.push_back("")
+		"Tackle":
+			array_to_return.push_back(damage(target, 30))
+			array_to_return.push_back("")
+		"Tremor":
+			array_to_return.push_back(damage(target, 30, 4))
+			array_to_return.push_back("")
+		"Zap":
+			array_to_return.push_back(damage(target, 30, 3))
+			array_to_return.push_back("")
 		_:
 			array_to_return.push_back("")
 	return array_to_return
@@ -164,11 +191,13 @@ func damage(target: Elecree, power: int, element: int = 0) -> String:
 		effectiveness_text = "It's hyper effective!"
 	else:
 		effectiveness_text = "It's EXTREMELY effective!"
-	var dmg: int = (power * level * (float(currentat) / float(target.currentdf)) * effectiveness) / 10
+	var dmg: int = (power * (float(currentat) / float(target.currentdf)) * effectiveness) / 10
 	if target.status == 3:
 		dmg /= 1.5
 	#print("Power" + str(power) + "Level" + str(level) + "Attack" + str(currentat) + "Defense" + str(target.currentdf))
 	target.currenthp -= dmg
+	if target.currenthp < 0:
+		target.currenthp = 0
 	return effectiveness_text
 	
 func generate_attacks(lv: int, id: int) -> Array:
