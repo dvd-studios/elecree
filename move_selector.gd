@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name MoveSelector
 
 var page: int = 0
 var select: int = 1
@@ -6,7 +7,7 @@ var moves: Array = ["Attack", "Switch", "Item", "Defend"]
 
 func _ready():
 	self.visible = false
-	if GlobalVars.wild:
+	if GLOBAL_VARS.wild:
 		moves.push_back("Flee")
 
 func get_attack(pg: int, number: int) -> String:

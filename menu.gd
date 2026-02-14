@@ -1,5 +1,7 @@
 extends TileMap
-onready var global = get_node("/root/GlobalVars")
+class_name MainMenu
+
+onready var global = get_node("/root/GLOBAL_VARS")
 var textbox: Node
 var menu_number: int = 7
 var in_save: bool = false
@@ -7,7 +9,7 @@ var leaving_save: bool = false
 
 
 func _ready():
-	textbox = get_node("/root/Textbox/TextBox")
+	textbox = get_node("/root/TEXTBOX/TextBox")
 	self.visible = false
 	print("Name: " + self.name)
 
@@ -18,6 +20,14 @@ func _process(delta):
 		self.visible = true
 		menu_number = 1
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(1, 1, 1, 1))
+		if !GLOBAL_VARS.get_flag("edevice"):
+			get_node("VBoxContainer/Label1").text = "---"
+		else:
+			get_node("VBoxContainer/Label1").text = "E-Device"
+		if TEAM.get_team_size() == 0:
+			get_node("VBoxContainer/Label2").text = "---"
+		else:
+			get_node("VBoxContainer/Label2").text = "Party"
 	
 	if Input.is_action_just_pressed("ui_up") && self.visible:
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(0, 0, 0, 1))
@@ -39,40 +49,42 @@ func _process(delta):
 			in_save = false
 		match menu_number:
 			1:
-				self.visible = false
-				EDevice.get_node("CanvasLayer/TileMap").visible = true
-				menu_number = 7
-				get_node("VBoxContainer/Label" + String(2)).add_color_override("font_color",Color(0, 0, 0, 1))
+				if GLOBAL_VARS.get_flag("edevice"):
+					self.visible = false
+					E_DEVICE.get_node("CanvasLayer/TileMap").visible = true
+					menu_number = 7
+					get_node("VBoxContainer/Label" + String(2)).add_color_override("font_color",Color(0, 0, 0, 1))
 			2:
-				self.visible = false
-				TeamScreen.reboot()
-				TeamScreen.show_items()
-				menu_number = 7
-				get_node("VBoxContainer/Label" + String(2)).add_color_override("font_color",Color(0, 0, 0, 1))
+				if TEAM.get_team_size() != 0:
+					self.visible = false
+					CREATURE_MENU.reboot()
+					CREATURE_MENU.show_items()
+					menu_number = 7
+					get_node("VBoxContainer/Label" + String(2)).add_color_override("font_color",Color(0, 0, 0, 1))
 			3:
 				self.visible = false
-				bag.visible = true
-				bag.offset = 0
-				bag.select = 0
-				bag.refresh()
+				BAG.visible = true
+				BAG.offset = 0
+				BAG.select = 0
+				BAG.refresh()
 				menu_number = 7
 				get_node("VBoxContainer/Label" + String(3)).add_color_override("font_color",Color(0, 0, 0, 1))
 			4:
 				self.visible = false
-				Battlercard.get_node("CanvasLayer").visible = true
-				Battlercard.get_node("CanvasLayer/TileMap").visible = true
+				BATTLER_CARD.get_node("CanvasLayer").visible = true
+				BATTLER_CARD.get_node("CanvasLayer/TileMap").visible = true
 				menu_number = 7
 				get_node("VBoxContainer/Label" + String(4)).add_color_override("font_color",Color(0, 0, 0, 1))
 			5:
 				self.visible = false
 				menu_number = 7
 				yield(get_tree(), "idle_frame")
-				Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Will you save the game?")
-				var result: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
+				YES_NO.get_node("CanvasLayer/QuestionLabel").ask_question("Will you save the game?")
+				var result: bool = yield(YES_NO.get_node("CanvasLayer/QuestionLabel"), "answer")
 				print("Signal Received")
 				get_node("VBoxContainer/Label" + String(5)).add_color_override("font_color",Color(0, 0, 0, 1))
 				if result:
-					var save: String = to_json(GlobalVars.serialize_save())
+					var save: String = to_json(GLOBAL_VARS.serialize_save())
 					print(save)
 					var save_file: File = File.new()
 					print("Could open?")
@@ -88,7 +100,7 @@ func _process(delta):
 					leaving_save = false
 					textbox.get_node("VBoxContainer/Label").text = ""
 					textbox.visible = false
-				GlobalVars.cutscenePlaying = false
+				GLOBAL_VARS.cutscenePlaying = false
 			6:
 				self.visible = false
 				menu_number = 7

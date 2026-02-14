@@ -34,14 +34,14 @@ func reboot():
 	hide_items()
 	labels = [get_node("CanvasLayer/VBoxContainer/Label"), get_node("CanvasLayer/VBoxContainer/Label2"), get_node("CanvasLayer/VBoxContainer/Label3"), get_node("CanvasLayer/VBoxContainer/Label4"), get_node("CanvasLayer/VBoxContainer/Label5"), get_node("CanvasLayer/VBoxContainer/Label6"), get_node("CanvasLayer/VBoxContainer/Label7")]
 	dictionaries = load("res://creatures.tres").data
-	set_texts(team.team)
+	set_texts(TEAM.team)
 	creatures = get_length_of_creature_list(get_texts(labels))
 
 func better_modulus(value: int, modulus: int) -> int:
 	return (value % modulus) if value >= 0 || modulus == 1 else (value % modulus) + modulus
 
 func set_texts(array: Array):
-	print(team.team.size())
+	print(TEAM.team.size())
 	for creature in 7:
 		print(creature)
 		if array[creature] == null:
@@ -100,13 +100,13 @@ func _process(delta: float):
 	if get_node("CanvasLayer").visible && !in_details && !first_frame:
 		if Input.is_action_just_pressed("ui_down"):
 			creature += 1
-			creature = better_modulus(creature, size_without_nulls(team.team))
+			creature = better_modulus(creature, size_without_nulls(TEAM.team))
 		if Input.is_action_just_pressed("ui_up"):
 			creature -= 1
-			creature = better_modulus(creature, size_without_nulls(team.team))
+			creature = better_modulus(creature, size_without_nulls(TEAM.team))
 		if Input.is_action_just_pressed("ui_cancel") && !switching:
 			hide_items()
-			GlobalVars.cutscenePlaying = false
+			GLOBAL_VARS.cutscenePlaying = false
 			creature = 0
 			first_frame = true
 		if Input.is_action_just_pressed("ui_accept") && !switching:
@@ -122,9 +122,9 @@ func _process(delta: float):
 			switch_origin = creature
 			labels[creature].add_color_override("font_color", Color(1, 0, 0))
 		if Input.is_action_just_pressed("ui_left") && switching:
-			tempswitch = team.team[switch_origin]
-			team.team[switch_origin] = team.team[creature]
-			team.team[creature] = tempswitch
+			tempswitch = TEAM.team[switch_origin]
+			TEAM.team[switch_origin] = TEAM.team[creature]
+			TEAM.team[creature] = tempswitch
 			switching = false
 			switch_origin = 0
 			reboot()

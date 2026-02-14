@@ -1,5 +1,4 @@
 extends Node
-
 class_name ElecreeStatic
 
 static func level_up(elecree: Elecree):

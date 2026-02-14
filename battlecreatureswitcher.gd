@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name CreatureSwitcher
 
 var page: int = 0
 var select: int = 1
@@ -18,7 +19,7 @@ func get_attack(pg: int, number: int) -> String:
 			return get_parent().get_node("PlayerElecree").data.attacks[order - 1]
 
 func get_creature_and_deets(number: int) -> String:
-	var creature: Elecree = team.team[number - 1]
+	var creature: Elecree = TEAM.team[number - 1]
 	var status: String = ""
 
 	if creature == null:
@@ -71,7 +72,7 @@ func _process(delta):
 	get_node("VBoxContainer/Label7").add_color_override("font_color", Color(1, 1, 1) if select == 7 else Color(0, 0, 0))
 
 func switch_creature():
-	if get_parent().get_node("PlayerElecree").data != team.team[select - 1] && team.team[select - 1].currenthp > 0: # Do later: Summary before switching
+	if get_parent().get_node("PlayerElecree").data != TEAM.team[select - 1] && TEAM.team[select - 1].currenthp > 0: # Do later: Summary before switching
 			print("Running switching operation")
 			visible = false
 			get_node("TileMap").visible = false

@@ -9,20 +9,115 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "CanvasLayer",
+"class": "AttackSelector",
+"language": "GDScript",
+"path": "res://attack_selector_hide_on_start.gd"
+}, {
+"base": "Node2D",
+"class": "Bag",
+"language": "GDScript",
+"path": "res://bag.gd"
+}, {
+"base": "CanvasLayer",
+"class": "BattleBag",
+"language": "GDScript",
+"path": "res://battlebag.gd"
+}, {
+"base": "TileMap",
+"class": "BattleEDevice",
+"language": "GDScript",
+"path": "res://edeviceinbattle.gd"
+}, {
+"base": "Node2D",
+"class": "BattleManager",
+"language": "GDScript",
+"path": "res://infoboxes.gd"
+}, {
+"base": "Label",
+"class": "BattlerCard",
+"language": "GDScript",
+"path": "res://battlercard.gd"
+}, {
+"base": "Area2D",
+"class": "BoxTerminal",
+"language": "GDScript",
+"path": "res://boxterm.gd"
+}, {
+"base": "Node2D",
+"class": "BoxUI",
+"language": "GDScript",
+"path": "res://boxui.gd"
+}, {
+"base": "Node",
+"class": "CharCreator",
+"language": "GDScript",
+"path": "res://charcreator.gd"
+}, {
+"base": "AnimationPlayer",
+"class": "CharMove",
+"language": "GDScript",
+"path": "res://charmove.gd"
+}, {
+"base": "Node2D",
+"class": "CharSelector",
+"language": "GDScript",
+"path": "res://charselector.gd"
+}, {
+"base": "Node2D",
+"class": "CheckCreature",
+"language": "GDScript",
+"path": "res://check_creature.gd"
+}, {
 "base": "Node2D",
 "class": "CreatureDetails",
 "language": "GDScript",
 "path": "res://creature_details.gd"
 }, {
 "base": "Node2D",
+"class": "CreatureDetailsBattle",
+"language": "GDScript",
+"path": "res://creature_details_battle.gd"
+}, {
+"base": "Node2D",
+"class": "CreatureDetailsBox",
+"language": "GDScript",
+"path": "res://creature_details_box.gd"
+}, {
+"base": "Node2D",
 "class": "CreatureSelector",
 "language": "GDScript",
 "path": "res://creature_selector.gd"
+}, {
+"base": "CanvasLayer",
+"class": "CreatureSwitcher",
+"language": "GDScript",
+"path": "res://battlecreatureswitcher.gd"
 }, {
 "base": "Resource",
 "class": "Creatures",
 "language": "GDScript",
 "path": "res://creatures.gd"
+}, {
+"base": "Area2D",
+"class": "DevLOper",
+"language": "GDScript",
+"path": "res://road1.devloper.gd"
+}, {
+"base": "Area2D",
+"class": "ECenterClerk",
+"language": "GDScript",
+"path": "res://ecenterclerk.gd"
+}, {
+"base": "TileMap",
+"class": "EDevice",
+"language": "GDScript",
+"path": "res://edevice.gd"
+}, {
+"base": "Area2D",
+"class": "EMartClerk",
+"language": "GDScript",
+"path": "res://emartclerk.gd"
 }, {
 "base": "Resource",
 "class": "Elecree",
@@ -39,19 +134,182 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://elecreestatic.gd"
 }, {
+"base": "Resource",
+"class": "ElecreeTemplate",
+"language": "GDScript",
+"path": "res://elecree_template.gd"
+}, {
+"base": "TileMap",
+"class": "GetTileType",
+"language": "GDScript",
+"path": "res://getTileType.gd"
+}, {
+"base": "Node",
+"class": "Globals",
+"language": "GDScript",
+"path": "res://globalVars.gd"
+}, {
+"base": "CanvasLayer",
+"class": "ItemTosser",
+"language": "GDScript",
+"path": "res://itemtosser.gd"
+}, {
 "base": "Object",
 "class": "LevelUp",
 "language": "GDScript",
 "path": "res://levelup.gd"
+}, {
+"base": "Area2D",
+"class": "LoreSign",
+"language": "GDScript",
+"path": "res://loresign.gd"
+}, {
+"base": "TileMap",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://menu.gd"
+}, {
+"base": "Node2D",
+"class": "Mart",
+"language": "GDScript",
+"path": "res://mart.gd"
+}, {
+"base": "CanvasLayer",
+"class": "MoveSelector",
+"language": "GDScript",
+"path": "res://move_selector.gd"
+}, {
+"base": "Node2D",
+"class": "NewOrLoad",
+"language": "GDScript",
+"path": "res://new_or_load.gd"
+}, {
+"base": "Node2D",
+"class": "NicknamingScript",
+"language": "GDScript",
+"path": "res://nicknaming.gd"
+}, {
+"base": "Node2D",
+"class": "OpponentAI",
+"language": "GDScript",
+"path": "res://opponent.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerElecree",
+"language": "GDScript",
+"path": "res://player_elecree.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PlayerMove",
+"language": "GDScript",
+"path": "res://playermove.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "RebirthElecreeBuildingCutscene",
+"language": "GDScript",
+"path": "res://rebirth_e_center_cutscene.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "RebirthTownFalseStart",
+"language": "GDScript",
+"path": "res://rebirth_town_false_start.gd"
+}, {
+"base": "Node",
+"class": "RebirthTownScript",
+"language": "GDScript",
+"path": "res://rebirthTown.gd"
+}, {
+"base": "Node2D",
+"class": "StarterSelector",
+"language": "GDScript",
+"path": "res://starting_creature_selector.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "StartingCutscene",
+"language": "GDScript",
+"path": "res://starting_cutscene.gd"
+}, {
+"base": "Node2D",
+"class": "StartingScript",
+"language": "GDScript",
+"path": "res://new_script.gd"
+}, {
+"base": "Node2D",
+"class": "TeamScript",
+"language": "GDScript",
+"path": "res://team.gd"
+}, {
+"base": "CanvasLayer",
+"class": "TextboxManager",
+"language": "GDScript",
+"path": "res://textbox_manager.gd"
+}, {
+"base": "CanvasLayer",
+"class": "UseOnCreature",
+"language": "GDScript",
+"path": "res://useoncreature.gd"
+}, {
+"base": "Node",
+"class": "Warp",
+"language": "GDScript",
+"path": "res://warp.gd"
+}, {
+"base": "Label",
+"class": "YesnoScript",
+"language": "GDScript",
+"path": "res://question.gd"
 } ]
 _global_script_class_icons={
+"AttackSelector": "",
+"Bag": "",
+"BattleBag": "",
+"BattleEDevice": "",
+"BattleManager": "",
+"BattlerCard": "",
+"BoxTerminal": "",
+"BoxUI": "",
+"CharCreator": "",
+"CharMove": "",
+"CharSelector": "",
+"CheckCreature": "",
 "CreatureDetails": "",
+"CreatureDetailsBattle": "",
+"CreatureDetailsBox": "",
 "CreatureSelector": "",
+"CreatureSwitcher": "",
 "Creatures": "",
+"DevLOper": "",
+"ECenterClerk": "",
+"EDevice": "",
+"EMartClerk": "",
 "Elecree": "",
 "ElecreeNode": "",
 "ElecreeStatic": "",
-"LevelUp": ""
+"ElecreeTemplate": "",
+"GetTileType": "",
+"Globals": "",
+"ItemTosser": "",
+"LevelUp": "",
+"LoreSign": "",
+"MainMenu": "",
+"Mart": "",
+"MoveSelector": "",
+"NewOrLoad": "",
+"NicknamingScript": "",
+"OpponentAI": "",
+"PlayerElecree": "",
+"PlayerMove": "",
+"RebirthElecreeBuildingCutscene": "",
+"RebirthTownFalseStart": "",
+"RebirthTownScript": "",
+"StarterSelector": "",
+"StartingCutscene": "",
+"StartingScript": "",
+"TeamScript": "",
+"TextboxManager": "",
+"UseOnCreature": "",
+"Warp": "",
+"YesnoScript": ""
 }
 
 [application]
@@ -63,19 +321,20 @@ config/icon="res://elecree_e.png"
 [autoload]
 
 Global="*res://Global.tscn"
-GlobalVars="*res://globalVars.gd"
-Textbox="*res://textbox.tscn"
+GLOBAL_VARS="*res://globalVars.gd"
+TEXTBOX="*res://textbox.tscn"
 TextboxScript="*res://textbox_script.gd"
-team="*res://team.tscn"
-TeamScreen="*res://creaturemenu.tscn"
-bag="*res://bag.tscn"
+TEAM="*res://team.tscn"
+CREATURE_MENU="*res://creaturemenu.tscn"
+BAG="*res://bag.tscn"
 Fps="res://fps.tscn"
-Battlercard="*res://battlercard.tscn"
-Yesno="*res://yesno.tscn"
-EDevice="*res://edevice.tscn"
-Nicknaming="*res://nicknaming.tscn"
-Creaturebox="*res://creaturebox.tscn"
-Mart="*res://mart.tscn"
+BATTLER_CARD="*res://battlercard.tscn"
+YES_NO="*res://yesno.tscn"
+E_DEVICE="*res://edevice.tscn"
+NICKNAMING="*res://nicknaming.tscn"
+CREATURE_BOX="*res://creaturebox.tscn"
+MART="*res://mart.tscn"
+STARTER_SELECTOR="*res://starting_creature.tscn"
 
 [display]
 

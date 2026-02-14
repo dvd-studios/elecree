@@ -1,8 +1,10 @@
 extends Area2D
+class_name BoxTerminal
+
 var interactNumber: int
-onready var global = get_node("/root/GlobalVars")
-onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
+onready var global = get_node("/root/GLOBAL_VARS")
+onready var textbox = get_node("/root/TEXTBOX/TextBox")
+onready var textboxlabel = get_node("/root/TEXTBOX/TextBox/VBoxContainer/Label")
 
 
 func _ready():
@@ -23,7 +25,7 @@ func _process(delta):
 			elif interactNumber == 1:
 				textboxlabel.text = ""
 				textbox.visible = false
-				Creaturebox.wait_and_show()
+				CREATURE_BOX.wait_and_show()
 				interactNumber = 0
 	if Input.is_action_just_pressed("ui_cancel"):
 		print("Closest Interactable:" + global.closestInteractable)

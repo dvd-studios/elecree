@@ -1,5 +1,4 @@
 extends Object
-
 class_name LevelUp
 
 static func get_elecree(hp, at, df, sp, st, lv, id) -> Elecree:

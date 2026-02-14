@@ -1,4 +1,5 @@
 extends Node2D
+class_name Mart
 
 var select: int = 0
 var offset: int = 0
@@ -45,7 +46,7 @@ func generate_current_items():
 		current_items.push_back(item)
 		quantities.push_back(0)
 	for i in 10: # Final amount of medallions 
-		if GlobalVars.get_flag("passed_gate_" + str(i)):
+		if GLOBAL_VARS.get_flag("passed_gate_" + str(i)):
 			for item in items[i]:
 				current_items.push_back(item)
 				quantities.push_back(0)
@@ -92,26 +93,26 @@ func _process(delta: float):
 				quantities[total] -= 1
 		
 		if Input.is_action_just_pressed("ui_accept"):
-			if get_total_due() > GlobalVars.credits:
+			if get_total_due() > GLOBAL_VARS.credits:
 				get_node("CanvasLayer/VBoxContainer/YourMoney").add_color_override("font_color", Color(1, 0, 0))
 				yield(get_tree().create_timer(5), "timeout")
 				get_node("CanvasLayer/VBoxContainer/YourMoney").add_color_override("font_color", Color(0, 0, 0))
 			else:
 				asking = true
-				Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("TOTAL DUE: Cr" + str(get_total_due()) + "\nAccept?")
-				var approved: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
+				YES_NO.get_node("CanvasLayer/QuestionLabel").ask_question("TOTAL DUE: Cr" + str(get_total_due()) + "\nAccept?")
+				var approved: bool = yield(YES_NO.get_node("CanvasLayer/QuestionLabel"), "answer")
 				asking = false
 				if approved:
-					GlobalVars.credits -= get_total_due()
+					GLOBAL_VARS.credits -= get_total_due()
 					for i in current_items.size():
 						var current_item: MartItem = current_items[i]
 						for j in quantities[i]:
-							bag.item_bag.push_back(current_item.name)
+							BAG.item_bag.push_back(current_item.name)
 					generate_current_items()
 		
 		if Input.is_action_just_pressed("ui_cancel"):
 			visible = false
-			GlobalVars.cutscenePlaying = false
+			GLOBAL_VARS.cutscenePlaying = false
 		
 		for l in labels.size():
 			if current_items.size() > l + offset:
@@ -125,7 +126,7 @@ func _process(delta: float):
 				labels[l].add_color_override("font_color", Color(0, 0, 0))
 		
 		get_node("CanvasLayer/VBoxContainer/TotalDue").text = "TOTAL DUE: Cr" + str(get_total_due())
-		get_node("CanvasLayer/VBoxContainer/YourMoney").text = "YOUR MONEY: Cr" + str(GlobalVars.credits)
+		get_node("CanvasLayer/VBoxContainer/YourMoney").text = "YOUR MONEY: Cr" + str(GLOBAL_VARS.credits)
 		
 func wait_and_show():
 	yield(get_tree(), "idle_frame")

@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name ItemTosser
 
 var tossable: int
 var how_many_items: int = 0

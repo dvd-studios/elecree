@@ -1,4 +1,5 @@
 extends Node2D
+class_name Bag
 
 var item_bag: Array = ["Capture Cube", "Capture Cube", "Super Capture Cube", "Stamina Potion"]
 var key_items: Array = ["Grappling Hook"]
@@ -110,14 +111,14 @@ func _process(delta: float):
 			match page:
 				0:
 					var item: String = get_node("CanvasLayer/RichTextLabel").text.split("\n")[select].split(" (")[0]
-					print("Usability:" + str(GlobalVars.get_usability_for_item(item)))
-					if GlobalVars.get_usability_for_item(item) & 5 == 5:
+					print("Usability:" + str(GLOBAL_VARS.get_usability_for_item(item)))
+					if GLOBAL_VARS.get_usability_for_item(item) & 5 == 5:
 						get_node("UseOnCreature").show_items(item)
 				1:
 					get_node("TosserLayer").toss_how_many(get_node("CanvasLayer/RichTextLabel").text.split("\n")[select].split(" (")[0], int(get_node("CanvasLayer/RichTextLabel").text.split("\n")[select].split("(")[1].substr(1).split(")")[0]))
 		if Input.is_action_just_pressed("ui_cancel"):
 			visible = false
-			GlobalVars.cutscenePlaying = false
+			GLOBAL_VARS.cutscenePlaying = false
 	if visible == first_frame:
 		page = 0
 		first_frame = !visible

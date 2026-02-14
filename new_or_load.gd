@@ -1,4 +1,5 @@
 extends Node2D
+class_name NewOrLoad
 
 var option: int = 1
 var file_exists: bool = false
@@ -30,8 +31,8 @@ func _process(delta: float):
 		option = 1
 	if Input.is_action_just_pressed("ui_accept"):
 		if option == 0:
-			GlobalVars.cutscenePlaying = false
-			GlobalVars.deserialize_save()
+			GLOBAL_VARS.cutscenePlaying = false
+			GLOBAL_VARS.deserialize_save()
 		else:
 			if file_exists && get_node("VBoxContainer/Label3").visible == false:
 				get_node("VBoxContainer/Label3").visible = true

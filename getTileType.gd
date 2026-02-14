@@ -1,8 +1,10 @@
 extends TileMap
+class_name GetTileType
+
 var currentTile
 var randomEncounter
 var cdata = load("creatures.tres")
-onready var global = get_node("/root/GlobalVars")
+onready var global = get_node("/root/GLOBAL_VARS")
 var how_many_tries: int = 0
 # Declare member variables here. Examples:
 # var a = 2

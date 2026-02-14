@@ -1,21 +1,28 @@
 extends Node2D
+class_name BattleManager
 
 signal z_press()
 var lock: int = 0
 var lock_cache: int = 0
 var flavortext: bool = false
-onready var team = get_node("/root/team")
-onready var global = get_node("/root/GlobalVars")
+var battler_name: String
+var win_flag: String
+onready var team = get_node("/root/TEAM")
 onready var dict = load("res://creatures.tres").data
 onready var player = $PlayerElecree.data
 onready var opponent = $OpposingElecree.data
 var creatures_that_will_gain_exp: Array = []
+var winning_sequence: bool = false
 
 func _ready():
-	
 	creatures_that_will_gain_exp.push_back(player)
-	
-	print($OpposingElecree.data)
+	if GLOBAL_VARS.wild:
+		yield(display_text(["A wild " + opponent.get_name() + " appeared!"]), "completed")
+	else:
+		battler_name = GLOBAL_VARS.battler_name
+		win_flag = GLOBAL_VARS.win_flag
+		yield(display_text([battler_name + " is initiating a battle!", opponent.get_name() + " was sent out!"]), "completed")
+	yield(display_text(["Go, " + player.get_name() + "!"]), "completed")
 
 func _process(delta):
 	if lock_cache != lock:
@@ -49,22 +56,22 @@ func _process(delta):
 	if player.currenthp <= 0 && !flavortext && lock != 2:
 		yield(display_text([player.get_name() + " is defeated!"]), "completed")
 		if is_player_defeated():
-			yield(display_text([GlobalVars.player_name + " has no more usable Elecree!", GlobalVars.player_name + " lost the battle!"]), "completed")
+			yield(display_text([GLOBAL_VARS.player_name + " has no more usable Elecree!", GLOBAL_VARS.player_name + " lost the battle!"]), "completed")
 			player.recharge = 0
-			for elc in team.team:
+			for elc in TEAM.team:
 				if elc != null:
 					elc.heal()
-			global.cutscenePlaying = false
-			#team.team[0] = player.duplicate(true)
-			global._warpPlayer(Vector2(64, 88), global.last_e_center)
+			GLOBAL_VARS.cutscenePlaying = false
+			#TEAM.TEAM[0] = player.duplicate(true)
+			GLOBAL_VARS._warpPlayer(Vector2(64, 88), GLOBAL_VARS.last_e_center)
 		else:
 			lock = 2
 			get_node("CreatureSwitcher").wait_and_show()
 	
 #	if opponent.currenthp <= 0 && !flavortext:
 #		player.recharge = 0
-#		#team.team[0] = player.duplicate()
-#		print(team.team[0].currenthp)
+#		#TEAM.TEAM[0] = player.duplicate()
+#		print(TEAM.TEAM[0].currenthp)
 #		global.cutscenePlaying = false
 #		global._warpPlayer(global.last_pos, global.last_loc)
 	
@@ -96,7 +103,7 @@ func _process(delta):
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").add_color_override("font_color", Color(0.0, 0.0, 0.0))
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").add_color_override("font_color", Color(0.0, 0.0, 0.0))
 	
-	get_node("CanvasLayer/OpponentInfoBox/Name").text = opponent.get_name() if !GlobalVars.wild else dict[opponent.species]["name"]
+	get_node("CanvasLayer/OpponentInfoBox/Name").text = opponent.get_name() if !GLOBAL_VARS.wild else dict[opponent.species]["name"]
 	get_node("CanvasLayer/OpponentInfoBox/Level").text = ":L" + str(opponent.level)
 	get_node("CanvasLayer/OpponentInfoBox/Status").text = Creatures.status_to_string(opponent.status)
 	get_node("CanvasLayer/OpponentInfoBox/Recharge").text = str(int(opponent.recharge))
@@ -131,19 +138,23 @@ func display_text(text: Array):
 	flavortext = false
 
 func is_player_defeated() -> bool:
-	for e in team.team:
+	for e in TEAM.team:
 		if e != null && e.currenthp > 0:
 			return false
 	return true
 
 func win_battle():
-	for i in team.team:
+	winning_sequence = true
+	if !GLOBAL_VARS.wild:
+		yield(display_text(["You defeated " + battler_name + "!"]), "completed")
+		GLOBAL_VARS.set_flag(win_flag, true)
+	for i in TEAM.team:
 		if i != null:
 			i.recharge = 0
 			i.partheal()
 			if i.status == 3:
 				i.status = i.last_status
-	#team.team[0] = player.duplicate()
-	#print(team.team[0].currenthp)
-	global.cutscenePlaying = false
-	global._warpPlayer(global.last_pos, global.last_loc)
+	#TEAM.TEAM[0] = player.duplicate()
+	#print(TEAM.TEAM[0].currenthp)
+	GLOBAL_VARS.cutscenePlaying = false
+	GLOBAL_VARS._warpPlayer(GLOBAL_VARS.last_pos, GLOBAL_VARS.last_loc)
