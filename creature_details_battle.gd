@@ -1,4 +1,5 @@
 extends Node2D
+class_name CreatureDetailsBattle
 
 var creature: int
 
@@ -16,7 +17,7 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("ui_cancel"):
 			hide()
 		if Input.is_action_just_pressed("ui_down"):
-			var ecreature: Elecree = team.team[creature]
+			var ecreature: Elecree = TEAM.team[creature]
 			if attack == 5:
 				#print("offsetting")
 				offset += 1 if attack + offset + 1 <= ecreature.attacks.size() else 0
@@ -24,7 +25,7 @@ func _process(delta: float):
 				attack += 1 if attack + offset + 1 <= ecreature.attacks.size() else 0
 			get_node("Attacks").bbcode_text = color_lines(attack)
 		if Input.is_action_just_pressed("ui_up"):
-			var ecreature: Elecree = team.team[creature]
+			var ecreature: Elecree = TEAM.team[creature]
 			if attack == 1:
 				#print("offsetting")
 				offset -= 1 if attack + offset - 1 > 0 else 0
@@ -38,7 +39,7 @@ func creature_changed():
 	attack = 1
 	offset = 0
 	print(creature)
-	var ecreature: Elecree = team.team[creature]
+	var ecreature: Elecree = TEAM.team[creature]
 	get_node("Stats").text = "HP: " + ("0" if ecreature.currenthp <= 0 else str(ecreature.currenthp)) + "/" + str(ecreature.stathp) + "\n" + "AT: " + str(ecreature.statat) + "\n" + "DF: " + str(ecreature.statdf) + "\n" + "SP: " + str(ecreature.statsp) + "\n" + "ST: " + str(ecreature.currentst) + "/" + str(ecreature.statst) 
 	get_node("ID").text = "No. " + str(ecreature.species)
 	get_node("NameAndLevel").text = ecreature.get_name() + " :L" + str(ecreature.level) + " " + (Creatures.status_to_string(ecreature.status) if ecreature.currenthp > 0 else "KO") + "\n" + "EXP: " + str(ecreature.experience) + " NEXT: " + str(Creatures.exp_to_next_level(ecreature.level)) 
@@ -48,13 +49,13 @@ func creature_changed():
 func change_creature(by: int):
 	creature += by
 	#print("-5 % 2 = " + str(-5 % 2))
-	creature = (creature % team.get_team_size()) if creature >= 0 || team.get_team_size() == 1 else (creature % team.get_team_size()) + team.get_team_size()
+	creature = (creature % TEAM.get_team_size()) if creature >= 0 || TEAM.get_team_size() == 1 else (creature % TEAM.get_team_size()) + TEAM.get_team_size()
 	get_parent().select = creature + 1
 	print("creature is " + str(creature))
 	creature_changed()
 
 func color_lines(number: int) -> String:
-	var attack_list: String = get_first_five_attacks(team.team[creature], offset)
+	var attack_list: String = get_first_five_attacks(TEAM.team[creature], offset)
 	var arr: Array = attack_list.split("\n")
 	for s in arr.size():
 		if number == s:

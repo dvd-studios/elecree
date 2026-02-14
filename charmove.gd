@@ -1,5 +1,7 @@
 extends AnimationPlayer
-onready var global = get_node("/root/GlobalVars")
+class_name CharMove
+
+onready var global = get_node("/root/GLOBAL_VARS")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -9,7 +11,7 @@ onready var global = get_node("/root/GlobalVars")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Initialized charmove.gd")
-	if GlobalVars.playing_as_ice:
+	if GLOBAL_VARS.playing_as_ice:
 		get_parent().texture = load("res://OverSprites/sheet_ice.png")
 	else:
 		get_parent().texture = load("res://OverSprites/sheet_fire.png")

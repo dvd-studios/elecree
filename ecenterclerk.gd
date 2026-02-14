@@ -1,8 +1,10 @@
 extends Area2D
+class_name ECenterClerk
+
 var interactNumber: int
-onready var global = get_node("/root/GlobalVars")
-onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
+onready var global = get_node("/root/GLOBAL_VARS")
+onready var textbox = get_node("/root/TEXTBOX/TextBox")
+onready var textboxlabel = get_node("/root/TEXTBOX/TextBox/VBoxContainer/Label")
 
 var cubes: Array
 var healing: bool
@@ -27,18 +29,18 @@ func _process(delta):
 			elif interactNumber == 1:
 				print("Interact is 1 and started")
 				asking = true
-				Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like me to heal your creatures?")
-				healing = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
+				YES_NO.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like me to heal your creatures?")
+				healing = yield(YES_NO.get_node("CanvasLayer/QuestionLabel"), "answer")
 				yield(get_tree(), "idle_frame")
 				print("Healing:" + str(healing))
 				interactNumber += 1
 				if healing:
-					GlobalVars.last_e_center = get_tree().current_scene.filename
+					GLOBAL_VARS.last_e_center = get_tree().current_scene.filename
 					textbox.visible = false
 					get_node("Sprite").frame = 6
-					for elc in team.team.size():
-						if team.team[elc] != null:
-							team.team[elc].heal()
+					for elc in TEAM.team.size():
+						if TEAM.team[elc] != null:
+							TEAM.team[elc].heal()
 							cubes[elc].visible = true
 						yield(get_tree().create_timer(0.5), "timeout")
 					yield(get_tree().create_timer(0.5), "timeout")
@@ -60,7 +62,7 @@ func _process(delta):
 					asking = false
 					interactNumber = 0
 					textbox.visible = false
-					GlobalVars.cutscenePlaying = false
+					GLOBAL_VARS.cutscenePlaying = false
 			elif interactNumber == 2:
 				textboxlabel.text = "Your creatures have been healed to full health."
 				interactNumber += 1

@@ -1,5 +1,7 @@
 extends Node
-onready var global = get_node("/root/GlobalVars")
+class_name RebirthTownScript
+
+onready var global = get_node("/root/GLOBAL_VARS")
 
 # Declare member variables here. Examples:
 # var a = 2

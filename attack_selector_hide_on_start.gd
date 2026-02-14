@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name AttackSelector
 
 var page: int = 0
 var select: int = 1

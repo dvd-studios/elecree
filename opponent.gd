@@ -1,5 +1,7 @@
 extends Node2D
-onready var global = get_node("/root/GlobalVars")
+class_name OpponentAI
+
+onready var global = get_node("/root/GLOBAL_VARS")
 onready var wildgen = global.wildgen
 
 # Arrays for the AI
@@ -25,7 +27,13 @@ func _ready():
 	if global.wild:
 		print(wildgen)
 		party = [Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6]), null, null, null, null, null, null]
-		data = party[0]
+	else:
+		for i in GLOBAL_VARS.opponent_creatures.size():
+			if GLOBAL_VARS.opponent_creatures[i] is ElecreeTemplate:
+				party[i] = GLOBAL_VARS.opponent_creatures[i].to_elecree()
+			elif GLOBAL_VARS.opponent_creatures[i] is Elecree:
+				party[i] = GLOBAL_VARS.opponent_creatures[i]
+	data = party[0]
 
 func get_attack_scores() -> Array:
 	var attacks: Array = data.attacks.duplicate()
@@ -95,7 +103,7 @@ func _process(delta: float):
 	data.currentat = ceil(data.floatat)
 	data.currentdf = ceil(data.floatdf)
 	data.currentsp = ceil(data.floatsp)
-	if data.currenthp <= 0 && !displaying_text && get_parent().get_node("PlayerElecree").data.currenthp > 0:
+	if data.currenthp <= 0 && !displaying_text && get_parent().get_node("PlayerElecree").data.currenthp > 0 && !get_parent().winning_sequence:
 		displaying_text = true
 		while get_parent().lock != 0:
 			yield(get_tree(), "idle_frame")

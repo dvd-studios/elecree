@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name TextboxManager
 
 func show_text(text: String):
 	get_node("TextBox").show()

@@ -1,4 +1,6 @@
 extends Node
+class_name Globals
+
 var currentScene: String
 #var destinationScene: String
 var posMod: Vector2
@@ -12,6 +14,9 @@ var last_pos: Vector2
 var last_loc: String
 var wildgen: Array
 var wild: bool
+var win_flag: String
+var battler_name: String
+var opponent_creatures: Array
 var e_device_caught: Array = []
 var real_time: float = 0
 var time: String
@@ -58,25 +63,25 @@ func deserialize_save():
 	real_time = dict["real_time"]
 	credits = dict["credits"]
 	player_name = dict["player_name"]
-	team.team = []
+	TEAM.team = []
 	for elc in dict["team"]:
 		if elc != null:
 			var creature: Elecree = Elecree.new(0,0,0,0,0,0,0)
-			team.team.push_back(creature)
+			TEAM.team.push_back(creature)
 			creature.deserialize(elc)
 		else:
-			team.team.push_back(null)
+			TEAM.team.push_back(null)
 	_warpPlayer(Vector2(dict["x_position"], dict["y_position"]), dict["current_scene"])
 	playing_as_ice = dict["playing_as_ice"]
 	if playing_as_ice:
-		Battlercard.get_node("CanvasLayer/Sprite").texture = load("res://OverSprites/sheet_ice.png")
-	bag.item_bag = dict["bag"]
-	bag.key_items = dict["key_items"]
+		BATTLER_CARD.get_node("CanvasLayer/Sprite").texture = load("res://OverSprites/sheet_ice.png")
+	BAG.item_bag = dict["bag"]
+	BAG.key_items = dict["key_items"]
 	flags = dict["flags"]
-	team.creature_box = []
+	TEAM.creature_box = []
 	for elc in dict["creature_box"]:
 		var creature: Elecree = Elecree.new(0,0,0,0,0,0,0)
-		team.creature_box.push_back(creature)
+		TEAM.creature_box.push_back(creature)
 		creature.deserialize(elc)
 
 func serialize_save() -> Dictionary:
@@ -92,16 +97,16 @@ func serialize_save() -> Dictionary:
 	output["y_position"] = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position.y
 	output["playing_as_ice"] = playing_as_ice
 	output["team"] = []
-	for elc in team.team:
+	for elc in TEAM.team:
 		if elc != null:
 			output["team"].push_back(elc.serialize())
 		else:
 			output["team"].push_back(null)
-	output["bag"] = bag.item_bag
+	output["bag"] = BAG.item_bag
 	output["flags"] = flags
-	output["key_items"] = bag.key_items
+	output["key_items"] = BAG.key_items
 	output["creature_box"] = []
-	for elc in team.creature_box:
+	for elc in TEAM.creature_box:
 		output["creature_box"].push_back(elc.serialize())
 	return output
 
@@ -125,6 +130,16 @@ func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id:
 	get_tree().change_scene("res://battle.tscn")
 	wild = true
 	wildgen = [hp, at, df, sp, st, lv, id]
+
+func start_battler_battle(creatures: Array, lastPos: Vector2, lastLoc: String, win_flag: String, battler_name: String):
+	cutscenePlaying = true
+	last_pos = lastPos
+	last_loc = lastLoc
+	self.win_flag = win_flag
+	self.battler_name = battler_name
+	opponent_creatures = creatures
+	get_tree().change_scene("res://battle.tscn")
+	wild = false
 
 func get_flag(what: String) -> bool:
 	return flags.has(what)
@@ -154,7 +169,7 @@ func _process(delta):
 		deserialize_save()
 	
 	if Input.is_key_pressed(KEY_B):
-		print("Bag is open: " + String(bag.visible))
+		print("Bag is open: " + String(BAG.visible))
 		
 	
 	if Input.is_key_pressed(KEY_C):

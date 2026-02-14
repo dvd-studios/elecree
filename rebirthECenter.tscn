@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://playermove.gd" type="Script" id=1]
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://boxterm.gd" type="Script" id=9]
 [ext_resource path="res://OverSprites/sheet_emart_clerk.png" type="Texture" id=10]
 [ext_resource path="res://emartclerk.gd" type="Script" id=11]
+[ext_resource path="res://OverSprites/sheet_ice.png" type="Texture" id=12]
+[ext_resource path="res://rebirth_e_center_cutscene.gd" type="Script" id=13]
+[ext_resource path="res://OverSprites/sheet_pete.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7, 14.5 )
@@ -152,6 +155,265 @@ extents = Vector2( 20, 9.5 )
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 20, 9.5 )
 
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 6.75, 14.5 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "idle_e"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "idle_n"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "idle_s"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "idle_w"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "walk_e"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 3, 5 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "walk_n"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 6, 8 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "walk_s"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "walk_w"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 9, 11 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "idle_e"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "idle_n"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "idle_s"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "idle_w"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "walk_e"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 3, 5 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "walk_n"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 6, 8 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "walk_s"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "walk_w"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 9, 11 ]
+}
+
 [node name="rebirthEcenter" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -266,6 +528,57 @@ position = Vector2( 96, 35 )
 texture = ExtResource( 10 )
 hframes = 3
 vframes = 4
+
+[node name="CutsceneIce" type="KinematicBody2D" parent="."]
+visible = false
+position = Vector2( 32, 91 )
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneIce"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 13 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="CutsceneIce"]
+texture = ExtResource( 12 )
+hframes = 3
+vframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CutsceneIce/Sprite"]
+anims/idle_e = SubResource( 14 )
+anims/idle_n = SubResource( 15 )
+anims/idle_s = SubResource( 16 )
+anims/idle_w = SubResource( 17 )
+anims/walk_e = SubResource( 18 )
+anims/walk_n = SubResource( 19 )
+anims/walk_s = SubResource( 20 )
+anims/walk_w = SubResource( 21 )
+
+[node name="Pete" type="KinematicBody2D" parent="."]
+visible = false
+position = Vector2( 102, 89 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pete"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 13 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Pete"]
+texture = ExtResource( 14 )
+hframes = 3
+vframes = 4
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pete/Sprite"]
+anims/idle_e = SubResource( 22 )
+anims/idle_n = SubResource( 23 )
+anims/idle_s = SubResource( 24 )
+anims/idle_w = SubResource( 25 )
+anims/walk_e = SubResource( 26 )
+anims/walk_n = SubResource( 27 )
+anims/walk_s = SubResource( 28 )
+anims/walk_w = SubResource( 29 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="ECenterClerk" to="ECenterClerk" method="_on_ECenterClerk_body_entered"]

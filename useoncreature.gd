@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name UseOnCreature
 
 var creature: int
 var labels: Array
@@ -34,7 +35,7 @@ func reboot():
 	hide_items()
 	labels = [get_node("VBoxContainer/Label"), get_node("VBoxContainer/Label2"), get_node("VBoxContainer/Label3"), get_node("VBoxContainer/Label4"), get_node("VBoxContainer/Label5"), get_node("VBoxContainer/Label6"), get_node("VBoxContainer/Label7")]
 	dictionaries = load("res://creatures.tres").data
-	set_texts(team.team)
+	set_texts(TEAM.team)
 	creatures = get_length_of_creature_list(get_texts(labels))
 
 func better_modulus(value: int, modulus: int) -> int:
@@ -95,21 +96,21 @@ func _process(delta: float):
 		if use_cycle == 0:
 			if Input.is_action_just_pressed("ui_down"):
 				creature += 1
-				creature = better_modulus(creature, size_without_nulls(team.team))
+				creature = better_modulus(creature, size_without_nulls(TEAM.team))
 			if Input.is_action_just_pressed("ui_up"):
 				creature -= 1
-				creature = better_modulus(creature, size_without_nulls(team.team))
+				creature = better_modulus(creature, size_without_nulls(TEAM.team))
 			if Input.is_action_just_pressed("ui_cancel"):
 				hide_items()
-				GlobalVars.cutscenePlaying = false
+				GLOBAL_VARS.cutscenePlaying = false
 				first_frame = true
 		if Input.is_action_just_pressed("ui_accept"):
 			match use_cycle:
 				0:
-					get_node("VBoxContainer/Label8").text = "Used " + current_item + " on " + team.team[creature].get_name() + "!"
+					get_node("VBoxContainer/Label8").text = "Used " + current_item + " on " + TEAM.team[creature].get_name() + "!"
 					use_cycle += 1
 				1:
-					get_node("VBoxContainer/Label8").text = use_on_creature(current_item, team.team[creature])
+					get_node("VBoxContainer/Label8").text = use_on_creature(current_item, TEAM.team[creature])
 					use_cycle += 1
 				2:
 					get_node("VBoxContainer/Label8").text = "Use on what Elecree?"

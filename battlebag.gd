@@ -1,7 +1,8 @@
 extends CanvasLayer
+class_name BattleBag
 
-var item_bag: Array = bag.item_bag
-var key_items: Array = bag.key_items
+var item_bag: Array = BAG.item_bag
+var key_items: Array = BAG.key_items
 var bag_ui: Array
 var bag_offset: int
 var select: int
@@ -9,8 +10,9 @@ var precolor: String
 var first_frame: bool = false
 var page: int = 0
 var selecting_creature: int = 0
+var winning_sequence: bool = false
 
-var usable_items: Dictionary = bag.usable_items
+var usable_items: Dictionary = BAG.usable_items
 
 func generate_bag_ui() -> Array:
 	var items: Array
@@ -86,19 +88,19 @@ func _process(delta: float):
 			print("New select: " + str(select + bag_offset))
 		if Input.is_action_just_pressed("ui_accept") && !first_frame:
 				var item: String = get_node("RichTextLabel").text.split("\n")[select].split(" (")[0]
-				print("Usability:" + str(GlobalVars.get_usability_for_item(item)))
-				if GlobalVars.get_usability_for_item(item) & 6 == 6:
+				print("Usability:" + str(GLOBAL_VARS.get_usability_for_item(item)))
+				if GLOBAL_VARS.get_usability_for_item(item) & 6 == 6:
 					selecting_creature = 1
 					get_node("UseOnCreature").show_items(item)
-				elif GlobalVars.get_usability_for_item(item) & 2 == 2:
+				elif GLOBAL_VARS.get_usability_for_item(item) & 2 == 2:
 					hide()
 					var text_to_display = ["You used a " + item + "!"]
-					bag.item_bag.pop_at(bag.item_bag.find_last(item))
+					BAG.item_bag.pop_at(BAG.item_bag.find_last(item))
 					select = 0
 					refresh()
 					match item:
 						"Capture Cube", "Super Capture Cube":
-							if GlobalVars.wild:
+							if GLOBAL_VARS.wild:
 								var opponent: Elecree = get_parent().get_node("OpposingElecree").data
 								var captureability: float = Creatures.data[opponent.species]["captureability"]
 								match item:
@@ -113,11 +115,11 @@ func _process(delta: float):
 								text_to_display.push_back("It shakes...")
 								if capture_attempt <= captureability:
 									text_to_display.push_back("Congratulations, " + opponent.get_name() + " was caught!")
-									var team_size: int = team.get_team_size()
+									var team_size: int = TEAM.get_team_size()
 									if team_size < 7:
-										team.team[team_size] = opponent
+										TEAM.team[team_size] = opponent
 									else:
-										team.creature_box.push_back(opponent)
+										TEAM.creature_box.push_back(opponent)
 									yield(get_parent().display_text(text_to_display), "completed")
 									var player: Elecree = get_parent().get_node("PlayerElecree").data
 									for player_creature in get_parent().creatures_that_will_gain_exp:
@@ -132,20 +134,20 @@ func _process(delta: float):
 													yield(get_parent().display_text([player_creature.get_name() + " learned " + Creatures.data[player_creature.species]["attacks"].duplicate().pop_at(player_creature.level - 1) + "!"]), "completed")
 													player_creature.attacks.push_back(Creatures.data[player_creature.species]["attacks"].duplicate().pop_at(player_creature.level - 1))
 									get_parent().creatures_that_will_gain_exp = []
-									if !GlobalVars.e_device_caught.has(opponent.species):
+									if !GLOBAL_VARS.e_device_caught.has(opponent.species):
 										yield(get_parent().display_text([str(opponent.get_name()) + "'s data will be added to the E-Device."]), "completed")
-										GlobalVars.e_device_caught.push_back(opponent.species)
+										GLOBAL_VARS.e_device_caught.push_back(opponent.species)
 										get_parent().get_node("EDeviceLayer/TileMap").visible = true
 										get_parent().get_node("EDeviceLayer/TileMap").set_number(opponent.species)
 										yield(get_parent(), "z_press")
 										get_parent().get_node("EDeviceLayer/TileMap").visible = false
 										
-									Yesno.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
-									var will_you_nickname: bool = yield(Yesno.get_node("CanvasLayer/QuestionLabel"), "answer")
+									YES_NO.get_node("CanvasLayer/QuestionLabel").ask_question("Would you like to give a nickname to " + opponent.get_name() + "?")
+									var will_you_nickname: bool = yield(YES_NO.get_node("CanvasLayer/QuestionLabel"), "answer")
 									if will_you_nickname:
-										Nicknaming.get_a_nickname(opponent.get_name() + "'s nickname?")
-										opponent.nickname = yield(Nicknaming, "send_msg")
-									if team.team.has(opponent):
+										NICKNAMING.get_a_nickname(opponent.get_name() + "'s nickname?")
+										opponent.nickname = yield(NICKNAMING, "send_msg")
+									if TEAM.team.has(opponent):
 										yield(get_parent().display_text([opponent.get_name() + " was added to the party."]), "completed")
 									else:
 										yield(get_parent().display_text([opponent.get_name() + " was placed in the Creature Box."]), "completed")

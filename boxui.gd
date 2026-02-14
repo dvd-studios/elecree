@@ -1,4 +1,5 @@
 extends Node2D
+class_name BoxUI
 
 var box_offset: int = 0
 var select: int = 0
@@ -37,21 +38,21 @@ func get_item_or_null(array: Array, where: int):
 		return null
 
 func deposit_creature(which: int):
-	team.creature_box.push_back(team.team[which])
-	team.team[which] = null
-	team.move_all_nulls_back()
+	TEAM.creature_box.push_back(TEAM.team[which])
+	TEAM.team[which] = null
+	TEAM.move_all_nulls_back()
 
 func withdraw_creature(which: int):
-	var where_to_place: int = team.get_team_size()
+	var where_to_place: int = TEAM.get_team_size()
 	if where_to_place < 7:
-		team.team[where_to_place] = team.creature_box[which]
-		team.creature_box.pop_at(which)
+		TEAM.team[where_to_place] = TEAM.creature_box[which]
+		TEAM.creature_box.pop_at(which)
 
 func get_current_array():
 	if in_box:
-		return team.creature_box
+		return TEAM.creature_box
 	else:
-		return team.team
+		return TEAM.team
 
 func wait_and_show():
 	yield(get_tree(), "idle_frame")
@@ -81,9 +82,9 @@ func _process(delta: float):
 	if visible:
 		get_node("CanvasLayer/TileMap/Label").text = ("TRANSFER" if transfer else "DETAILS") + " : ENTER=CHANGE MODE"
 		for i in 7:
-			party_labels[i].text = get_non_null_creature_text(get_item_or_null(team.team, i))
+			party_labels[i].text = get_non_null_creature_text(get_item_or_null(TEAM.team, i))
 			party_labels[i].add_color_override("font_color", Color(0,0,0))
-			box_labels[i].text = get_non_null_creature_text(get_item_or_null(team.creature_box, i + box_offset))
+			box_labels[i].text = get_non_null_creature_text(get_item_or_null(TEAM.creature_box, i + box_offset))
 			box_labels[i].add_color_override("font_color", Color(0,0,0))
 		if in_box:
 			box_labels[select].add_color_override("font_color", Color(1, 1, 1))
@@ -104,16 +105,16 @@ func _process(delta: float):
 					elif in_box:
 						box_offset -= 1
 			if Input.is_action_just_pressed("ui_left"):
-				if get_non_null_creature_text(get_item_or_null(team.team, select)) != "":
+				if get_non_null_creature_text(get_item_or_null(TEAM.team, select)) != "":
 					in_box = false
 			if Input.is_action_just_pressed("ui_right"):
-				if get_non_null_creature_text(get_item_or_null(team.creature_box, select + box_offset)) != "":
+				if get_non_null_creature_text(get_item_or_null(TEAM.creature_box, select + box_offset)) != "":
 					in_box = true
 			if Input.is_action_just_pressed("ui_accept"):
 				if transfer:
 					if in_box:
 						withdraw_creature(select + box_offset)
-						if team.creature_box.size() == 0:
+						if TEAM.creature_box.size() == 0:
 							in_box = false
 						else:
 							while get_non_null_creature_text(get_item_or_null(get_current_array(), select + box_offset)) == "":
@@ -122,20 +123,20 @@ func _process(delta: float):
 								box_offset -= 1
 								select += 1
 					else:
-						if team.get_team_size() > 1:
+						if TEAM.get_team_size() > 1:
 							deposit_creature(select)
-							if select >= team.get_team_size():
-								select = team.get_team_size() - 1
+							if select >= TEAM.get_team_size():
+								select = TEAM.get_team_size() - 1
 				else:
 					get_node("CanvasLayer2/CreatureDetails").visible = true
 					in_details = true
 					if in_box:
-						get_node("CanvasLayer2/CreatureDetails").creature_changed(get_item_or_null(team.creature_box, select + box_offset))
+						get_node("CanvasLayer2/CreatureDetails").creature_changed(get_item_or_null(TEAM.creature_box, select + box_offset))
 					else:
-						get_node("CanvasLayer2/CreatureDetails").creature_changed(get_item_or_null(team.team, select))
+						get_node("CanvasLayer2/CreatureDetails").creature_changed(get_item_or_null(TEAM.team, select))
 			if Input.is_action_just_pressed("ui_select"):
-				print(team.creature_box)
+				print(TEAM.creature_box)
 				transfer = !transfer
 			if Input.is_action_just_pressed("ui_cancel"):
 				visible = false
-				GlobalVars.cutscenePlaying = false
+				GLOBAL_VARS.cutscenePlaying = false

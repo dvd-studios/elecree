@@ -1,15 +1,16 @@
 extends Node2D
+class_name PlayerElecree
 
 var data: Elecree
 
 func _ready():
-	var team = get_node("/root/team")
+	var team = get_node("/root/TEAM")
 	#data = Elecree.new(3,3,3,3,3,3,0)
 	var first_alive_creature: int = 0
-	while team.team[first_alive_creature].currenthp <= 0:
+	while TEAM.team[first_alive_creature].currenthp <= 0:
 		first_alive_creature += 1
-	data = team.team[first_alive_creature]
-	print(team.team)
+	data = TEAM.team[first_alive_creature]
+	print(TEAM.team)
 
 func _process(delta: float):
 	data.currentat = ceil(data.floatat)
@@ -29,7 +30,7 @@ func defend():
 func switch_creature(creature: int):
 	yield(get_parent().display_text([data.get_name() + ", come back!"]), "completed")
 	data.recharge = 0
-	data = team.team[creature]
+	data = TEAM.team[creature]
 	get_parent().refresh_creatures()
 	if !(get_parent().creatures_that_will_gain_exp.has(data)):
 		get_parent().creatures_that_will_gain_exp.push_back(data)

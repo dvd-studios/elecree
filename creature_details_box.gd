@@ -1,4 +1,5 @@
 extends Node2D
+class_name CreatureDetailsBox
 
 var creature: int
 
@@ -13,7 +14,7 @@ func _process(delta: float):
 			yield(get_tree(), "idle_frame")
 			get_parent().get_parent().in_details = false
 		if Input.is_action_just_pressed("ui_down"):
-			var ecreature: Elecree = team.team[creature]
+			var ecreature: Elecree = TEAM.team[creature]
 			if attack == 5:
 				#print("offsetting")
 				offset += 1 if attack + offset + 1 <= ecreature.attacks.size() else 0
@@ -21,7 +22,7 @@ func _process(delta: float):
 				attack += 1 if attack + offset + 1 <= ecreature.attacks.size() else 0
 			get_node("Attacks").bbcode_text = color_lines(attack)
 		if Input.is_action_just_pressed("ui_up"):
-			var ecreature: Elecree = team.team[creature]
+			var ecreature: Elecree = TEAM.team[creature]
 			if attack == 1:
 				#print("offsetting")
 				offset -= 1 if attack + offset - 1 > 0 else 0
@@ -40,7 +41,7 @@ func creature_changed(ecreature: Elecree):
 	#print(get_node("Attacks").bbcode_enabled)
 
 func color_lines(number: int) -> String:
-	var attack_list: String = get_first_five_attacks(team.team[creature], offset)
+	var attack_list: String = get_first_five_attacks(TEAM.team[creature], offset)
 	var arr: Array = attack_list.split("\n")
 	for s in arr.size():
 		if number == s:

@@ -1,7 +1,9 @@
 extends Area2D
-onready var global = get_node("/root/GlobalVars")
-onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
+class_name DevLOper
+
+onready var global = get_node("/root/GLOBAL_VARS")
+onready var textbox = get_node("/root/TEXTBOX/TextBox")
+onready var textboxlabel = get_node("/root/TEXTBOX/TextBox/VBoxContainer/Label")
 var interactNumber: int
 
 # Declare member variables here. Examples:

@@ -1,8 +1,10 @@
 extends Area2D
+class_name EMartClerk
+
 var interactNumber: int
-onready var global = get_node("/root/GlobalVars")
-onready var textbox = get_node("/root/Textbox/TextBox")
-onready var textboxlabel = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
+onready var global = get_node("/root/GLOBAL_VARS")
+onready var textbox = get_node("/root/TEXTBOX/TextBox")
+onready var textboxlabel = get_node("/root/TEXTBOX/TextBox/VBoxContainer/Label")
 var cubes: Array
 var healing: bool
 var asking: bool
@@ -24,7 +26,7 @@ func _process(delta):
 				interactNumber += 1
 			elif interactNumber == 1:
 				textbox.visible = false
-				Mart.wait_and_show()
+				MART.wait_and_show()
 				interactNumber = 0
 
 				

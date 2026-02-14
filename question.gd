@@ -1,4 +1,5 @@
 extends Label
+class_name YesnoScript
 
 var response: bool = true
 signal answer(yes_or_no)
@@ -17,7 +18,7 @@ func ask_question(question: String):
 
 func _process(delta: float):
 	if get_parent().visible:
-		#print("Yesno visible")
+		#print("YES_NO visible")
 		if Input.is_action_just_pressed("ui_left"):
 			response = true
 			get_parent().get_node("YesLabel").add_color_override("font_color", Color(1,1,1))

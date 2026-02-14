@@ -1,4 +1,5 @@
 extends TileMap
+class_name EDevice
 
 var select: int = 1
 var offset: int = 0
@@ -15,15 +16,15 @@ func _process(delta: float):
 		
 		
 		# REPLACE WITH BETTER CODE ONCE ALL CREATURES HAVE BEEN MADE
-		get_node("Deets/Name").text = (Creatures.data[offset + select]["name"] + " (#" + str(Creatures.data[offset + select]["edeviceid"]) + ")") if GlobalVars.e_device_caught.has(offset + select) else "---"
-		get_node("Deets/Descriptor").text = (Creatures.data[offset + select]["edevicedescriptor"] + " Elecree") if GlobalVars.e_device_caught.has(offset + select) else "---"
-		get_node("Deets/HTWT").text = ("HT: " + str(Creatures.data[offset + select]["edeviceheight"]) + " m, WT: " + str(Creatures.data[offset + select]["edeviceweight"]) + " kg") if GlobalVars.e_device_caught.has(offset + select) else "HT: --, WT: --" # LOCALIZE THIS ON RELEASE
-		get_node("Deets/Element").text = ("ELEMENT: " + Creatures.element_names[Creatures.data[offset + select]["element"]]) if GlobalVars.e_device_caught.has(offset + select) else "ELEMENT: --"
-		get_node("FlavorText").text = (Creatures.data[offset + select]["edeviceentry"]) if GlobalVars.e_device_caught.has(offset + select) else "---"
+		get_node("Deets/Name").text = (Creatures.data[offset + select]["name"] + " (#" + str(Creatures.data[offset + select]["edeviceid"]) + ")") if GLOBAL_VARS.e_device_caught.has(offset + select) else "---"
+		get_node("Deets/Descriptor").text = (Creatures.data[offset + select]["edevicedescriptor"] + " Elecree") if GLOBAL_VARS.e_device_caught.has(offset + select) else "---"
+		get_node("Deets/HTWT").text = ("HT: " + str(Creatures.data[offset + select]["edeviceheight"]) + " m, WT: " + str(Creatures.data[offset + select]["edeviceweight"]) + " kg") if GLOBAL_VARS.e_device_caught.has(offset + select) else "HT: --, WT: --" # LOCALIZE THIS ON RELEASE
+		get_node("Deets/Element").text = ("ELEMENT: " + Creatures.element_names[Creatures.data[offset + select]["element"]]) if GLOBAL_VARS.e_device_caught.has(offset + select) else "ELEMENT: --"
+		get_node("FlavorText").text = (Creatures.data[offset + select]["edeviceentry"]) if GLOBAL_VARS.e_device_caught.has(offset + select) else "---"
 		
 		for i in one_to_four:
 			#print("Offset + Select = " + str(offset+select))
-			get_node("Scroller/Label" + str(i)).text = Creatures.data[offset + i]["name"] if GlobalVars.e_device_caught.has(offset + i) else "---"
+			get_node("Scroller/Label" + str(i)).text = Creatures.data[offset + i]["name"] if GLOBAL_VARS.e_device_caught.has(offset + i) else "---"
 		if Input.is_action_just_pressed("ui_down") && select + offset <= 69:
 			if select >= 4:
 				offset += 1
@@ -32,7 +33,7 @@ func _process(delta: float):
 				get_node("Scroller/Label" + str(select)).add_color_override("font_color", Color8(0x55, 0xe1, 0xff))
 				get_node("Scroller/Label" + str(select - 1)).add_color_override("font_color", Color8(0xff, 0xff, 0xff))
 			print("Down. Offset: " + str(offset) + " Select: " + str(select))
-		if Input.is_action_just_pressed("ui_up") && select + offset >= (1 if GlobalVars.devMode else 2):
+		if Input.is_action_just_pressed("ui_up") && select + offset >= (1 if GLOBAL_VARS.devMode else 2):
 			if select <= 1:
 				offset -= 1
 			else:
@@ -46,4 +47,4 @@ func _process(delta: float):
 			select = 1
 			_ready()
 			visible = false
-			GlobalVars.cutscenePlaying = false
+			GLOBAL_VARS.cutscenePlaying = false

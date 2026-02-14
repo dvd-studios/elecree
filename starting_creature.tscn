@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
+[ext_resource path="res://retrogaming-10.tres" type="DynamicFont" id=2]
+[ext_resource path="res://starting_creature_selector.gd" type="Script" id=3]
+
+[node name="starting_creature" type="Node2D"]
+visible = false
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 104, 0, 1, 105, 0, 2, 105, 0, 3, 105, 0, 4, 105, 0, 5, 105, 0, 6, 105, 0, 7, 105, 0, 8, 105, 0, 9, 105, 0, 10, 105, 0, 11, 105, 0, 12, 105, 0, 13, 105, 0, 14, 106, 0, 65536, 108, 0, 65537, 104, 0, 65538, 105, 0, 65539, 106, 0, 65540, 109, 0, 65541, 109, 0, 65542, 104, 0, 65543, 105, 0, 65544, 106, 0, 65545, 109, 0, 65546, 109, 0, 65547, 104, 0, 65548, 105, 0, 65549, 106, 0, 65550, 110, 0, 131072, 108, 0, 131073, 108, 0, 131074, 109, 0, 131075, 110, 0, 131076, 109, 0, 131077, 109, 0, 131078, 108, 0, 131079, 109, 0, 131080, 110, 0, 131081, 109, 0, 131082, 109, 0, 131083, 108, 0, 131084, 109, 0, 131085, 110, 0, 131086, 110, 0, 196608, 108, 0, 196609, 112, 0, 196610, 113, 0, 196611, 114, 0, 196612, 109, 0, 196613, 109, 0, 196614, 112, 0, 196615, 113, 0, 196616, 114, 0, 196617, 109, 0, 196618, 109, 0, 196619, 112, 0, 196620, 113, 0, 196621, 114, 0, 196622, 110, 0, 262144, 108, 0, 262145, 109, 0, 262146, 109, 0, 262147, 109, 0, 262148, 109, 0, 262149, 109, 0, 262150, 109, 0, 262151, 109, 0, 262152, 109, 0, 262153, 109, 0, 262154, 109, 0, 262155, 109, 0, 262156, 109, 0, 262157, 109, 0, 262158, 110, 0, 327680, 108, 0, 327681, 109, 0, 327682, 109, 0, 327683, 109, 0, 327684, 109, 0, 327685, 109, 0, 327686, 109, 0, 327687, 109, 0, 327688, 109, 0, 327689, 109, 0, 327690, 109, 0, 327691, 109, 0, 327692, 109, 0, 327693, 109, 0, 327694, 110, 0, 393216, 108, 0, 393217, 109, 0, 393218, 109, 0, 393219, 104, 0, 393220, 105, 0, 393221, 106, 0, 393222, 109, 0, 393223, 109, 0, 393224, 109, 0, 393225, 104, 0, 393226, 105, 0, 393227, 106, 0, 393228, 109, 0, 393229, 109, 0, 393230, 110, 0, 458752, 108, 0, 458753, 109, 0, 458754, 109, 0, 458755, 108, 0, 458756, 109, 0, 458757, 110, 0, 458758, 109, 0, 458759, 109, 0, 458760, 109, 0, 458761, 108, 0, 458762, 109, 0, 458763, 110, 0, 458764, 109, 0, 458765, 109, 0, 458766, 110, 0, 524288, 108, 0, 524289, 109, 0, 524290, 109, 0, 524291, 112, 0, 524292, 113, 0, 524293, 114, 0, 524294, 109, 0, 524295, 109, 0, 524296, 109, 0, 524297, 112, 0, 524298, 113, 0, 524299, 114, 0, 524300, 109, 0, 524301, 109, 0, 524302, 110, 0, 589824, 112, 0, 589825, 113, 0, 589826, 113, 0, 589827, 113, 0, 589828, 113, 0, 589829, 113, 0, 589830, 113, 0, 589831, 113, 0, 589832, 113, 0, 589833, 113, 0, 589834, 113, 0, 589835, 113, 0, 589836, 113, 0, 589837, 113, 0, 589838, 114, 0 )
+
+[node name="Dracospark" type="Label" parent="CanvasLayer"]
+margin_left = 4.0
+margin_top = 64.0
+margin_right = 81.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dracospark"
+
+[node name="Mizukoi" type="Label" parent="CanvasLayer"]
+margin_left = 50.0
+margin_top = 82.0
+margin_right = 94.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 2 )
+text = "Mizukoi"
+
+[node name="Watty" type="Label" parent="CanvasLayer"]
+margin_left = 102.0
+margin_top = 64.0
+margin_right = 138.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+text = "Watty"
+
+[node name="Earthle" type="Label" parent="CanvasLayer"]
+margin_left = 143.0
+margin_top = 82.0
+margin_right = 192.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 2 )
+text = "Earthle"
+
+[node name="Futori" type="Label" parent="CanvasLayer"]
+margin_left = 180.0
+margin_top = 64.0
+margin_right = 220.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+text = "Futori"

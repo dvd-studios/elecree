@@ -1,4 +1,4 @@
 extends Label
 
 func _ready():
-	text = GlobalVars.player_name
+	text = GLOBAL_VARS.player_name

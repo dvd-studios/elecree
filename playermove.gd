@@ -1,5 +1,7 @@
 extends KinematicBody2D
-onready var global = get_node("/root/GlobalVars")
+class_name PlayerMove
+
+onready var global = get_node("/root/GLOBAL_VARS")
 var isMoving
 var velocity = Vector2.ZERO
 
