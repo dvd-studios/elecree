@@ -72,10 +72,11 @@ func _process(delta):
 	get_node("VBoxContainer/Label7").add_color_override("font_color", Color(1, 1, 1) if select == 7 else Color(0, 0, 0))
 
 func switch_creature():
-	if get_parent().get_node("PlayerElecree").data != TEAM.team[select - 1] && TEAM.team[select - 1].currenthp > 0: # Do later: Summary before switching
+	if get_parent().get_node("PlayerElecree").data != TEAM.team[select - 1] && TEAM.team[select - 1].currenthp > 0:
 			print("Running switching operation")
 			visible = false
 			get_node("TileMap").visible = false
+			get_node("CreatureDetails").visible = false
 			yield(get_parent().get_node("PlayerElecree").switch_creature(select - 1), "completed")
 			get_parent().lock = 0
 

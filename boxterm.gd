@@ -39,5 +39,10 @@ func _on_Area2D_body_entered(body):
 		global.closestInteractable = "boxterm"
 	
 func _on_Area2D_body_exited(body):
-	global.closestInteractable = "null"
+	if body.name == "Player":
+		if global.closestInteractable == "boxterm":
+			while interactNumber != 0:
+				yield(get_tree(), "idle_frame")
+			global.closestInteractable = "null"
+
 

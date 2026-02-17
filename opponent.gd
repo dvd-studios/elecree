@@ -5,7 +5,7 @@ onready var global = get_node("/root/GLOBAL_VARS")
 onready var wildgen = global.wildgen
 
 # Arrays for the AI
-var low_stamina: Array = ["Defend", "Flare", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
+var low_stamina: Array = ["Defend", "Dust Cloud", "Flare", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
 var stamina_10: Array = []
 var stamina_20: Array = []
 var stamina_30: Array = []
@@ -24,15 +24,11 @@ var data: Elecree
 var test_int: int = 4
 
 func _ready():
-	if global.wild:
-		print(wildgen)
-		party = [Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6]), null, null, null, null, null, null]
-	else:
-		for i in GLOBAL_VARS.opponent_creatures.size():
-			if GLOBAL_VARS.opponent_creatures[i] is ElecreeTemplate:
-				party[i] = GLOBAL_VARS.opponent_creatures[i].to_elecree()
-			elif GLOBAL_VARS.opponent_creatures[i] is Elecree:
-				party[i] = GLOBAL_VARS.opponent_creatures[i]
+	for i in GLOBAL_VARS.opponent_creatures.size():
+		if GLOBAL_VARS.opponent_creatures[i] is ElecreeTemplate:
+			party[i] = GLOBAL_VARS.opponent_creatures[i].to_elecree()
+		elif GLOBAL_VARS.opponent_creatures[i] is Elecree:
+			party[i] = GLOBAL_VARS.opponent_creatures[i]
 	data = party[0]
 
 func get_attack_scores() -> Array:
@@ -71,7 +67,12 @@ func get_attack_scores() -> Array:
 		
 func sort_by_score(a, b) -> bool:
 	var scores: Array = get_attack_scores()
-	return scores[data.attacks.find(a)] < scores[data.attacks.find(b)]
+	if scores[data.attacks.find(a)] < scores[data.attacks.find(b)]:
+		return true
+	elif scores[data.attacks.find(a)] > scores[data.attacks.find(b)]:
+		return false
+	else:
+		return randi() % 2 == 0
 
 func enemy_ai() -> String:
 	var attacks: Array = data.attacks.duplicate()

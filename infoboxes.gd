@@ -7,6 +7,7 @@ var lock_cache: int = 0
 var flavortext: bool = false
 var battler_name: String
 var win_flag: String
+var prize_credits: int
 onready var team = get_node("/root/TEAM")
 onready var dict = load("res://creatures.tres").data
 onready var player = $PlayerElecree.data
@@ -21,6 +22,7 @@ func _ready():
 	else:
 		battler_name = GLOBAL_VARS.battler_name
 		win_flag = GLOBAL_VARS.win_flag
+		prize_credits = GLOBAL_VARS.prize_credits
 		yield(display_text([battler_name + " is initiating a battle!", opponent.get_name() + " was sent out!"]), "completed")
 	yield(display_text(["Go, " + player.get_name() + "!"]), "completed")
 
@@ -148,6 +150,8 @@ func win_battle():
 	if !GLOBAL_VARS.wild:
 		yield(display_text(["You defeated " + battler_name + "!"]), "completed")
 		GLOBAL_VARS.set_flag(win_flag, true)
+		yield(display_text(["You won Cr" + str(prize_credits) + "!"]), "completed")
+		GLOBAL_VARS.credits += prize_credits
 	for i in TEAM.team:
 		if i != null:
 			i.recharge = 0
