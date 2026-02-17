@@ -41,5 +41,8 @@ func _on_ECenterClerk_body_entered(body):
 		global.closestInteractable = "emartclerk"
 	
 func _on_ECenterClerk_body_exited(body):
-	if global.closestInteractable == "emartclerk":
-		global.closestInteractable = "null"
+	if body.name == "Player":
+		if global.closestInteractable == "emartclerk":
+			while interactNumber != 0:
+				yield(get_tree(), "idle_frame")
+			global.closestInteractable = "null"

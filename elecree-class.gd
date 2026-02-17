@@ -127,6 +127,12 @@ func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Arr
 	recharge = 0
 	var array_to_return: Array = []
 	match attack:
+		"Dust Cloud":
+			if target.floatsp < (float(target.statsp) / (pow(1.3, 5.5))):
+				array_to_return.push_back("But it failed!")
+			else:
+				target.floatsp /= 1.3
+				array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s speed down!")
 		"Flare":
 			array_to_return.push_back(damage(target, 30, 1))
 			array_to_return.push_back("")

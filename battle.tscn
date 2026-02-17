@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://opponent.gd" type="Script" id=1]
 [ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://useoncreature.gd" type="Script" id=9]
 [ext_resource path="res://battlebag.gd" type="Script" id=10]
 [ext_resource path="res://retrogaming-10.tres" type="DynamicFont" id=11]
-[ext_resource path="res://retrogaming-compressed.tres" type="DynamicFont" id=12]
 [ext_resource path="res://edeviceinbattle.gd" type="Script" id=13]
 [ext_resource path="res://creature_details_battle.gd" type="Script" id=14]
 
@@ -527,28 +526,28 @@ margin_bottom = 76.0
 [node name="Name" type="Label" parent="EDeviceLayer/TileMap/Deets"]
 margin_right = 136.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 11 )
 text = "Dracospark (#XX)"
 
 [node name="Descriptor" type="Label" parent="EDeviceLayer/TileMap/Deets"]
 margin_top = 18.0
 margin_right = 136.0
 margin_bottom = 32.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 11 )
 text = "Drake Elecree"
 
 [node name="HTWT" type="Label" parent="EDeviceLayer/TileMap/Deets"]
 margin_top = 36.0
 margin_right = 136.0
 margin_bottom = 50.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 11 )
 text = "HT: 2 m, WT: 8.5 kg"
 
 [node name="Element" type="Label" parent="EDeviceLayer/TileMap/Deets"]
 margin_top = 54.0
 margin_right = 136.0
 margin_bottom = 68.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 11 )
 text = "ELEMENT: Fire"
 
 [node name="FlavorText" type="Label" parent="EDeviceLayer/TileMap"]
@@ -556,5 +555,5 @@ margin_left = 4.0
 margin_top = 84.0
 margin_right = 140.0
 margin_bottom = 156.0
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 11 )
 autowrap = true

@@ -12,6 +12,7 @@ func _ready():
 		step = 0
 		if GLOBAL_VARS.playing_as_ice:
 			friend_name = "Fire"
+			get_node("Sprite").texture = load("res://OverSprites/sheet_fire.png")
 
 func _process(delta: float):
 	var conditions_for_advance: Array = [

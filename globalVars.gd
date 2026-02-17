@@ -16,6 +16,7 @@ var wildgen: Array
 var wild: bool
 var win_flag: String
 var battler_name: String
+var prize_credits: int
 var opponent_creatures: Array
 var e_device_caught: Array = []
 var real_time: float = 0
@@ -123,20 +124,21 @@ func _warpPlayer(destination: Vector2, destination_scene: String, relative: bool
 	get_node(String(get_tree().current_scene.get_path()) + "/Player/CollisionShape2D").global_position = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position
 	
 
-func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id: int, lastPos: Vector2, lastLoc: String):
+func start_wild_battle(creature: Elecree, lastPos: Vector2, lastLoc: String):
 	cutscenePlaying = true
 	last_pos = lastPos
 	last_loc = lastLoc
 	get_tree().change_scene("res://battle.tscn")
 	wild = true
-	wildgen = [hp, at, df, sp, st, lv, id]
+	opponent_creatures = [creature, null, null, null, null, null, null]
 
-func start_battler_battle(creatures: Array, lastPos: Vector2, lastLoc: String, win_flag: String, battler_name: String):
+func start_battler_battle(creatures: Array, lastPos: Vector2, lastLoc: String, win_flag: String, battler_name: String, prize_credits: int):
 	cutscenePlaying = true
 	last_pos = lastPos
 	last_loc = lastLoc
 	self.win_flag = win_flag
 	self.battler_name = battler_name
+	self.prize_credits = prize_credits
 	opponent_creatures = creatures
 	get_tree().change_scene("res://battle.tscn")
 	wild = false

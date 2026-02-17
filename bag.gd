@@ -1,8 +1,8 @@
 extends Node2D
 class_name Bag
 
-var item_bag: Array = ["Capture Cube", "Capture Cube", "Super Capture Cube", "Stamina Potion"]
-var key_items: Array = ["Grappling Hook"]
+var item_bag: Array = []
+var key_items: Array = []
 var bag_ui: Array
 var offset: int
 var select: int

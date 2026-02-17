@@ -1,8 +1,8 @@
 extends Resource
 class_name Creatures
 
-const attack_list =  ["Defend", "Flare", "Growl", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
-const stamina_cost = [ 0,        6,       1,       6,      1,      3,      3,         6,        3,        6,        6   ]
+const attack_list =  ["Defend", "Dust Cloud", "Flare", "Growl", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
+const stamina_cost = [ 0,        1,            6,       1,       6,      1,      3,      3,         6,        3,        6,        6   ]
 
 const data = {
 	0: {
@@ -106,6 +106,23 @@ const data = {
 		"captureability": .45,
 		"attacks": ["Peck", "", "Leer", "", "", "Gust"],
 		"element": 5
+	},
+	16: {
+		"name": "Yanemi",
+		"edevicedescriptor": "Vole", 
+		"edeviceid": 16,
+		"edeviceentry": "Yanemi can be found hiding in Nioan grasses. When one gets scared, it kicks up dust.",
+		"edeviceheight": .2,
+		"edeviceweight": .75,
+		"basehp": 30,
+		"baseat": 25,
+		"basedf": 20,
+		"basesp": 30,
+		"basest": 25,
+		"basexp": 25,
+		"captureability": .5,
+		"attacks": ["Tackle", "", "Dust Cloud"],
+		"element": 0
 	}
 }
 
@@ -117,9 +134,9 @@ const element_names = {
 	4: "EARTH",
 	5: "WIND",
 	8: "STEAM",
-	9: "BLAZE",
+	9: "PLASMA",
 	10: "LAVA",
-	11: "SCORCH",
+	11: "SOLAR",
 	15: "STORM",
 	16: "WOOD",
 	17: "ICE",
@@ -136,9 +153,9 @@ const element_names_short = {
 	4: "ERTH",
 	5: "WIND",
 	8: "STEA",
-	9: "BLZE",
+	9: "PLSM",
 	10: "LAVA",
-	11: "SCRC",
+	11: "SOLR",
 	15: "STRM",
 	16: "WOOD",
 	17: "ICE",
@@ -232,6 +249,8 @@ static func multiplier(attack: int, defense: int) -> float:
 
 static func get_element(attack: String) -> int:
 	match attack:
+		"Dust Cloud":
+			return 4
 		"Flare":
 			return 1
 		"Growl":

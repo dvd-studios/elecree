@@ -63,7 +63,7 @@ func _physics_process(delta: float):
 	last_collision = move_and_collide(velocity)
 	last_pete_collision = pete.move_and_collide(pete_velocity)
 
-func advance(): # CUTSCENE INCOMPLETE
+func advance():
 	match step:
 		0:
 			TEXTBOX.show_text("Coach: So you're " + GLOBAL_VARS.player_name + ", right?")
@@ -108,7 +108,8 @@ func advance(): # CUTSCENE INCOMPLETE
 				get_parent().get_node("Player").position, 
 				"res://rebirthECenter.tscn", 
 				"rebirth_town:battler:ice", 
-				"Elecree Battler " + friend_name
+				"Elecree Battler " + friend_name,
+				15
 			)
 		100:
 			TEXTBOX.show_text(friend_name + ": If this is what a regular battle feels like, I can't IMAGINE what a Gate Battle feels like!")
