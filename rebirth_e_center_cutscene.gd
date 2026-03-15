@@ -60,8 +60,10 @@ func _process(delta: float):
 
 
 func _physics_process(delta: float):
-	last_collision = move_and_collide(velocity)
-	last_pete_collision = pete.move_and_collide(pete_velocity)
+	if last_collision == null:
+		last_collision = move_and_collide(velocity)
+	if last_pete_collision == null:
+		last_pete_collision = pete.move_and_collide(pete_velocity)
 
 func advance():
 	match step:
@@ -149,6 +151,7 @@ func advance():
 			velocity.x = 1
 			anim.play("walk_e")
 		117:
+			last_collision = null
 			velocity.x = 0
 			velocity.y = 1
 			step = -1
@@ -156,11 +159,13 @@ func advance():
 			step = 117
 			anim.play("walk_s")
 		118:
+			last_collision = null
 			hide()
 			get_node("CollisionShape2D").disabled = true
 			pete_velocity.x = -1
 			pete_anim.play("walk_w")
 		119:
+			last_pete_collision = null
 			pete_velocity.y = 1
 			pete_velocity.x = 0
 			step = -1
@@ -168,6 +173,7 @@ func advance():
 			step = 119
 			pete_anim.play("walk_s")
 		120:
+			last_pete_collision = null
 			pete.hide()
 			pete.get_node("CollisionShape2D").disabled = true
 			step = -2

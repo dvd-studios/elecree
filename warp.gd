@@ -1,4 +1,4 @@
-extends Node
+extends Area2D
 class_name Warp
 
 export var destination: String
@@ -10,7 +10,7 @@ onready var global = get_node("/root/GLOBAL_VARS")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print()
+	connect("body_entered", self, "_on_Area2D_body_entered")
 
 
 
