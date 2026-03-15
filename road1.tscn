@@ -193,16 +193,14 @@ position = Vector2( 88, 144 )
 shape = SubResource( 10 )
 
 [node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 792, -112 )
-shape = SubResource( 13 )
-
-[node name="Warp" type="Node" parent="Area2D2"]
 script = ExtResource( 7 )
 destination = "Joejoe/AmityTown/overworld"
 coord = Vector2( -624, 256 )
 relative = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 792, -112 )
+shape = SubResource( 13 )
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2/Warp" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D_body_entered"]
