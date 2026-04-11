@@ -123,6 +123,23 @@ const data = {
 		"captureability": .5,
 		"attacks": ["Tackle", "", "Dust Cloud"],
 		"element": 0
+	},
+	25: {
+		"name": "Sparkel",
+		"edevicedescriptor": "Squirrel", 
+		"edeviceid": 25,
+		"edeviceentry": "Rumor has it that new Battlers who are late to receive their first Elecree get a Sparkel.",
+		"edeviceheight": .65,
+		"edeviceweight": 7.5,
+		"basehp": 33,
+		"baseat": 35,
+		"basedf": 30,
+		"basesp": 40,
+		"basest": 30,
+		"basexp": 29,
+		"captureability": .3,
+		"attacks": ["Tackle", "", "Zap", "Growl"],
+		"element": 3
 	}
 }
 
