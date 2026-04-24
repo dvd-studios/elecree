@@ -39,6 +39,20 @@ func _process(delta):
 		player.recharge = 100 if player.recharge > 100 else player.recharge
 		opponent.recharge += opponent.currentsp * delta
 		opponent.recharge = 100 if opponent.recharge > 100 else opponent.recharge
+		
+		if player.status == 0 && float(player.currenthp) / player.stathp <= .2:
+			player.change_status(5) # Limit
+			print("Limit on Player")
+		
+		if opponent.status == 0 && float(opponent.currenthp) / opponent.stathp <= .2:
+			opponent.change_status(5) # Limit
+			print("Limit on Opponent")
+		
+		if player.status == 5 && float(player.currenthp) / player.stathp > .2:
+			player.change_status(0)
+		
+		if opponent.status == 5 && float(opponent.currenthp) / opponent.stathp > .2:
+			opponent.change_status(0) # Limit
 	
 	if lock == 1 && Input.is_action_just_pressed("ui_accept"):
 		lock = 3
@@ -82,7 +96,7 @@ func _process(delta):
 			if player.status != 3:
 				lock = 1
 			else:
-				player.status = player.last_status
+				player.change_status(-1)
 				player.recharge = 0
 		elif opponent.recharge >= 100:
 			if opponent.status != 3 && opponent.currenthp > 0: # Assertation that currenthp > 0 (opponent is not KO) cuz im not gonna bother rewriting this just so this method doesn't get called lol
@@ -91,7 +105,7 @@ func _process(delta):
 				yield(get_node("OpposingElecree").attack(get_node("PlayerElecree").data, attack), "completed")
 				lock = 0
 			else:
-				opponent.status = opponent.last_status
+				opponent.change_status(-1)
 				opponent.recharge = 0
 	
 	if lock == 1:
@@ -126,7 +140,7 @@ func refresh_creatures():
 
 
 func display_text(text: Array):
-	print("text should be displaying" + text[0])
+	print("text should be displaying: " + text[0])
 	flavortext = true
 	get_node("CanvasLayer/InfoBox/HBoxContainer").hide()
 	get_node("CanvasLayer/InfoBox/FullBox").show()
@@ -157,7 +171,7 @@ func win_battle():
 			i.recharge = 0
 			i.partheal()
 			if i.status == 3:
-				i.status = i.last_status
+				i.change_status(-1)
 	#TEAM.TEAM[0] = player.duplicate()
 	#print(TEAM.TEAM[0].currenthp)
 	GLOBAL_VARS.cutscenePlaying = false

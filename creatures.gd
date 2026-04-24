@@ -1,8 +1,8 @@
 extends Resource
 class_name Creatures
 
-const attack_list =  ["Defend", "Dust Cloud", "Flare", "Growl", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
-const stamina_cost = [ 0,        1,            6,       1,       6,      1,      3,      3,         6,        3,        6,        6   ]
+const attack_list =  ["Defend", "Dust Cloud", "Flare", "Growl", "Gust", "Leer", "Parastrike", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
+const stamina_cost = [ 0,        1,            6,       1,       6,      1,      4,            3,      3,         6,        3,        6,        6   ]
 
 const data = {
 	0: {
@@ -138,7 +138,7 @@ const data = {
 		"basest": 30,
 		"basexp": 29,
 		"captureability": .3,
-		"attacks": ["Tackle", "", "Zap", "Growl"],
+		"attacks": ["Tackle", "", "Zap", "Growl", "", "", "Parastrike"],
 		"element": 3
 	}
 }
@@ -223,6 +223,10 @@ static func status_to_string(status: int) -> String:
 			return "Poison"
 		3:
 			return "Defend"
+		4:
+			return "Paralyzed"
+		5:
+			return "Limit"
 		_:
 			return ""
 
@@ -276,6 +280,8 @@ static func get_element(attack: String) -> int:
 			return 5
 		"Leer":
 			return 0
+		"Parashock":
+			return 3
 		"Peck":
 			return 5
 		"Scratch":

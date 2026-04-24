@@ -6,7 +6,7 @@ var dict = preload("res://creatures.tres").data
 var atk_list = preload("res://creatures.tres").attack_list
 var stamina_cost = preload("res://creatures.tres").stamina_cost
 
-enum StatusEffect {OK, Burn, Poison, Defend}
+enum StatusEffect {OK, Burn, Poison, Defend, Paralyzed, Limit}
 
 export(int) var stathp: int
 export(int) var statat: int
@@ -15,9 +15,9 @@ export(int) var statsp: int
 export(int) var statst: int
 export(int) var species: int
 export(int) var currenthp: int
-export(int) var currentat: int; var floatat: float
-export(int) var currentdf: int; var floatdf: float
-export(int) var currentsp: int; var floatsp: float
+export(int) var currentat: int; var floatat: float; var atmod: int
+export(int) var currentdf: int; var floatdf: float; var dfmod: int
+export(int) var currentsp: int; var floatsp: float; var spmod: int
 export(int) var currentst: int
 export(int) var status: int
 export(int) var level: int
@@ -56,6 +56,7 @@ func serialize() -> String:
 
 func deserialize(json: String):
 	var mid_stage: Dictionary = parse_json(json)
+	status = 0
 	stathp = mid_stage["stathp"]
 	statat = mid_stage["statat"]
 	statdf = mid_stage["statdf"]
@@ -70,7 +71,6 @@ func deserialize(json: String):
 	currentsp = statsp
 	floatsp = currentsp
 	currentst = mid_stage["currentst"]
-	status = mid_stage["status"]
 	level = mid_stage["level"]
 	attacks = mid_stage["attacks"]
 	dna_hp = mid_stage["dna_hp"]
@@ -80,14 +80,53 @@ func deserialize(json: String):
 	dna_st = mid_stage["dna_st"]
 	nickname = mid_stage["nickname"]
 	experience = mid_stage["experience"]
+	change_status(mid_stage["status"])
 
-func burn():
-	if status == StatusEffect.OK:
-		status = StatusEffect.Burn
 
-func poison():
-	if status == StatusEffect.OK:
-		status = StatusEffect.Poison
+func change_status(to: int):
+	if to == -1:
+			change_status(last_status)
+	else:
+		last_status = status
+		if last_status == StatusEffect.Limit:
+			last_status = StatusEffect.OK
+		match to:
+			StatusEffect.OK:
+				var which: int = (StatusEffect.OK if (float(currenthp) / stathp >= .2) else StatusEffect.Limit)
+				if status == StatusEffect.Paralyzed:
+					floatsp *= 1.3
+				if status == StatusEffect.Limit:
+					floatsp /= 1.3
+					floatat /= 1.3
+				status = which
+				if which == StatusEffect.Limit:
+					floatsp *= 1.3
+					floatat *= 1.3
+			StatusEffect.Paralyzed:
+				if status == StatusEffect.OK:
+					status = to
+					floatsp /= 1.3
+				elif status == StatusEffect.Limit:
+					status = to
+					floatat /= 1.3
+					floatsp /= (1.3 * 1.3)
+			StatusEffect.Burn:
+				if status == StatusEffect.OK:
+					status = to
+			StatusEffect.Poison:
+				if status == StatusEffect.OK:
+					status = to
+			StatusEffect.Defend:
+				status = to
+			StatusEffect.Limit:
+				if status == StatusEffect.OK:
+					status = to
+					floatat *= 1.3
+					floatsp *= 1.3
+
+func paralyze_heal():
+	floatsp *= 1.3
+	status = StatusEffect.OK
 
 func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, id: int, deser: String = ""):
 	if deser == "":
@@ -123,61 +162,77 @@ func get_stamina(attack: String):
 	return stamina_cost[atk_list.find(attack)]
 
 func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Array:
+	var can_attack: bool = true
+	if status == StatusEffect.Paralyzed:
+		can_attack = randf() < .6
 	currentst -= stamina_cost[atk_list.find(attack)]
 	recharge = 0
 	var array_to_return: Array = []
-	match attack:
-		"Dust Cloud":
-			if target.floatsp < (float(target.statsp) / (pow(1.3, 5.5))):
-				array_to_return.push_back("But it failed!")
-			else:
-				target.floatsp /= 1.3
-				array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s speed down!")
-		"Flare":
-			array_to_return.push_back(damage(target, 30, 1))
-			array_to_return.push_back("")
-		"Gust":
-			array_to_return.push_back(damage(target, 30, 5))
-			array_to_return.push_back("")
-		"Growl":
-			if target.floatat < (float(target.statat) / (pow(1.3, 5.5))):
-				array_to_return.push_back("But it failed!")
-			else:
-				target.floatat /= 1.3
-				array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s attack down!")
-		"Leer":
-			if target.floatdf < (float(target.statdf) / (pow(1.3, 5.5))):
-				array_to_return.push_back("But it failed!")
-			else:
-				target.floatdf /= 1.3
-				array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s defense down!")
-		"Peck":
-			array_to_return.push_back(damage(target, 25, 5))
-			array_to_return.push_back("")
-		"Scratch":
-			array_to_return.push_back(damage(target, 30))
-			array_to_return.push_back("")
-		"Splash":
-			array_to_return.push_back(damage(target, 30, 2))
-			array_to_return.push_back("")
-		"Tackle":
-			array_to_return.push_back(damage(target, 30))
-			array_to_return.push_back("")
-		"Tremor":
-			array_to_return.push_back(damage(target, 30, 4))
-			array_to_return.push_back("")
-		"Zap":
-			array_to_return.push_back(damage(target, 30, 3))
-			array_to_return.push_back("")
-		_:
-			array_to_return.push_back("")
+	if can_attack:
+		match attack:
+			"Dust Cloud":
+				if target.spmod <= -6:
+					array_to_return.push_back("But it failed!")
+				else:
+					target.floatsp /= 1.3
+					target.spmod -= 1
+					array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s speed down!")
+			"Flare":
+				array_to_return.push_back(damage(target, 30, 1))
+				array_to_return.push_back("")
+			"Gust":
+				array_to_return.push_back(damage(target, 30, 5))
+				array_to_return.push_back("")
+			"Growl":
+				if target.atmod <= -6:
+					array_to_return.push_back("But it failed!")
+				else:
+					target.floatat /= 1.3
+					target.atmod -= 1
+					array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s attack down!")
+			"Leer":
+				if target.dfmod <= -6:
+					array_to_return.push_back("But it failed!")
+				else:
+					target.floatdf /= 1.3
+					target.dfmod -= 1
+					array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "'s defense down!")
+			"Peck":
+				array_to_return.push_back(damage(target, 25, 5))
+				array_to_return.push_back("")
+			"Parastrike":
+				var status_before: int = target.status
+				target.change_status(StatusEffect.Paralyzed)
+				if target.status == StatusEffect.Paralyzed && target.status != status_before:
+					array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "is now paralyzed!")
+				else:
+					array_to_return.push_back("But it failed!")
+			"Scratch":
+				array_to_return.push_back(damage(target, 30))
+				array_to_return.push_back("")
+			"Splash":
+				array_to_return.push_back(damage(target, 30, 2))
+				array_to_return.push_back("")
+			"Tackle":
+				array_to_return.push_back(damage(target, 30))
+				array_to_return.push_back("")
+			"Tremor":
+				array_to_return.push_back(damage(target, 30, 4))
+				array_to_return.push_back("")
+			"Zap":
+				array_to_return.push_back(damage(target, 30, 3))
+				array_to_return.push_back("")
+			_:
+				array_to_return.push_back("")
+	else:
+		if status == StatusEffect.Paralyzed:
+			array_to_return.push_back("But " + ("" if from_opponent else "the opposing ") + get_name() + " is paralyzed!")
 	return array_to_return
 
 func defend():
 	currentst = statst
 	recharge = 0
-	last_status = status
-	status = 3
+	change_status(StatusEffect.Defend)
 
 func damage(target: Elecree, power: int, element: int = 0) -> String:
 	var effectiveness_text: String = ""
@@ -232,12 +287,19 @@ func heal():
 	currentsp = statsp
 	floatsp = currentsp
 	currentst = statst
-	status = StatusEffect.OK
+	change_status(StatusEffect.OK)
 
 func partheal():
 	floatat = statat
+	atmod = 0
 	floatdf = statdf
+	dfmod = 0
 	floatsp = statsp
+	spmod = 0
+	if status == StatusEffect.Paralyzed:
+		floatsp /= 1.3
+	if [StatusEffect.Defend].has(status):
+		change_status(-1)
 
 func not_an_init_but_a_dictionary_because_godot_3_is_dumb_and_doesnt_allow_cyclic_class_reference(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, id: int) -> Dictionary:
 	var not_an_elecree: Dictionary = {}
@@ -256,10 +318,19 @@ func level_up():
 		currenthp = stathp
 	else:
 		stathp = fully_healed["stathp"]
+	var atratio: float = fully_healed["statat"] / float(statat)
+	var dfratio: float = fully_healed["statdf"] / float(statdf)
+	var spratio: float = fully_healed["statsp"] / float(statsp)
 	statat = fully_healed["statat"]
 	statdf = fully_healed["statdf"]
 	statsp = fully_healed["statsp"]
-	statst = fully_healed["statst"]
+	if currentst == statst:
+		statst = fully_healed["statst"]
+	else:
+		statst = fully_healed["statst"]
+	floatat *= atratio
+	floatdf *= dfratio
+	floatsp *= spratio
 
 func get_name() -> String:
 	if nickname == "":
