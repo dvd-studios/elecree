@@ -280,7 +280,7 @@ static func get_element(attack: String) -> int:
 			return 5
 		"Leer":
 			return 0
-		"Parashock":
+		"Parastrike":
 			return 3
 		"Peck":
 			return 5

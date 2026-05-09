@@ -5,7 +5,7 @@ onready var global = get_node("/root/GLOBAL_VARS")
 onready var wildgen = global.wildgen
 
 # Arrays for the AI
-var low_stamina: Array = ["Defend", "Dust Cloud", "Flare", "Gust", "Leer", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
+var low_stamina: Array = ["Defend", "Dust Cloud", "Flare", "Gust", "Leer", "Parastrike", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
 var stamina_10: Array = []
 var stamina_20: Array = []
 var stamina_30: Array = []
