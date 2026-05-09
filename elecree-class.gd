@@ -83,10 +83,12 @@ func deserialize(json: String):
 	change_status(mid_stage["status"])
 
 
-func change_status(to: int):
+func change_status(to: int, force: bool = false):
+	print(get_name() + ": Changing status to " + str(to) + ". Forced? " + str(force))
 	if to == -1:
-			change_status(last_status)
+			change_status(last_status, true)
 	else:
+		var last_last_status: int = last_status
 		last_status = status
 		if last_status == StatusEffect.Limit:
 			last_status = StatusEffect.OK
@@ -110,12 +112,32 @@ func change_status(to: int):
 					status = to
 					floatat /= 1.3
 					floatsp /= (1.3 * 1.3)
+				elif status == StatusEffect.Defend && force:
+					status = to
+				else:
+					last_status = last_last_status
 			StatusEffect.Burn:
 				if status == StatusEffect.OK:
 					status = to
+				elif status == StatusEffect.Limit:
+					floatat /= 1.3
+					floatsp /= 1.3
+					status = to
+				elif status == StatusEffect.Defend && force:
+					status = to
+				else:
+					last_status = last_last_status
 			StatusEffect.Poison:
 				if status == StatusEffect.OK:
 					status = to
+				elif status == StatusEffect.Limit:
+					floatat /= 1.3
+					floatsp /= 1.3
+					status = to
+				elif status == StatusEffect.Defend && force:
+					status = to
+				else:
+					last_status = last_last_status
 			StatusEffect.Defend:
 				status = to
 			StatusEffect.Limit:
@@ -123,6 +145,8 @@ func change_status(to: int):
 					status = to
 					floatat *= 1.3
 					floatsp *= 1.3
+				else:
+					last_status = last_last_status
 
 func paralyze_heal():
 	floatsp *= 1.3
@@ -204,7 +228,7 @@ func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Arr
 				var status_before: int = target.status
 				target.change_status(StatusEffect.Paralyzed)
 				if target.status == StatusEffect.Paralyzed && target.status != status_before:
-					array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + "is now paralyzed!")
+					array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + " is now paralyzed!")
 				else:
 					array_to_return.push_back("But it failed!")
 			"Scratch":
