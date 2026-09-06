@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=113 format=2]
+[gd_resource type="TileSet" load_steps=216 format=2]
 
 [ext_resource path="res://Tilemaps/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://Tilemaps/grasstile.png" type="Texture" id=2]
@@ -23,6 +23,11 @@
 [ext_resource path="res://Tilemaps/waterrock.png" type="Texture" id=21]
 [ext_resource path="res://Tilemaps/sandrock.png" type="Texture" id=22]
 [ext_resource path="res://Tilemaps/ledge.png" type="Texture" id=23]
+[ext_resource path="res://Tilemaps/street.png" type="Texture" id=24]
+[ext_resource path="res://Tilemaps/gladridgegate.png" type="Texture" id=25]
+[ext_resource path="res://Tilemaps/ebldg-on-street.png" type="Texture" id=26]
+[ext_resource path="res://Tilemaps/mountain.png" type="Texture" id=27]
+[ext_resource path="res://Tilemaps/mountaintrail.png" type="Texture" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -84,22 +89,316 @@ points = PoolVector2Array( 16, 2, 0, 2, 0, 0, 16, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=94]
 points = PoolVector2Array( 16, 2, 0, 2, 0, 0, 16, 0 )
 
+[sub_resource type="ConvexPolygonShape2D" id=95]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=96]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=97]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=98]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=99]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=100]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=101]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=102]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=25]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=103]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=104]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=105]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=106]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=107]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=108]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=109]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=110]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=111]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=112]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=26]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="ConvexPolygonShape2D" id=113]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=114]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=115]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=116]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=117]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=118]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=119]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=120]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=121]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=122]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=123]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=124]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=125]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=126]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=127]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=128]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=129]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=130]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=131]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=132]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=133]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=134]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=135]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=136]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=137]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=138]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=139]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=140]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=141]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=142]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=143]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=144]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=145]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=146]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=147]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=148]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=149]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=150]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=151]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=152]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="ConvexPolygonShape2D" id=153]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=154]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=155]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=156]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=157]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=158]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=159]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=160]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 16, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="ConvexPolygonShape2D" id=161]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=162]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=163]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=164]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=165]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=166]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=167]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=168]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=169]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=170]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=171]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=172]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=173]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=174]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=175]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=176]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 8, 16, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=177]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 8, 16, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=178]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 8, 16, 8 )
+
 [sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=179]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=180]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=181]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=182]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=183]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=184]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=185]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=186]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=187]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=188]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=189]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=190]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=191]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=192]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=17]
@@ -2739,3 +3038,1994 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 130/z_index = 0
+131/name = "street.png 131"
+131/texture = ExtResource( 24 )
+131/tex_offset = Vector2( 0, 0 )
+131/modulate = Color( 1, 1, 1, 1 )
+131/region = Rect2( 0, 0, 16, 16 )
+131/tile_mode = 1
+131/autotile/bitmask_mode = 0
+131/autotile/bitmask_flags = [ Vector2( 0, 1 ), 1, Vector2( 0, 2 ), 4, Vector2( 0, 3 ), 5, Vector2( 1, 0 ), 256, Vector2( 1, 1 ), 257, Vector2( 1, 2 ), 260, Vector2( 1, 3 ), 261, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 68, Vector2( 2, 3 ), 69, Vector2( 3, 0 ), 320, Vector2( 3, 1 ), 321, Vector2( 3, 2 ), 324, Vector2( 3, 3 ), 325 ]
+131/autotile/icon_coordinate = Vector2( 0, 0 )
+131/autotile/tile_size = Vector2( 16, 16 )
+131/autotile/spacing = 0
+131/autotile/occluder_map = [  ]
+131/autotile/navpoly_map = [  ]
+131/autotile/priority_map = [  ]
+131/autotile/z_index_map = [  ]
+131/autotile/fallback_mode = 0
+131/occluder_offset = Vector2( 0, 0 )
+131/navigation_offset = Vector2( 0, 0 )
+131/shape_offset = Vector2( 0, 0 )
+131/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+131/shape_one_way = false
+131/shape_one_way_margin = 0.0
+131/shapes = [  ]
+131/z_index = 0
+132/name = "gladridgegate.png 132"
+132/texture = ExtResource( 25 )
+132/tex_offset = Vector2( 0, 0 )
+132/modulate = Color( 1, 1, 1, 1 )
+132/region = Rect2( 0, 16, 16, 16 )
+132/tile_mode = 0
+132/occluder_offset = Vector2( 0, 0 )
+132/navigation_offset = Vector2( 0, 0 )
+132/shape_offset = Vector2( 0, 0 )
+132/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+132/shape = SubResource( 95 )
+132/shape_one_way = false
+132/shape_one_way_margin = 1.0
+132/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 95 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+132/z_index = 0
+133/name = "gladridgegate.png 133"
+133/texture = ExtResource( 25 )
+133/tex_offset = Vector2( 0, 0 )
+133/modulate = Color( 1, 1, 1, 1 )
+133/region = Rect2( 0, 0, 16, 16 )
+133/tile_mode = 0
+133/occluder_offset = Vector2( 0, 0 )
+133/navigation_offset = Vector2( 0, 0 )
+133/shape_offset = Vector2( 0, 0 )
+133/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+133/shape = SubResource( 96 )
+133/shape_one_way = false
+133/shape_one_way_margin = 1.0
+133/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 96 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+133/z_index = 0
+134/name = "gladridgegate.png 134"
+134/texture = ExtResource( 25 )
+134/tex_offset = Vector2( 0, 0 )
+134/modulate = Color( 1, 1, 1, 1 )
+134/region = Rect2( 16, 16, 16, 16 )
+134/tile_mode = 0
+134/occluder_offset = Vector2( 0, 0 )
+134/navigation_offset = Vector2( 0, 0 )
+134/shape_offset = Vector2( 0, 0 )
+134/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+134/shape = SubResource( 97 )
+134/shape_one_way = false
+134/shape_one_way_margin = 1.0
+134/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 97 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+134/z_index = 0
+135/name = "gladridgegate.png 135"
+135/texture = ExtResource( 25 )
+135/tex_offset = Vector2( 0, 0 )
+135/modulate = Color( 1, 1, 1, 1 )
+135/region = Rect2( 32, 16, 16, 16 )
+135/tile_mode = 0
+135/occluder_offset = Vector2( 0, 0 )
+135/navigation_offset = Vector2( 0, 0 )
+135/shape_offset = Vector2( 0, 0 )
+135/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+135/shape = SubResource( 98 )
+135/shape_one_way = false
+135/shape_one_way_margin = 1.0
+135/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 98 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+135/z_index = 0
+136/name = "gladridgegate.png 136"
+136/texture = ExtResource( 25 )
+136/tex_offset = Vector2( 0, 0 )
+136/modulate = Color( 1, 1, 1, 1 )
+136/region = Rect2( 48, 16, 16, 16 )
+136/tile_mode = 0
+136/occluder_offset = Vector2( 0, 0 )
+136/navigation_offset = Vector2( 0, 0 )
+136/shape_offset = Vector2( 0, 0 )
+136/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+136/shape = SubResource( 99 )
+136/shape_one_way = false
+136/shape_one_way_margin = 1.0
+136/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 99 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+136/z_index = 0
+137/name = "gladridgegate.png 137"
+137/texture = ExtResource( 25 )
+137/tex_offset = Vector2( 0, 0 )
+137/modulate = Color( 1, 1, 1, 1 )
+137/region = Rect2( 64, 16, 16, 16 )
+137/tile_mode = 0
+137/occluder_offset = Vector2( 0, 0 )
+137/navigation_offset = Vector2( 0, 0 )
+137/shape_offset = Vector2( 0, 0 )
+137/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+137/shape = SubResource( 100 )
+137/shape_one_way = false
+137/shape_one_way_margin = 1.0
+137/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 100 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+137/z_index = 0
+138/name = "gladridgegate.png 138"
+138/texture = ExtResource( 25 )
+138/tex_offset = Vector2( 0, 0 )
+138/modulate = Color( 1, 1, 1, 1 )
+138/region = Rect2( 80, 16, 16, 16 )
+138/tile_mode = 0
+138/occluder_offset = Vector2( 0, 0 )
+138/navigation_offset = Vector2( 0, 0 )
+138/shape_offset = Vector2( 0, 0 )
+138/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+138/shape = SubResource( 101 )
+138/shape_one_way = false
+138/shape_one_way_margin = 1.0
+138/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 101 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+138/z_index = 0
+139/name = "gladridgegate.png 139"
+139/texture = ExtResource( 25 )
+139/tex_offset = Vector2( 0, 0 )
+139/modulate = Color( 1, 1, 1, 1 )
+139/region = Rect2( 96, 16, 16, 16 )
+139/tile_mode = 0
+139/occluder_offset = Vector2( 0, 0 )
+139/navigation_offset = Vector2( 0, 0 )
+139/shape_offset = Vector2( 0, 0 )
+139/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+139/shape = SubResource( 102 )
+139/shape_one_way = false
+139/shape_one_way_margin = 1.0
+139/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 102 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+139/z_index = 0
+140/name = "gladridgegate.png 140"
+140/texture = ExtResource( 25 )
+140/tex_offset = Vector2( 0, 0 )
+140/modulate = Color( 1, 1, 1, 1 )
+140/region = Rect2( 208, 16, 16, 16 )
+140/tile_mode = 0
+140/occluder_offset = Vector2( 0, 0 )
+140/navigation_offset = Vector2( 0, 0 )
+140/shape_offset = Vector2( 0, 0 )
+140/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+140/shape = SubResource( 103 )
+140/shape_one_way = false
+140/shape_one_way_margin = 1.0
+140/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 103 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+140/z_index = 0
+141/name = "gladridgegate.png 141"
+141/texture = ExtResource( 25 )
+141/tex_offset = Vector2( 0, 0 )
+141/modulate = Color( 1, 1, 1, 1 )
+141/region = Rect2( 224, 16, 16, 16 )
+141/tile_mode = 0
+141/occluder_offset = Vector2( 0, 0 )
+141/navigation_offset = Vector2( 0, 0 )
+141/shape_offset = Vector2( 0, 0 )
+141/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+141/shape = SubResource( 104 )
+141/shape_one_way = false
+141/shape_one_way_margin = 1.0
+141/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 104 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+141/z_index = 0
+142/name = "gladridgegate.png 142"
+142/texture = ExtResource( 25 )
+142/tex_offset = Vector2( 0, 0 )
+142/modulate = Color( 1, 1, 1, 1 )
+142/region = Rect2( 240, 16, 16, 16 )
+142/tile_mode = 0
+142/occluder_offset = Vector2( 0, 0 )
+142/navigation_offset = Vector2( 0, 0 )
+142/shape_offset = Vector2( 0, 0 )
+142/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+142/shape = SubResource( 105 )
+142/shape_one_way = false
+142/shape_one_way_margin = 1.0
+142/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 105 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+142/z_index = 0
+143/name = "gladridgegate.png 143"
+143/texture = ExtResource( 25 )
+143/tex_offset = Vector2( 0, 0 )
+143/modulate = Color( 1, 1, 1, 1 )
+143/region = Rect2( 256, 16, 16, 16 )
+143/tile_mode = 0
+143/occluder_offset = Vector2( 0, 0 )
+143/navigation_offset = Vector2( 0, 0 )
+143/shape_offset = Vector2( 0, 0 )
+143/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+143/shape = SubResource( 106 )
+143/shape_one_way = false
+143/shape_one_way_margin = 1.0
+143/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 106 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+143/z_index = 0
+144/name = "gladridgegate.png 144"
+144/texture = ExtResource( 25 )
+144/tex_offset = Vector2( 0, 0 )
+144/modulate = Color( 1, 1, 1, 1 )
+144/region = Rect2( 272, 16, 16, 16 )
+144/tile_mode = 0
+144/occluder_offset = Vector2( 0, 0 )
+144/navigation_offset = Vector2( 0, 0 )
+144/shape_offset = Vector2( 0, 0 )
+144/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+144/shape = SubResource( 107 )
+144/shape_one_way = false
+144/shape_one_way_margin = 1.0
+144/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 107 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+144/z_index = 0
+145/name = "gladridgegate.png 145"
+145/texture = ExtResource( 25 )
+145/tex_offset = Vector2( 0, 0 )
+145/modulate = Color( 1, 1, 1, 1 )
+145/region = Rect2( 288, 16, 16, 16 )
+145/tile_mode = 0
+145/occluder_offset = Vector2( 0, 0 )
+145/navigation_offset = Vector2( 0, 0 )
+145/shape_offset = Vector2( 0, 0 )
+145/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+145/shape = SubResource( 108 )
+145/shape_one_way = false
+145/shape_one_way_margin = 1.0
+145/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 108 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+145/z_index = 0
+146/name = "gladridgegate.png 146"
+146/texture = ExtResource( 25 )
+146/tex_offset = Vector2( 0, 0 )
+146/modulate = Color( 1, 1, 1, 1 )
+146/region = Rect2( 304, 16, 16, 16 )
+146/tile_mode = 0
+146/occluder_offset = Vector2( 0, 0 )
+146/navigation_offset = Vector2( 0, 0 )
+146/shape_offset = Vector2( 0, 0 )
+146/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+146/shape = SubResource( 109 )
+146/shape_one_way = false
+146/shape_one_way_margin = 1.0
+146/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 109 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+146/z_index = 0
+147/name = "gladridgegate.png 147"
+147/texture = ExtResource( 25 )
+147/tex_offset = Vector2( 0, 0 )
+147/modulate = Color( 1, 1, 1, 1 )
+147/region = Rect2( 320, 16, 16, 16 )
+147/tile_mode = 0
+147/occluder_offset = Vector2( 0, 0 )
+147/navigation_offset = Vector2( 0, 0 )
+147/shape_offset = Vector2( 0, 0 )
+147/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+147/shape = SubResource( 110 )
+147/shape_one_way = false
+147/shape_one_way_margin = 1.0
+147/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 110 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+147/z_index = 0
+148/name = "gladridgegate.png 148"
+148/texture = ExtResource( 25 )
+148/tex_offset = Vector2( 0, 0 )
+148/modulate = Color( 1, 1, 1, 1 )
+148/region = Rect2( 336, 16, 16, 16 )
+148/tile_mode = 0
+148/occluder_offset = Vector2( 0, 0 )
+148/navigation_offset = Vector2( 0, 0 )
+148/shape_offset = Vector2( 0, 0 )
+148/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+148/shape = SubResource( 111 )
+148/shape_one_way = false
+148/shape_one_way_margin = 1.0
+148/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 111 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+148/z_index = 0
+149/name = "gladridgegate.png 149"
+149/texture = ExtResource( 25 )
+149/tex_offset = Vector2( 0, 0 )
+149/modulate = Color( 1, 1, 1, 1 )
+149/region = Rect2( 352, 16, 16, 16 )
+149/tile_mode = 0
+149/occluder_offset = Vector2( 0, 0 )
+149/navigation_offset = Vector2( 0, 0 )
+149/shape_offset = Vector2( 0, 0 )
+149/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+149/shape = SubResource( 112 )
+149/shape_one_way = false
+149/shape_one_way_margin = 1.0
+149/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 112 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+149/z_index = 0
+150/name = "gladridgegate.png 150"
+150/texture = ExtResource( 25 )
+150/tex_offset = Vector2( 0, 0 )
+150/modulate = Color( 1, 1, 1, 1 )
+150/region = Rect2( 0, 32, 16, 16 )
+150/tile_mode = 0
+150/occluder_offset = Vector2( 0, 0 )
+150/navigation_offset = Vector2( 0, 0 )
+150/shape_offset = Vector2( 0, 0 )
+150/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+150/shape = SubResource( 113 )
+150/shape_one_way = false
+150/shape_one_way_margin = 1.0
+150/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 113 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+150/z_index = 0
+151/name = "gladridgegate.png 151"
+151/texture = ExtResource( 25 )
+151/tex_offset = Vector2( 0, 0 )
+151/modulate = Color( 1, 1, 1, 1 )
+151/region = Rect2( 16, 32, 16, 16 )
+151/tile_mode = 0
+151/occluder_offset = Vector2( 0, 0 )
+151/navigation_offset = Vector2( 0, 0 )
+151/shape_offset = Vector2( 0, 0 )
+151/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+151/shape = SubResource( 114 )
+151/shape_one_way = false
+151/shape_one_way_margin = 1.0
+151/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 114 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+151/z_index = 0
+152/name = "gladridgegate.png 152"
+152/texture = ExtResource( 25 )
+152/tex_offset = Vector2( 0, 0 )
+152/modulate = Color( 1, 1, 1, 1 )
+152/region = Rect2( 32, 32, 16, 16 )
+152/tile_mode = 0
+152/occluder_offset = Vector2( 0, 0 )
+152/navigation_offset = Vector2( 0, 0 )
+152/shape_offset = Vector2( 0, 0 )
+152/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+152/shape = SubResource( 115 )
+152/shape_one_way = false
+152/shape_one_way_margin = 1.0
+152/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 115 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+152/z_index = 0
+153/name = "gladridgegate.png 153"
+153/texture = ExtResource( 25 )
+153/tex_offset = Vector2( 0, 0 )
+153/modulate = Color( 1, 1, 1, 1 )
+153/region = Rect2( 48, 32, 16, 16 )
+153/tile_mode = 0
+153/occluder_offset = Vector2( 0, 0 )
+153/navigation_offset = Vector2( 0, 0 )
+153/shape_offset = Vector2( 0, 0 )
+153/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+153/shape = SubResource( 116 )
+153/shape_one_way = false
+153/shape_one_way_margin = 1.0
+153/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 116 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+153/z_index = 0
+154/name = "gladridgegate.png 154"
+154/texture = ExtResource( 25 )
+154/tex_offset = Vector2( 0, 0 )
+154/modulate = Color( 1, 1, 1, 1 )
+154/region = Rect2( 64, 32, 16, 16 )
+154/tile_mode = 0
+154/occluder_offset = Vector2( 0, 0 )
+154/navigation_offset = Vector2( 0, 0 )
+154/shape_offset = Vector2( 0, 0 )
+154/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+154/shape = SubResource( 117 )
+154/shape_one_way = false
+154/shape_one_way_margin = 1.0
+154/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 117 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+154/z_index = 0
+155/name = "gladridgegate.png 155"
+155/texture = ExtResource( 25 )
+155/tex_offset = Vector2( 0, 0 )
+155/modulate = Color( 1, 1, 1, 1 )
+155/region = Rect2( 128, 16, 16, 16 )
+155/tile_mode = 0
+155/occluder_offset = Vector2( 0, 0 )
+155/navigation_offset = Vector2( 0, 0 )
+155/shape_offset = Vector2( 0, 0 )
+155/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+155/shape = SubResource( 118 )
+155/shape_one_way = false
+155/shape_one_way_margin = 1.0
+155/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 118 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+155/z_index = 0
+156/name = "gladridgegate.png 156"
+156/texture = ExtResource( 25 )
+156/tex_offset = Vector2( 0, 0 )
+156/modulate = Color( 1, 1, 1, 1 )
+156/region = Rect2( 112, 32, 16, 16 )
+156/tile_mode = 0
+156/occluder_offset = Vector2( 0, 0 )
+156/navigation_offset = Vector2( 0, 0 )
+156/shape_offset = Vector2( 0, 0 )
+156/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+156/shape = SubResource( 119 )
+156/shape_one_way = false
+156/shape_one_way_margin = 1.0
+156/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 119 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+156/z_index = 0
+157/name = "gladridgegate.png 157"
+157/texture = ExtResource( 25 )
+157/tex_offset = Vector2( 0, 0 )
+157/modulate = Color( 1, 1, 1, 1 )
+157/region = Rect2( 128, 32, 16, 16 )
+157/tile_mode = 0
+157/occluder_offset = Vector2( 0, 0 )
+157/navigation_offset = Vector2( 0, 0 )
+157/shape_offset = Vector2( 0, 0 )
+157/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+157/shape = SubResource( 120 )
+157/shape_one_way = false
+157/shape_one_way_margin = 1.0
+157/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 120 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+157/z_index = 0
+158/name = "gladridgegate.png 158"
+158/texture = ExtResource( 25 )
+158/tex_offset = Vector2( 0, 0 )
+158/modulate = Color( 1, 1, 1, 1 )
+158/region = Rect2( 144, 32, 16, 16 )
+158/tile_mode = 0
+158/occluder_offset = Vector2( 0, 0 )
+158/navigation_offset = Vector2( 0, 0 )
+158/shape_offset = Vector2( 0, 0 )
+158/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+158/shape = SubResource( 121 )
+158/shape_one_way = false
+158/shape_one_way_margin = 1.0
+158/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 121 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+158/z_index = 0
+159/name = "gladridgegate.png 159"
+159/texture = ExtResource( 25 )
+159/tex_offset = Vector2( 0, 0 )
+159/modulate = Color( 1, 1, 1, 1 )
+159/region = Rect2( 160, 32, 16, 16 )
+159/tile_mode = 0
+159/occluder_offset = Vector2( 0, 0 )
+159/navigation_offset = Vector2( 0, 0 )
+159/shape_offset = Vector2( 0, 0 )
+159/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+159/shape = SubResource( 122 )
+159/shape_one_way = false
+159/shape_one_way_margin = 1.0
+159/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 122 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+159/z_index = 0
+160/name = "gladridgegate.png 160"
+160/texture = ExtResource( 25 )
+160/tex_offset = Vector2( 0, 0 )
+160/modulate = Color( 1, 1, 1, 1 )
+160/region = Rect2( 192, 32, 16, 16 )
+160/tile_mode = 0
+160/occluder_offset = Vector2( 0, 0 )
+160/navigation_offset = Vector2( 0, 0 )
+160/shape_offset = Vector2( 0, 0 )
+160/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+160/shape = SubResource( 123 )
+160/shape_one_way = false
+160/shape_one_way_margin = 1.0
+160/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 123 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+160/z_index = 0
+161/name = "gladridgegate.png 161"
+161/texture = ExtResource( 25 )
+161/tex_offset = Vector2( 0, 0 )
+161/modulate = Color( 1, 1, 1, 1 )
+161/region = Rect2( 208, 32, 16, 16 )
+161/tile_mode = 0
+161/occluder_offset = Vector2( 0, 0 )
+161/navigation_offset = Vector2( 0, 0 )
+161/shape_offset = Vector2( 0, 0 )
+161/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+161/shape = SubResource( 124 )
+161/shape_one_way = false
+161/shape_one_way_margin = 1.0
+161/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 124 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+161/z_index = 0
+162/name = "gladridgegate.png 162"
+162/texture = ExtResource( 25 )
+162/tex_offset = Vector2( 0, 0 )
+162/modulate = Color( 1, 1, 1, 1 )
+162/region = Rect2( 224, 32, 16, 16 )
+162/tile_mode = 0
+162/occluder_offset = Vector2( 0, 0 )
+162/navigation_offset = Vector2( 0, 0 )
+162/shape_offset = Vector2( 0, 0 )
+162/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+162/shape = SubResource( 125 )
+162/shape_one_way = false
+162/shape_one_way_margin = 1.0
+162/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 125 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+162/z_index = 0
+163/name = "gladridgegate.png 163"
+163/texture = ExtResource( 25 )
+163/tex_offset = Vector2( 0, 0 )
+163/modulate = Color( 1, 1, 1, 1 )
+163/region = Rect2( 240, 32, 16, 16 )
+163/tile_mode = 0
+163/occluder_offset = Vector2( 0, 0 )
+163/navigation_offset = Vector2( 0, 0 )
+163/shape_offset = Vector2( 0, 0 )
+163/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+163/shape = SubResource( 126 )
+163/shape_one_way = false
+163/shape_one_way_margin = 1.0
+163/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 126 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+163/z_index = 0
+164/name = "gladridgegate.png 164"
+164/texture = ExtResource( 25 )
+164/tex_offset = Vector2( 0, 0 )
+164/modulate = Color( 1, 1, 1, 1 )
+164/region = Rect2( 256, 32, 16, 16 )
+164/tile_mode = 0
+164/occluder_offset = Vector2( 0, 0 )
+164/navigation_offset = Vector2( 0, 0 )
+164/shape_offset = Vector2( 0, 0 )
+164/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+164/shape = SubResource( 127 )
+164/shape_one_way = false
+164/shape_one_way_margin = 1.0
+164/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 127 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+164/z_index = 0
+165/name = "gladridgegate.png 165"
+165/texture = ExtResource( 25 )
+165/tex_offset = Vector2( 0, 0 )
+165/modulate = Color( 1, 1, 1, 1 )
+165/region = Rect2( 272, 32, 16, 16 )
+165/tile_mode = 0
+165/occluder_offset = Vector2( 0, 0 )
+165/navigation_offset = Vector2( 0, 0 )
+165/shape_offset = Vector2( 0, 0 )
+165/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+165/shape = SubResource( 128 )
+165/shape_one_way = false
+165/shape_one_way_margin = 1.0
+165/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 128 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+165/z_index = 0
+166/name = "gladridgegate.png 166"
+166/texture = ExtResource( 25 )
+166/tex_offset = Vector2( 0, 0 )
+166/modulate = Color( 1, 1, 1, 1 )
+166/region = Rect2( 288, 32, 16, 16 )
+166/tile_mode = 0
+166/occluder_offset = Vector2( 0, 0 )
+166/navigation_offset = Vector2( 0, 0 )
+166/shape_offset = Vector2( 0, 0 )
+166/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+166/shape = SubResource( 129 )
+166/shape_one_way = false
+166/shape_one_way_margin = 1.0
+166/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 129 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+166/z_index = 0
+167/name = "gladridgegate.png 167"
+167/texture = ExtResource( 25 )
+167/tex_offset = Vector2( 0, 0 )
+167/modulate = Color( 1, 1, 1, 1 )
+167/region = Rect2( 304, 32, 16, 16 )
+167/tile_mode = 0
+167/occluder_offset = Vector2( 0, 0 )
+167/navigation_offset = Vector2( 0, 0 )
+167/shape_offset = Vector2( 0, 0 )
+167/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+167/shape = SubResource( 130 )
+167/shape_one_way = false
+167/shape_one_way_margin = 1.0
+167/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 130 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+167/z_index = 0
+168/name = "gladridgegate.png 168"
+168/texture = ExtResource( 25 )
+168/tex_offset = Vector2( 0, 0 )
+168/modulate = Color( 1, 1, 1, 1 )
+168/region = Rect2( 320, 32, 16, 16 )
+168/tile_mode = 0
+168/occluder_offset = Vector2( 0, 0 )
+168/navigation_offset = Vector2( 0, 0 )
+168/shape_offset = Vector2( 0, 0 )
+168/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+168/shape = SubResource( 131 )
+168/shape_one_way = false
+168/shape_one_way_margin = 1.0
+168/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 131 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+168/z_index = 0
+169/name = "gladridgegate.png 169"
+169/texture = ExtResource( 25 )
+169/tex_offset = Vector2( 0, 0 )
+169/modulate = Color( 1, 1, 1, 1 )
+169/region = Rect2( 336, 32, 16, 16 )
+169/tile_mode = 0
+169/occluder_offset = Vector2( 0, 0 )
+169/navigation_offset = Vector2( 0, 0 )
+169/shape_offset = Vector2( 0, 0 )
+169/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+169/shape = SubResource( 132 )
+169/shape_one_way = false
+169/shape_one_way_margin = 1.0
+169/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 132 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+169/z_index = 0
+170/name = "gladridgegate.png 170"
+170/texture = ExtResource( 25 )
+170/tex_offset = Vector2( 0, 0 )
+170/modulate = Color( 1, 1, 1, 1 )
+170/region = Rect2( 352, 32, 16, 16 )
+170/tile_mode = 0
+170/occluder_offset = Vector2( 0, 0 )
+170/navigation_offset = Vector2( 0, 0 )
+170/shape_offset = Vector2( 0, 0 )
+170/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+170/shape = SubResource( 133 )
+170/shape_one_way = false
+170/shape_one_way_margin = 1.0
+170/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 133 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+170/z_index = 0
+171/name = "gladridgegate.png 171"
+171/texture = ExtResource( 25 )
+171/tex_offset = Vector2( 0, 0 )
+171/modulate = Color( 1, 1, 1, 1 )
+171/region = Rect2( 352, 48, 16, 16 )
+171/tile_mode = 0
+171/occluder_offset = Vector2( 0, 0 )
+171/navigation_offset = Vector2( 0, 0 )
+171/shape_offset = Vector2( 0, 0 )
+171/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+171/shape = SubResource( 134 )
+171/shape_one_way = false
+171/shape_one_way_margin = 1.0
+171/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 134 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+171/z_index = 0
+172/name = "gladridgegate.png 172"
+172/texture = ExtResource( 25 )
+172/tex_offset = Vector2( 0, 0 )
+172/modulate = Color( 1, 1, 1, 1 )
+172/region = Rect2( 336, 48, 16, 16 )
+172/tile_mode = 0
+172/occluder_offset = Vector2( 0, 0 )
+172/navigation_offset = Vector2( 0, 0 )
+172/shape_offset = Vector2( 0, 0 )
+172/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+172/shape = SubResource( 135 )
+172/shape_one_way = false
+172/shape_one_way_margin = 1.0
+172/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 135 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+172/z_index = 0
+173/name = "gladridgegate.png 173"
+173/texture = ExtResource( 25 )
+173/tex_offset = Vector2( 0, 0 )
+173/modulate = Color( 1, 1, 1, 1 )
+173/region = Rect2( 304, 48, 16, 16 )
+173/tile_mode = 0
+173/occluder_offset = Vector2( 0, 0 )
+173/navigation_offset = Vector2( 0, 0 )
+173/shape_offset = Vector2( 0, 0 )
+173/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+173/shape = SubResource( 136 )
+173/shape_one_way = false
+173/shape_one_way_margin = 1.0
+173/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 136 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+173/z_index = 0
+174/name = "gladridgegate.png 174"
+174/texture = ExtResource( 25 )
+174/tex_offset = Vector2( 0, 0 )
+174/modulate = Color( 1, 1, 1, 1 )
+174/region = Rect2( 320, 48, 16, 16 )
+174/tile_mode = 0
+174/occluder_offset = Vector2( 0, 0 )
+174/navigation_offset = Vector2( 0, 0 )
+174/shape_offset = Vector2( 0, 0 )
+174/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+174/shape = SubResource( 137 )
+174/shape_one_way = false
+174/shape_one_way_margin = 1.0
+174/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 137 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+174/z_index = 0
+175/name = "gladridgegate.png 175"
+175/texture = ExtResource( 25 )
+175/tex_offset = Vector2( 0, 0 )
+175/modulate = Color( 1, 1, 1, 1 )
+175/region = Rect2( 288, 48, 16, 16 )
+175/tile_mode = 0
+175/occluder_offset = Vector2( 0, 0 )
+175/navigation_offset = Vector2( 0, 0 )
+175/shape_offset = Vector2( 0, 0 )
+175/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+175/shape = SubResource( 138 )
+175/shape_one_way = false
+175/shape_one_way_margin = 1.0
+175/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 138 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+175/z_index = 0
+176/name = "gladridgegate.png 176"
+176/texture = ExtResource( 25 )
+176/tex_offset = Vector2( 0, 0 )
+176/modulate = Color( 1, 1, 1, 1 )
+176/region = Rect2( 272, 48, 16, 16 )
+176/tile_mode = 0
+176/occluder_offset = Vector2( 0, 0 )
+176/navigation_offset = Vector2( 0, 0 )
+176/shape_offset = Vector2( 0, 0 )
+176/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+176/shape = SubResource( 139 )
+176/shape_one_way = false
+176/shape_one_way_margin = 1.0
+176/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 139 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+176/z_index = 0
+177/name = "gladridgegate.png 177"
+177/texture = ExtResource( 25 )
+177/tex_offset = Vector2( 0, 0 )
+177/modulate = Color( 1, 1, 1, 1 )
+177/region = Rect2( 256, 48, 16, 16 )
+177/tile_mode = 0
+177/occluder_offset = Vector2( 0, 0 )
+177/navigation_offset = Vector2( 0, 0 )
+177/shape_offset = Vector2( 0, 0 )
+177/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+177/shape = SubResource( 140 )
+177/shape_one_way = false
+177/shape_one_way_margin = 1.0
+177/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 140 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+177/z_index = 0
+178/name = "gladridgegate.png 178"
+178/texture = ExtResource( 25 )
+178/tex_offset = Vector2( 0, 0 )
+178/modulate = Color( 1, 1, 1, 1 )
+178/region = Rect2( 240, 48, 16, 16 )
+178/tile_mode = 0
+178/occluder_offset = Vector2( 0, 0 )
+178/navigation_offset = Vector2( 0, 0 )
+178/shape_offset = Vector2( 0, 0 )
+178/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+178/shape = SubResource( 141 )
+178/shape_one_way = false
+178/shape_one_way_margin = 1.0
+178/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 141 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+178/z_index = 0
+179/name = "gladridgegate.png 179"
+179/texture = ExtResource( 25 )
+179/tex_offset = Vector2( 0, 0 )
+179/modulate = Color( 1, 1, 1, 1 )
+179/region = Rect2( 224, 48, 16, 16 )
+179/tile_mode = 0
+179/occluder_offset = Vector2( 0, 0 )
+179/navigation_offset = Vector2( 0, 0 )
+179/shape_offset = Vector2( 0, 0 )
+179/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+179/shape = SubResource( 142 )
+179/shape_one_way = false
+179/shape_one_way_margin = 1.0
+179/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 142 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+179/z_index = 0
+180/name = "gladridgegate.png 180"
+180/texture = ExtResource( 25 )
+180/tex_offset = Vector2( 0, 0 )
+180/modulate = Color( 1, 1, 1, 1 )
+180/region = Rect2( 208, 48, 16, 16 )
+180/tile_mode = 0
+180/occluder_offset = Vector2( 0, 0 )
+180/navigation_offset = Vector2( 0, 0 )
+180/shape_offset = Vector2( 0, 0 )
+180/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+180/shape = SubResource( 143 )
+180/shape_one_way = false
+180/shape_one_way_margin = 1.0
+180/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 143 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+180/z_index = 0
+181/name = "gladridgegate.png 181"
+181/texture = ExtResource( 25 )
+181/tex_offset = Vector2( 0, 0 )
+181/modulate = Color( 1, 1, 1, 1 )
+181/region = Rect2( 192, 48, 16, 16 )
+181/tile_mode = 0
+181/occluder_offset = Vector2( 0, 0 )
+181/navigation_offset = Vector2( 0, 0 )
+181/shape_offset = Vector2( 0, 0 )
+181/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+181/shape = SubResource( 144 )
+181/shape_one_way = false
+181/shape_one_way_margin = 1.0
+181/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 144 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+181/z_index = 0
+182/name = "gladridgegate.png 182"
+182/texture = ExtResource( 25 )
+182/tex_offset = Vector2( 0, 0 )
+182/modulate = Color( 1, 1, 1, 1 )
+182/region = Rect2( 160, 48, 16, 16 )
+182/tile_mode = 0
+182/occluder_offset = Vector2( 0, 0 )
+182/navigation_offset = Vector2( 0, 0 )
+182/shape_offset = Vector2( 0, 0 )
+182/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+182/shape = SubResource( 145 )
+182/shape_one_way = false
+182/shape_one_way_margin = 1.0
+182/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 145 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+182/z_index = 0
+183/name = "gladridgegate.png 183"
+183/texture = ExtResource( 25 )
+183/tex_offset = Vector2( 0, 0 )
+183/modulate = Color( 1, 1, 1, 1 )
+183/region = Rect2( 144, 48, 16, 16 )
+183/tile_mode = 0
+183/occluder_offset = Vector2( 0, 0 )
+183/navigation_offset = Vector2( 0, 0 )
+183/shape_offset = Vector2( 0, 0 )
+183/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+183/shape = SubResource( 146 )
+183/shape_one_way = false
+183/shape_one_way_margin = 1.0
+183/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 146 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+183/z_index = 0
+184/name = "gladridgegate.png 184"
+184/texture = ExtResource( 25 )
+184/tex_offset = Vector2( 0, 0 )
+184/modulate = Color( 1, 1, 1, 1 )
+184/region = Rect2( 128, 48, 16, 16 )
+184/tile_mode = 0
+184/occluder_offset = Vector2( 0, 0 )
+184/navigation_offset = Vector2( 0, 0 )
+184/shape_offset = Vector2( 0, 0 )
+184/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+184/shape = SubResource( 147 )
+184/shape_one_way = false
+184/shape_one_way_margin = 1.0
+184/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 147 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+184/z_index = 0
+185/name = "gladridgegate.png 185"
+185/texture = ExtResource( 25 )
+185/tex_offset = Vector2( 0, 0 )
+185/modulate = Color( 1, 1, 1, 1 )
+185/region = Rect2( 64, 48, 16, 16 )
+185/tile_mode = 0
+185/occluder_offset = Vector2( 0, 0 )
+185/navigation_offset = Vector2( 0, 0 )
+185/shape_offset = Vector2( 0, 0 )
+185/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+185/shape = SubResource( 148 )
+185/shape_one_way = false
+185/shape_one_way_margin = 1.0
+185/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 148 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+185/z_index = 0
+186/name = "gladridgegate.png 186"
+186/texture = ExtResource( 25 )
+186/tex_offset = Vector2( 0, 0 )
+186/modulate = Color( 1, 1, 1, 1 )
+186/region = Rect2( 48, 48, 16, 16 )
+186/tile_mode = 0
+186/occluder_offset = Vector2( 0, 0 )
+186/navigation_offset = Vector2( 0, 0 )
+186/shape_offset = Vector2( 0, 0 )
+186/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+186/shape = SubResource( 149 )
+186/shape_one_way = false
+186/shape_one_way_margin = 1.0
+186/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 149 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+186/z_index = 0
+187/name = "gladridgegate.png 187"
+187/texture = ExtResource( 25 )
+187/tex_offset = Vector2( 0, 0 )
+187/modulate = Color( 1, 1, 1, 1 )
+187/region = Rect2( 32, 48, 16, 16 )
+187/tile_mode = 0
+187/occluder_offset = Vector2( 0, 0 )
+187/navigation_offset = Vector2( 0, 0 )
+187/shape_offset = Vector2( 0, 0 )
+187/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+187/shape = SubResource( 150 )
+187/shape_one_way = false
+187/shape_one_way_margin = 1.0
+187/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 150 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+187/z_index = 0
+188/name = "gladridgegate.png 188"
+188/texture = ExtResource( 25 )
+188/tex_offset = Vector2( 0, 0 )
+188/modulate = Color( 1, 1, 1, 1 )
+188/region = Rect2( 16, 48, 16, 16 )
+188/tile_mode = 0
+188/occluder_offset = Vector2( 0, 0 )
+188/navigation_offset = Vector2( 0, 0 )
+188/shape_offset = Vector2( 0, 0 )
+188/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+188/shape = SubResource( 151 )
+188/shape_one_way = false
+188/shape_one_way_margin = 1.0
+188/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 151 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+188/z_index = 0
+189/name = "gladridgegate.png 189"
+189/texture = ExtResource( 25 )
+189/tex_offset = Vector2( 0, 0 )
+189/modulate = Color( 1, 1, 1, 1 )
+189/region = Rect2( 0, 48, 16, 16 )
+189/tile_mode = 0
+189/occluder_offset = Vector2( 0, 0 )
+189/navigation_offset = Vector2( 0, 0 )
+189/shape_offset = Vector2( 0, 0 )
+189/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+189/shape = SubResource( 152 )
+189/shape_one_way = false
+189/shape_one_way_margin = 1.0
+189/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 152 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+189/z_index = 0
+190/name = "gladridgegate.png 190"
+190/texture = ExtResource( 25 )
+190/tex_offset = Vector2( 0, 0 )
+190/modulate = Color( 1, 1, 1, 1 )
+190/region = Rect2( 0, 64, 16, 16 )
+190/tile_mode = 0
+190/occluder_offset = Vector2( 0, 0 )
+190/navigation_offset = Vector2( 0, 0 )
+190/shape_offset = Vector2( 0, 0 )
+190/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+190/shape = SubResource( 153 )
+190/shape_one_way = false
+190/shape_one_way_margin = 1.0
+190/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 153 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+190/z_index = 0
+191/name = "gladridgegate.png 191"
+191/texture = ExtResource( 25 )
+191/tex_offset = Vector2( 0, 0 )
+191/modulate = Color( 1, 1, 1, 1 )
+191/region = Rect2( 16, 64, 16, 16 )
+191/tile_mode = 0
+191/occluder_offset = Vector2( 0, 0 )
+191/navigation_offset = Vector2( 0, 0 )
+191/shape_offset = Vector2( 0, 0 )
+191/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+191/shape = SubResource( 154 )
+191/shape_one_way = false
+191/shape_one_way_margin = 1.0
+191/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 154 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+191/z_index = 0
+192/name = "gladridgegate.png 192"
+192/texture = ExtResource( 25 )
+192/tex_offset = Vector2( 0, 0 )
+192/modulate = Color( 1, 1, 1, 1 )
+192/region = Rect2( 32, 64, 16, 16 )
+192/tile_mode = 0
+192/occluder_offset = Vector2( 0, 0 )
+192/navigation_offset = Vector2( 0, 0 )
+192/shape_offset = Vector2( 0, 0 )
+192/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+192/shape = SubResource( 155 )
+192/shape_one_way = false
+192/shape_one_way_margin = 1.0
+192/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 155 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+192/z_index = 0
+193/name = "gladridgegate.png 193"
+193/texture = ExtResource( 25 )
+193/tex_offset = Vector2( 0, 0 )
+193/modulate = Color( 1, 1, 1, 1 )
+193/region = Rect2( 48, 64, 16, 16 )
+193/tile_mode = 0
+193/occluder_offset = Vector2( 0, 0 )
+193/navigation_offset = Vector2( 0, 0 )
+193/shape_offset = Vector2( 0, 0 )
+193/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+193/shape = SubResource( 156 )
+193/shape_one_way = false
+193/shape_one_way_margin = 1.0
+193/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 156 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+193/z_index = 0
+194/name = "gladridgegate.png 194"
+194/texture = ExtResource( 25 )
+194/tex_offset = Vector2( 0, 0 )
+194/modulate = Color( 1, 1, 1, 1 )
+194/region = Rect2( 64, 64, 16, 16 )
+194/tile_mode = 0
+194/occluder_offset = Vector2( 0, 0 )
+194/navigation_offset = Vector2( 0, 0 )
+194/shape_offset = Vector2( 0, 0 )
+194/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+194/shape = SubResource( 157 )
+194/shape_one_way = false
+194/shape_one_way_margin = 1.0
+194/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 157 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+194/z_index = 0
+195/name = "gladridgegate.png 195"
+195/texture = ExtResource( 25 )
+195/tex_offset = Vector2( 0, 0 )
+195/modulate = Color( 1, 1, 1, 1 )
+195/region = Rect2( 128, 64, 16, 16 )
+195/tile_mode = 0
+195/occluder_offset = Vector2( 0, 0 )
+195/navigation_offset = Vector2( 0, 0 )
+195/shape_offset = Vector2( 0, 0 )
+195/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+195/shape_one_way = false
+195/shape_one_way_margin = 0.0
+195/shapes = [  ]
+195/z_index = 0
+196/name = "gladridgegate.png 196"
+196/texture = ExtResource( 25 )
+196/tex_offset = Vector2( 0, 0 )
+196/modulate = Color( 1, 1, 1, 1 )
+196/region = Rect2( 144, 64, 16, 16 )
+196/tile_mode = 0
+196/occluder_offset = Vector2( 0, 0 )
+196/navigation_offset = Vector2( 0, 0 )
+196/shape_offset = Vector2( 0, 0 )
+196/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+196/shape_one_way = false
+196/shape_one_way_margin = 0.0
+196/shapes = [  ]
+196/z_index = 0
+197/name = "gladridgegate.png 197"
+197/texture = ExtResource( 25 )
+197/tex_offset = Vector2( 0, 0 )
+197/modulate = Color( 1, 1, 1, 1 )
+197/region = Rect2( 192, 64, 16, 16 )
+197/tile_mode = 0
+197/occluder_offset = Vector2( 0, 0 )
+197/navigation_offset = Vector2( 0, 0 )
+197/shape_offset = Vector2( 0, 0 )
+197/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+197/shape = SubResource( 158 )
+197/shape_one_way = false
+197/shape_one_way_margin = 1.0
+197/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 158 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+197/z_index = 0
+198/name = "gladridgegate.png 198"
+198/texture = ExtResource( 25 )
+198/tex_offset = Vector2( 0, 0 )
+198/modulate = Color( 1, 1, 1, 1 )
+198/region = Rect2( 208, 64, 16, 16 )
+198/tile_mode = 0
+198/occluder_offset = Vector2( 0, 0 )
+198/navigation_offset = Vector2( 0, 0 )
+198/shape_offset = Vector2( 0, 0 )
+198/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+198/shape = SubResource( 159 )
+198/shape_one_way = false
+198/shape_one_way_margin = 1.0
+198/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 159 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+198/z_index = 0
+199/name = "gladridgegate.png 199"
+199/texture = ExtResource( 25 )
+199/tex_offset = Vector2( 0, 0 )
+199/modulate = Color( 1, 1, 1, 1 )
+199/region = Rect2( 224, 64, 16, 16 )
+199/tile_mode = 0
+199/occluder_offset = Vector2( 0, 0 )
+199/navigation_offset = Vector2( 0, 0 )
+199/shape_offset = Vector2( 0, 0 )
+199/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+199/shape = SubResource( 160 )
+199/shape_one_way = false
+199/shape_one_way_margin = 1.0
+199/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 160 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+199/z_index = 0
+200/name = "gladridgegate.png 200"
+200/texture = ExtResource( 25 )
+200/tex_offset = Vector2( 0, 0 )
+200/modulate = Color( 1, 1, 1, 1 )
+200/region = Rect2( 240, 64, 16, 16 )
+200/tile_mode = 0
+200/occluder_offset = Vector2( 0, 0 )
+200/navigation_offset = Vector2( 0, 0 )
+200/shape_offset = Vector2( 0, 0 )
+200/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+200/shape = SubResource( 161 )
+200/shape_one_way = false
+200/shape_one_way_margin = 1.0
+200/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 161 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+200/z_index = 0
+201/name = "gladridgegate.png 201"
+201/texture = ExtResource( 25 )
+201/tex_offset = Vector2( 0, 0 )
+201/modulate = Color( 1, 1, 1, 1 )
+201/region = Rect2( 256, 64, 16, 16 )
+201/tile_mode = 0
+201/occluder_offset = Vector2( 0, 0 )
+201/navigation_offset = Vector2( 0, 0 )
+201/shape_offset = Vector2( 0, 0 )
+201/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+201/shape = SubResource( 162 )
+201/shape_one_way = false
+201/shape_one_way_margin = 1.0
+201/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 162 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+201/z_index = 0
+202/name = "gladridgegate.png 202"
+202/texture = ExtResource( 25 )
+202/tex_offset = Vector2( 0, 0 )
+202/modulate = Color( 1, 1, 1, 1 )
+202/region = Rect2( 272, 64, 16, 16 )
+202/tile_mode = 0
+202/occluder_offset = Vector2( 0, 0 )
+202/navigation_offset = Vector2( 0, 0 )
+202/shape_offset = Vector2( 0, 0 )
+202/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+202/shape = SubResource( 163 )
+202/shape_one_way = false
+202/shape_one_way_margin = 1.0
+202/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 163 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+202/z_index = 0
+203/name = "gladridgegate.png 203"
+203/texture = ExtResource( 25 )
+203/tex_offset = Vector2( 0, 0 )
+203/modulate = Color( 1, 1, 1, 1 )
+203/region = Rect2( 288, 64, 16, 16 )
+203/tile_mode = 0
+203/occluder_offset = Vector2( 0, 0 )
+203/navigation_offset = Vector2( 0, 0 )
+203/shape_offset = Vector2( 0, 0 )
+203/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+203/shape = SubResource( 164 )
+203/shape_one_way = false
+203/shape_one_way_margin = 1.0
+203/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 164 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+203/z_index = 0
+204/name = "gladridgegate.png 204"
+204/texture = ExtResource( 25 )
+204/tex_offset = Vector2( 0, 0 )
+204/modulate = Color( 1, 1, 1, 1 )
+204/region = Rect2( 304, 64, 16, 16 )
+204/tile_mode = 0
+204/occluder_offset = Vector2( 0, 0 )
+204/navigation_offset = Vector2( 0, 0 )
+204/shape_offset = Vector2( 0, 0 )
+204/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+204/shape = SubResource( 165 )
+204/shape_one_way = false
+204/shape_one_way_margin = 1.0
+204/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 165 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+204/z_index = 0
+205/name = "gladridgegate.png 205"
+205/texture = ExtResource( 25 )
+205/tex_offset = Vector2( 0, 0 )
+205/modulate = Color( 1, 1, 1, 1 )
+205/region = Rect2( 320, 64, 16, 16 )
+205/tile_mode = 0
+205/occluder_offset = Vector2( 0, 0 )
+205/navigation_offset = Vector2( 0, 0 )
+205/shape_offset = Vector2( 0, 0 )
+205/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+205/shape = SubResource( 166 )
+205/shape_one_way = false
+205/shape_one_way_margin = 1.0
+205/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 166 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+205/z_index = 0
+206/name = "gladridgegate.png 206"
+206/texture = ExtResource( 25 )
+206/tex_offset = Vector2( 0, 0 )
+206/modulate = Color( 1, 1, 1, 1 )
+206/region = Rect2( 336, 64, 16, 16 )
+206/tile_mode = 0
+206/occluder_offset = Vector2( 0, 0 )
+206/navigation_offset = Vector2( 0, 0 )
+206/shape_offset = Vector2( 0, 0 )
+206/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+206/shape = SubResource( 167 )
+206/shape_one_way = false
+206/shape_one_way_margin = 1.0
+206/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 167 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+206/z_index = 0
+207/name = "gladridgegate.png 207"
+207/texture = ExtResource( 25 )
+207/tex_offset = Vector2( 0, 0 )
+207/modulate = Color( 1, 1, 1, 1 )
+207/region = Rect2( 352, 64, 16, 16 )
+207/tile_mode = 0
+207/occluder_offset = Vector2( 0, 0 )
+207/navigation_offset = Vector2( 0, 0 )
+207/shape_offset = Vector2( 0, 0 )
+207/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+207/shape = SubResource( 168 )
+207/shape_one_way = false
+207/shape_one_way_margin = 1.0
+207/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 168 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+207/z_index = 0
+208/name = "gladridgegate.png 208"
+208/texture = ExtResource( 25 )
+208/tex_offset = Vector2( 0, 0 )
+208/modulate = Color( 1, 1, 1, 1 )
+208/region = Rect2( 208, 80, 16, 16 )
+208/tile_mode = 0
+208/occluder_offset = Vector2( 0, 0 )
+208/navigation_offset = Vector2( 0, 0 )
+208/shape_offset = Vector2( 0, 0 )
+208/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+208/shape = SubResource( 169 )
+208/shape_one_way = false
+208/shape_one_way_margin = 1.0
+208/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 169 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+208/z_index = 0
+209/name = "gladridgegate.png 209"
+209/texture = ExtResource( 25 )
+209/tex_offset = Vector2( 0, 0 )
+209/modulate = Color( 1, 1, 1, 1 )
+209/region = Rect2( 224, 80, 16, 16 )
+209/tile_mode = 0
+209/occluder_offset = Vector2( 0, 0 )
+209/navigation_offset = Vector2( 0, 0 )
+209/shape_offset = Vector2( 0, 0 )
+209/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+209/shape = SubResource( 170 )
+209/shape_one_way = false
+209/shape_one_way_margin = 1.0
+209/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 170 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+209/z_index = 0
+210/name = "gladridgegate.png 210"
+210/texture = ExtResource( 25 )
+210/tex_offset = Vector2( 0, 0 )
+210/modulate = Color( 1, 1, 1, 1 )
+210/region = Rect2( 128, 80, 16, 16 )
+210/tile_mode = 0
+210/occluder_offset = Vector2( 0, 0 )
+210/navigation_offset = Vector2( 0, 0 )
+210/shape_offset = Vector2( 0, 0 )
+210/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+210/shape_one_way = false
+210/shape_one_way_margin = 0.0
+210/shapes = [  ]
+210/z_index = 0
+211/name = "gladridgegate.png 211"
+211/texture = ExtResource( 25 )
+211/tex_offset = Vector2( 0, 0 )
+211/modulate = Color( 1, 1, 1, 1 )
+211/region = Rect2( 144, 80, 16, 16 )
+211/tile_mode = 0
+211/occluder_offset = Vector2( 0, 0 )
+211/navigation_offset = Vector2( 0, 0 )
+211/shape_offset = Vector2( 0, 0 )
+211/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+211/shape_one_way = false
+211/shape_one_way_margin = 0.0
+211/shapes = [  ]
+211/z_index = 0
+212/name = "gladridgegate.png 212"
+212/texture = ExtResource( 25 )
+212/tex_offset = Vector2( 0, 0 )
+212/modulate = Color( 1, 1, 1, 1 )
+212/region = Rect2( 0, 80, 16, 16 )
+212/tile_mode = 0
+212/occluder_offset = Vector2( 0, 0 )
+212/navigation_offset = Vector2( 0, 0 )
+212/shape_offset = Vector2( 0, 0 )
+212/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+212/shape = SubResource( 171 )
+212/shape_one_way = false
+212/shape_one_way_margin = 1.0
+212/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 171 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+212/z_index = 0
+213/name = "gladridgegate.png 213"
+213/texture = ExtResource( 25 )
+213/tex_offset = Vector2( 0, 0 )
+213/modulate = Color( 1, 1, 1, 1 )
+213/region = Rect2( 16, 80, 16, 16 )
+213/tile_mode = 0
+213/occluder_offset = Vector2( 0, 0 )
+213/navigation_offset = Vector2( 0, 0 )
+213/shape_offset = Vector2( 0, 0 )
+213/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+213/shape = SubResource( 172 )
+213/shape_one_way = false
+213/shape_one_way_margin = 1.0
+213/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 172 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+213/z_index = 0
+214/name = "gladridgegate.png 214"
+214/texture = ExtResource( 25 )
+214/tex_offset = Vector2( 0, 0 )
+214/modulate = Color( 1, 1, 1, 1 )
+214/region = Rect2( 32, 80, 16, 16 )
+214/tile_mode = 0
+214/occluder_offset = Vector2( 0, 0 )
+214/navigation_offset = Vector2( 0, 0 )
+214/shape_offset = Vector2( 0, 0 )
+214/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+214/shape = SubResource( 173 )
+214/shape_one_way = false
+214/shape_one_way_margin = 1.0
+214/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 173 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+214/z_index = 0
+215/name = "gladridgegate.png 215"
+215/texture = ExtResource( 25 )
+215/tex_offset = Vector2( 0, 0 )
+215/modulate = Color( 1, 1, 1, 1 )
+215/region = Rect2( 48, 80, 16, 16 )
+215/tile_mode = 0
+215/occluder_offset = Vector2( 0, 0 )
+215/navigation_offset = Vector2( 0, 0 )
+215/shape_offset = Vector2( 0, 0 )
+215/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+215/shape = SubResource( 174 )
+215/shape_one_way = false
+215/shape_one_way_margin = 1.0
+215/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 174 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+215/z_index = 0
+216/name = "gladridgegate.png 216"
+216/texture = ExtResource( 25 )
+216/tex_offset = Vector2( 0, 0 )
+216/modulate = Color( 1, 1, 1, 1 )
+216/region = Rect2( 64, 80, 16, 16 )
+216/tile_mode = 0
+216/occluder_offset = Vector2( 0, 0 )
+216/navigation_offset = Vector2( 0, 0 )
+216/shape_offset = Vector2( 0, 0 )
+216/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+216/shape = SubResource( 175 )
+216/shape_one_way = false
+216/shape_one_way_margin = 1.0
+216/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 175 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+216/z_index = 0
+217/name = "ebldg-on-street.png 217"
+217/texture = ExtResource( 26 )
+217/tex_offset = Vector2( 0, 0 )
+217/modulate = Color( 1, 1, 1, 1 )
+217/region = Rect2( 0, 0, 16, 16 )
+217/tile_mode = 0
+217/occluder_offset = Vector2( 0, 0 )
+217/navigation_offset = Vector2( 0, 0 )
+217/shape_offset = Vector2( 0, 0 )
+217/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+217/shape = SubResource( 176 )
+217/shape_one_way = false
+217/shape_one_way_margin = 1.0
+217/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 176 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+217/z_index = 0
+218/name = "ebldg-on-street.png 218"
+218/texture = ExtResource( 26 )
+218/tex_offset = Vector2( 0, 0 )
+218/modulate = Color( 1, 1, 1, 1 )
+218/region = Rect2( 16, 0, 16, 16 )
+218/tile_mode = 0
+218/occluder_offset = Vector2( 0, 0 )
+218/navigation_offset = Vector2( 0, 0 )
+218/shape_offset = Vector2( 0, 0 )
+218/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+218/shape = SubResource( 177 )
+218/shape_one_way = false
+218/shape_one_way_margin = 1.0
+218/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 177 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+218/z_index = 0
+219/name = "ebldg-on-street.png 219"
+219/texture = ExtResource( 26 )
+219/tex_offset = Vector2( 0, 0 )
+219/modulate = Color( 1, 1, 1, 1 )
+219/region = Rect2( 64, 0, 16, 16 )
+219/tile_mode = 0
+219/occluder_offset = Vector2( 0, 0 )
+219/navigation_offset = Vector2( 0, 0 )
+219/shape_offset = Vector2( 0, 0 )
+219/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+219/shape = SubResource( 178 )
+219/shape_one_way = false
+219/shape_one_way_margin = 1.0
+219/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 178 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+219/z_index = 0
+220/name = "street.png 220"
+220/texture = ExtResource( 24 )
+220/tex_offset = Vector2( 0, 0 )
+220/modulate = Color( 1, 1, 1, 1 )
+220/region = Rect2( 0, 0, 16, 16 )
+220/tile_mode = 0
+220/occluder_offset = Vector2( 0, 0 )
+220/navigation_offset = Vector2( 0, 0 )
+220/shape_offset = Vector2( 0, 0 )
+220/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+220/shape_one_way = false
+220/shape_one_way_margin = 0.0
+220/shapes = [  ]
+220/z_index = 0
+221/name = "mountain.png 221"
+221/texture = ExtResource( 27 )
+221/tex_offset = Vector2( 0, 0 )
+221/modulate = Color( 1, 1, 1, 1 )
+221/region = Rect2( 0, 0, 64, 64 )
+221/tile_mode = 1
+221/autotile/bitmask_mode = 0
+221/autotile/bitmask_flags = [ Vector2( 0, 1 ), 1, Vector2( 0, 2 ), 4, Vector2( 0, 3 ), 5, Vector2( 1, 0 ), 256, Vector2( 1, 1 ), 257, Vector2( 1, 2 ), 260, Vector2( 1, 3 ), 261, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 68, Vector2( 2, 3 ), 69, Vector2( 3, 0 ), 320, Vector2( 3, 1 ), 321, Vector2( 3, 2 ), 324, Vector2( 3, 3 ), 325 ]
+221/autotile/icon_coordinate = Vector2( 0, 0 )
+221/autotile/tile_size = Vector2( 16, 16 )
+221/autotile/spacing = 0
+221/autotile/occluder_map = [  ]
+221/autotile/navpoly_map = [  ]
+221/autotile/priority_map = [  ]
+221/autotile/z_index_map = [  ]
+221/autotile/fallback_mode = 0
+221/occluder_offset = Vector2( 0, 0 )
+221/navigation_offset = Vector2( 0, 0 )
+221/shape_offset = Vector2( 0, 0 )
+221/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+221/shape = SubResource( 179 )
+221/shape_one_way = false
+221/shape_one_way_margin = 1.0
+221/shapes = [ {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 179 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 180 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 181 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 182 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 183 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 184 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 185 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 186 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 187 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 188 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 189 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 190 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 191 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 192 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+221/z_index = 0
+222/name = "mountaintrail.png 222"
+222/texture = ExtResource( 28 )
+222/tex_offset = Vector2( 0, 0 )
+222/modulate = Color( 1, 1, 1, 1 )
+222/region = Rect2( 0, 0, 64, 64 )
+222/tile_mode = 1
+222/autotile/bitmask_mode = 0
+222/autotile/bitmask_flags = [ Vector2( 0, 1 ), 1, Vector2( 0, 2 ), 4, Vector2( 0, 3 ), 5, Vector2( 1, 0 ), 256, Vector2( 1, 1 ), 257, Vector2( 1, 2 ), 260, Vector2( 1, 3 ), 261, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 68, Vector2( 2, 3 ), 69, Vector2( 3, 0 ), 320, Vector2( 3, 1 ), 321, Vector2( 3, 2 ), 324, Vector2( 3, 3 ), 325 ]
+222/autotile/icon_coordinate = Vector2( 0, 0 )
+222/autotile/tile_size = Vector2( 16, 16 )
+222/autotile/spacing = 0
+222/autotile/occluder_map = [  ]
+222/autotile/navpoly_map = [  ]
+222/autotile/priority_map = [  ]
+222/autotile/z_index_map = [  ]
+222/autotile/fallback_mode = 0
+222/occluder_offset = Vector2( 0, 0 )
+222/navigation_offset = Vector2( 0, 0 )
+222/shape_offset = Vector2( 0, 0 )
+222/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+222/shape_one_way = false
+222/shape_one_way_margin = 0.0
+222/shapes = [  ]
+222/z_index = 0
