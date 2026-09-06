@@ -5,6 +5,7 @@ onready var global = get_node("/root/GLOBAL_VARS")
 onready var textbox = get_node("/root/TEXTBOX/TextBox")
 onready var textboxlabel = get_node("/root/TEXTBOX/TextBox/VBoxContainer/Label")
 var interactNumber: int
+export var id: String = "devloper"
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -21,7 +22,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		print(interactNumber)
-		if global.closestInteractable == "devloper":
+		if global.closestInteractable == id:
 			if interactNumber == 0 && !global.cutscenePlaying:
 				global.cutscenePlaying = true
 				textbox.visible = true
@@ -41,7 +42,7 @@ func _process(delta):
 func _on_Area2D_body_entered(body):
 	print(body)
 	if body.name == "Player":
-		global.closestInteractable = "devloper"
+		global.closestInteractable = id
 	
 func _on_Area2D_body_exited(body):
 	global.closestInteractable = "null"
