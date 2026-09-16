@@ -1,11 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
 [ext_resource path="res://charmove.gd" type="Script" id=2]
 [ext_resource path="res://playermove.gd" type="Script" id=3]
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=4]
 [ext_resource path="res://getTileType.gd" type="Script" id=5]
+[ext_resource path="res://retrogaming.tres" type="DynamicFont" id=6]
 [ext_resource path="res://warp.gd" type="Script" id=7]
+[ext_resource path="res://town_title.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_e"
@@ -201,6 +203,24 @@ relative = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 792, -112 )
 shape = SubResource( 13 )
+
+[node name="TownTitle" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="TileMap" type="TileMap" parent="TownTitle"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65536, 99, 0, -65535, 97, 0, -65534, 97, 0, -65533, 97, 0, -65532, 97, 0, -65531, 97, 0, -65530, 97, 0, -65529, 97, 0, -65528, 97, 0, -65527, 98, 0 )
+
+[node name="Label" type="Label" parent="TownTitle"]
+margin_left = 1.0
+margin_top = -15.0
+margin_right = 96.0
+margin_bottom = -1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Road 1"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://playermove.gd" type="Script" id=1]
 [ext_resource path="res://charmove.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://rebirthTown.gd" type="Script" id=6]
 [ext_resource path="res://getTileType.gd" type="Script" id=7]
 [ext_resource path="res://rebirth_town_false_start.gd" type="Script" id=8]
+[ext_resource path="res://retrogaming.tres" type="DynamicFont" id=9]
+[ext_resource path="res://town_title.gd" type="Script" id=10]
 [ext_resource path="res://loresign.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -410,6 +412,24 @@ anims/walk_e = SubResource( 19 )
 anims/walk_n = SubResource( 20 )
 anims/walk_s = SubResource( 21 )
 anims/walk_w = SubResource( 22 )
+
+[node name="TownTitle" type="CanvasLayer" parent="."]
+script = ExtResource( 10 )
+
+[node name="TileMap" type="TileMap" parent="TownTitle"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65536, 99, 0, -65535, 97, 0, -65534, 97, 0, -65533, 97, 0, -65532, 97, 0, -65531, 97, 0, -65530, 97, 0, -65529, 97, 0, -65528, 97, 0, -65527, 98, 0 )
+
+[node name="Label" type="Label" parent="TownTitle"]
+margin_left = 1.0
+margin_top = -15.0
+margin_right = 96.0
+margin_bottom = -1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Rebirth Town"
 
 [connection signal="body_entered" from="House 1 Warp Zone" to="House 1 Warp Zone" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="House 2 Warp Zone" to="House 2 Warp Zone" method="_on_Area2D_body_entered"]
