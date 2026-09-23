@@ -1,8 +1,8 @@
 extends Resource
 class_name Creatures
 
-const attack_list =  ["Defend", "Dust Cloud", "Flare", "Growl", "Gust", "Leer", "Parastrike", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
-const stamina_cost = [ 0,        1,            6,       1,       6,      1,      4,            3,      3,         6,        3,        6,        6   ]
+const attack_list =  ["Defend", "Dust Cloud", "Flare", "Growl", "Gust", "Leer", "Parastrike", "Peck", "Pyrobatics", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
+const stamina_cost = [ 0,        1,            6,       1,       6,      1,      4,            3,      15,           3,         6,        3,        6,        6   ]
 
 const data = {
 	0: {
@@ -121,8 +121,25 @@ const data = {
 		"basest": 25,
 		"basexp": 25,
 		"captureability": .5,
-		"attacks": ["Tackle", "", "Dust Cloud"],
+		"attacks": ["Tackle", "", "Dust Cloud", "", "", "", "Tremor"],
 		"element": 0
+	},
+	18: {
+		"name": "Pyrirp",
+		"edevicedescriptor": "Fire Bird", 
+		"edeviceid": 18,
+		"edeviceentry": "Pyrirps are energetic birds known to create erratic flames when excited.",
+		"edeviceheight": .4,
+		"edeviceweight": 1.5,
+		"basehp": 19,
+		"baseat": 30,
+		"basedf": 19,
+		"basesp": 40,
+		"basest": 22,
+		"basexp": 25,
+		"captureability": .5,
+		"attacks": ["Scratch", "", "Leer", "Peck", "Gust", "", "", "", "", "Pyrobatics"],
+		"element": 1
 	},
 	25: {
 		"name": "Sparkel",
@@ -155,7 +172,7 @@ const element_names = {
 	10: "LAVA",
 	11: "SOLAR",
 	15: "STORM",
-	16: "WOOD",
+	16: "NATURE",
 	17: "ICE",
 	22: "EXPLODE",
 	23: "MAGNET",
@@ -174,7 +191,7 @@ const element_names_short = {
 	10: "LAVA",
 	11: "SOLR",
 	15: "STRM",
-	16: "WOOD",
+	16: "NATR",
 	17: "ICE",
 	22: "XPLD",
 	23: "MGNT",
@@ -201,7 +218,7 @@ func _calculateStats(dnahp,dnaat,dnadf,dnasp,dnast,level,creature):
 	var ststr
 	totalhp = int ((data[creature].basehp * level) / 10) + ( dnahp * level )
 	totalat = int ((data[creature].baseat * level) / 10) + ( dnaat * level )
-	totaldf = int ((data[creature].basehp * level) / 10) + ( dnadf * level )
+	totaldf = int ((data[creature].basedf * level) / 10) + ( dnadf * level )
 	totalsp = int ((data[creature].basesp * level) / 10) + ( dnasp * level )
 	totalst = int ((data[creature].basest * level) / 10) + ( dnast * level )
 	hpstr = str(totalhp)
@@ -262,7 +279,7 @@ static func primary_element_multiplier(attack: int, defense: int) -> float:
 	]
 	return multiplier[attack - 1][defense - 1]
 
-# 8 = Steam, 9 = Blaze, 10 = Lava, 11 = Scorch, 15 = Storm, 16 = Wood, 17 = Ice, 22 = Explosion, 23 = Magnet, 29 = Crystal
+# 8 = Steam, 9 = Plasma, 10 = Lava, 11 = Solar, 15 = Storm, 16 = Nature, 17 = Ice, 22 = Explosion, 23 = Magnet, 29 = Crystal
 static func multiplier(attack: int, defense: int) -> float:
 	var attack_arr: Array = [attack % 6, attack / 6]
 	var defense_arr: Array = [defense % 6, defense / 6]
@@ -284,6 +301,8 @@ static func get_element(attack: String) -> int:
 			return 3
 		"Peck":
 			return 5
+		"Pyrobatics":
+			return 1
 		"Scratch":
 			return 0
 		"Splash":

@@ -6,7 +6,7 @@ onready var wildgen = global.wildgen
 
 # Arrays for the AI
 var low_stamina: Array = ["Defend", "Dust Cloud", "Flare", "Gust", "Leer", "Parastrike", "Peck", "Scratch", "Splash", "Tackle", "Tremor", "Zap"]
-var stamina_10: Array = []
+var stamina_10: Array = ["Pyrobatics"]
 var stamina_20: Array = []
 var stamina_30: Array = []
 var stamina_40: Array = []
@@ -16,7 +16,7 @@ var stamina_70: Array = []
 var stamina_80: Array = []
 var stamina_90: Array = []
 var high_stamina: Array = []
-var damaging_attacks: Array = ["Flare", "Gust", "Peck", "Splash", "Tackle", "Tremor", "Zap"]
+var damaging_attacks: Array = ["Flare", "Gust", "Peck", "Pyrobatics", "Splash", "Tackle", "Tremor", "Zap"]
 
 
 var party: Array = [null, null, null, null, null, null, null]
@@ -62,7 +62,7 @@ func get_attack_scores() -> Array:
 			if player.currenthp <= float(player.stathp) / 10:
 				attack_scores[i] += 3
 			attack_scores[i] += int(log(player.statdf / player.floatdf) / log(1.5))
-			attack_scores[i] += int(log(Creatures.multiplier(Creatures.get_element(attacks[i]), Creatures.data[player.species]["element"]) / log(1.5)))
+			attack_scores[i] += int(log(Creatures.multiplier(Creatures.get_element(attacks[i]), Creatures.data[player.species]["element"])) / log(1.5))
 	return attack_scores
 		
 func sort_by_score(a, b) -> bool:

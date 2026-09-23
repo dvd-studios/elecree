@@ -31,7 +31,7 @@ func _process(delta: float):
 		
 		for i in one_to_four:
 			#print("Offset + Select = " + str(offset+select))
-			get_node("Scroller/Label" + str(i)).text = Creatures.data[offset + i]["name"] if GLOBAL_VARS.e_device_caught.has(offset + i) else "---"
+			get_node("Scroller/Label" + str(i)).text = "#" + str(offset+i) + " " + (Creatures.data[offset + i]["name"] if GLOBAL_VARS.e_device_caught.has(offset + i) else "---")
 
 func set_number(number: int):
 	if number >= 67:

@@ -46,9 +46,9 @@ func get_random_level_and_species(scene: String) -> Array:
 	var output: Array = [int(rand_range(2, 5)), 16]
 	match scene:
 		"res://road1.tscn":
-			output = [int(rand_range(2, 5)), 16]
+			output = [int(rand_range(2, 5)), get_random_item([16, 18])]
 		"res://Joejoe/Road2/overworld.tscn":
-			output = [int(rand_range(3, 7)), get_random_item([16, 16, 16, 16, 16, 16, 16, 16, 16, 25])]
+			output = [int(rand_range(3, 7)), get_random_item([16, 16, 16, 16, 16, 18, 18, 18, 18, 25])]
 	return output
 
 func get_random_item(input: Array):

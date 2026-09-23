@@ -33,14 +33,14 @@ func _process(delta):
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(0, 0, 0, 1))
 		menu_number -= 1
 		if menu_number == 0:
-			menu_number = 6
+			menu_number = 1
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(1, 1, 1, 1))
 	
 	if Input.is_action_just_pressed("ui_down") && self.visible:
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(0, 0, 0, 1))
 		menu_number += 1
 		if menu_number == 7:
-			menu_number = 1
+			menu_number = 6
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(1, 1, 1, 1))
 		
 	if Input.is_action_just_pressed("ui_accept"):

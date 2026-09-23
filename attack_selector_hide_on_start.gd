@@ -8,7 +8,7 @@ func _ready():
 	self.visible = false
 
 func get_attack(pg: int, number: int) -> String:
-	var order: int = (pg * 3) + number
+	var order: int = pg + number
 	if order <= 0:
 		return ""
 	else:
@@ -51,11 +51,11 @@ func _process(delta):
 	
 	if select == 4:
 		page += 1
-		select = 1
+		select = 3
 	
 	if select == 0:
 		page -= 1
-		select = 3
+		select = 1
 	
 	get_node("VBoxContainer/Attack1").add_color_override("font_color", Color(1, 1, 1) if select == 1 else Color(0, 0, 0))
 	get_node("VBoxContainer/Attack2").add_color_override("font_color", Color(1, 1, 1) if select == 2 else Color(0, 0, 0))
