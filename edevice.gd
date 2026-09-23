@@ -24,7 +24,7 @@ func _process(delta: float):
 		
 		for i in one_to_four:
 			#print("Offset + Select = " + str(offset+select))
-			get_node("Scroller/Label" + str(i)).text = Creatures.data[offset + i]["name"] if GLOBAL_VARS.e_device_caught.has(offset + i) else "---"
+			get_node("Scroller/Label" + str(i)).text = "#" + str(offset+i) + " " + (Creatures.data[offset + i]["name"] if GLOBAL_VARS.e_device_caught.has(offset + i) else "---")
 		if Input.is_action_just_pressed("ui_down") && select + offset <= 69:
 			if select >= 4:
 				offset += 1

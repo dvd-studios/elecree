@@ -101,13 +101,20 @@ func _process(delta: float):
 		if use_cycle == 0:
 			if Input.is_action_just_pressed("ui_down"):
 				creature += 1
-				creature = better_modulus(creature, size_without_nulls(TEAM.team))
+				var size: int = TEAM.get_team_size()
+				if creature >= size:
+					creature = size - 1
 			if Input.is_action_just_pressed("ui_up"):
 				creature -= 1
-				creature = better_modulus(creature, size_without_nulls(TEAM.team))
+				if creature < 0:
+					creature = 0
 			if Input.is_action_just_pressed("ui_cancel"):
 				hide_items()
-				GLOBAL_VARS.cutscenePlaying = false
+				var scene_name: String = get_tree().current_scene.filename
+				if ["res://battle.tscn"].has(scene_name):
+					get_parent().selecting_creature = 0
+				else:
+					GLOBAL_VARS.cutscenePlaying = false
 				first_frame = true
 		if Input.is_action_just_pressed("ui_accept"):
 			match use_cycle:

@@ -182,14 +182,23 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	else:
 		deserialize(deser)
 
-func get_stamina(attack: String):
+func get_base_stamina(attack: String) -> int:
 	return stamina_cost[atk_list.find(attack)]
+
+func get_stamina(attack: String) -> int:
+	var base_stamina: int = get_base_stamina(attack)
+	if Creatures.get_element(attack) == get_element():
+		return base_stamina / 2
+	return base_stamina
+
+func get_element() -> int:
+	return Creatures.data[species]["element"]
 
 func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Array:
 	var can_attack: bool = true
 	if status == StatusEffect.Paralyzed:
 		can_attack = randf() < .6
-	currentst -= stamina_cost[atk_list.find(attack)]
+	currentst -= get_stamina(attack)
 	recharge = 0
 	var array_to_return: Array = []
 	if can_attack:
@@ -231,6 +240,12 @@ func attack(target: Elecree, attack: String, from_opponent: bool = false) -> Arr
 					array_to_return.push_back(("" if from_opponent else "The opposing ") + target.get_name() + " is now paralyzed!")
 				else:
 					array_to_return.push_back("But it failed!")
+			"Pyrobatics":
+				array_to_return.push_back(damage(target, 50, 1))
+				if spmod < 6:
+					floatsp *= 1.3
+					spmod += 1
+					array_to_return.push_back(("The opposing " if from_opponent else "") + get_name() + "'s speed up!")
 			"Scratch":
 				array_to_return.push_back(damage(target, 30))
 				array_to_return.push_back("")
