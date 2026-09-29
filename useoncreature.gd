@@ -9,6 +9,7 @@ var team_of_creatures: Array
 var in_details: bool = false
 var first_frame: bool = true
 var use_cycle: int = 0
+var use_cycle_cache: int = 0
 var current_item: String = ""
 
 func hide_items():
@@ -97,6 +98,9 @@ func size_without_nulls(arr: Array) -> int:
 	return i
 
 func _process(delta: float):
+	if use_cycle != use_cycle_cache:
+		print("use_cycle set to " + str(use_cycle))
+		use_cycle_cache = use_cycle
 	if visible && !in_details && !first_frame:
 		if use_cycle == 0:
 			if Input.is_action_just_pressed("ui_down"):
@@ -117,17 +121,21 @@ func _process(delta: float):
 					GLOBAL_VARS.cutscenePlaying = false
 				first_frame = true
 		if Input.is_action_just_pressed("ui_accept"):
+			print("use_cycle before press: " + str(use_cycle))
 			match use_cycle:
+				-2:
+					use_cycle = -1
+				-1:
+					get_node("VBoxContainer/Label8").text = "Use on what Elecree?"
+					use_cycle = 0
 				0:
-					get_node("VBoxContainer/Label8").text = "Used " + current_item + " on " + TEAM.team[creature].get_name() + "!"
-					use_cycle += 1
-				1:
 					get_node("VBoxContainer/Label8").text = use_on_creature(current_item, TEAM.team[creature])
 					use_cycle += 1
-				2:
+				1:
 					get_node("VBoxContainer/Label8").text = "Use on what Elecree?"
 					hide_items()
 					use_cycle = 0
+			print("use_cycle after press: " + str(use_cycle))
 		
 	if visible:
 		first_frame = false
@@ -139,19 +147,29 @@ func _process(delta: float):
 			labels[l].add_color_override("font_color", Color(0, 0, 0))
 
 func use_on_creature(item: String, elecree: Elecree) -> String:
-	get_parent().item_bag.pop_at(get_parent().item_bag.find_last(item))
-	get_parent().select = 0
-	get_parent().refresh()
+	var success: bool = false
+	var return_string: String = ""
 	match item:
 		"Health Potion":
-			elecree.currenthp += 10
-			if elecree.currenthp > elecree.stathp:
-				elecree.currenthp = elecree.stathp
-			return elecree.get_name() + " restored 10 HP."
+			if elecree.currenthp > 0:
+				success = true
+				elecree.currenthp += 10
+				if elecree.currenthp > elecree.stathp:
+					elecree.currenthp = elecree.stathp
+				return_string = elecree.get_name() + " restored 10 HP."
 		"Stamina Potion":
-			elecree.currentst += 10
-			if elecree.currentst > elecree.statst:
-				elecree.currentst = elecree.statst
-			return elecree.get_name() + " restored 10 stamina."
-	return ""
+			if elecree.currenthp > 0:
+				success = true
+				elecree.currentst += 10
+				if elecree.currentst > elecree.statst:
+					elecree.currentst = elecree.statst
+				return_string = elecree.get_name() + " restored 10 stamina."
+	if success:
+		get_parent().item_bag.pop_at(get_parent().item_bag.find_last(item))
+		get_parent().select = 0
+		get_parent().refresh()
+		return return_string
+	else:
+		use_cycle = -2
+		return "This item cannot be used on this Elecree!"
 	
