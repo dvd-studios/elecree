@@ -43,6 +43,14 @@ func _process(delta):
 			menu_number = 6
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(1, 1, 1, 1))
 		
+	if Input.is_action_just_pressed("ui_cancel"):
+		self.visible = false
+		menu_number = 7
+		for i in 6:
+			get_node("VBoxContainer/Label" + String(i + 1)).add_color_override("font_color",Color(0, 0, 0, 1))
+		yield(get_tree(), "idle_frame")
+		global.cutscenePlaying = false
+		
 	if Input.is_action_just_pressed("ui_accept"):
 		if in_save:
 			leaving_save = true
