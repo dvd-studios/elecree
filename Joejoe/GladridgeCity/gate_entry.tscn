@@ -1,0 +1,206 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
+[ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=2]
+[ext_resource path="res://charmove.gd" type="Script" id=3]
+[ext_resource path="res://playermove.gd" type="Script" id=4]
+[ext_resource path="res://getTileType.gd" type="Script" id=5]
+[ext_resource path="res://warp.gd" type="Script" id=6]
+[ext_resource path="res://npc_generic.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 14.5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_e"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_n"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle_s"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_w"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk_e"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 3, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "walk_n"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 6, 8 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "walk_s"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk_w"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 9, 11 ]
+}
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 9.5, 9.5 )
+
+[node name="gate_entry" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -2, 256, 0, -1, 257, 0, -65536, 258, 0, -65535, 259, 0, -65534, 260, 0, -65533, 261, 0, -65532, 262, 0, -65531, 263, 0, -65530, 264, 0, -65529, 265, 0, -65528, 266, 0, -65527, 267, 0, -65526, 268, 0, -65525, 269, 0, -65524, 270, 0, -65523, 271, 0, -65522, 262, 0, 65534, 272, 0, 65535, 273, 0, 0, 274, 0, 1, 275, 0, 2, 276, 0, 3, 277, 0, 4, 278, 0, 5, 279, 0, 6, 280, 0, 7, 281, 0, 8, 282, 0, 9, 283, 0, 10, 284, 0, 11, 262, 0, 12, 262, 0, 13, 285, 0, 14, 262, 0, 131069, 44, 0, 131070, 286, 0, 131071, 262, 0, 65536, 262, 0, 65537, 287, 0, 65538, 288, 0, 65539, 289, 0, 65540, 290, 0, 65541, 262, 0, 65542, 262, 0, 65543, 291, 0, 65544, 292, 0, 65545, 293, 0, 65546, 294, 0, 65547, 295, 0, 65548, 296, 0, 65549, 297, 0, 65550, 298, 0, 65551, 44, 0, 196605, 44, 0, 196606, 246, 0, 196607, 246, 0, 131072, 246, 0, 131073, 246, 0, 131074, 246, 0, 131075, 246, 0, 131076, 246, 0, 131077, 246, 0, 131078, 246, 0, 131079, 246, 0, 131080, 246, 0, 131081, 246, 0, 131082, 246, 0, 131083, 246, 0, 131084, 246, 0, 131085, 246, 0, 131086, 246, 0, 131087, 44, 0, 262141, 44, 0, 262142, 246, 0, 262143, 246, 0, 196608, 246, 0, 196609, 246, 0, 196610, 246, 0, 196611, 246, 0, 196612, 246, 0, 196613, 247, 0, 196614, 248, 0, 196615, 249, 0, 196616, 246, 0, 196617, 246, 0, 196618, 246, 0, 196619, 246, 0, 196620, 246, 0, 196621, 246, 0, 196622, 246, 0, 196623, 44, 0, 327677, 44, 0, 327678, 246, 0, 327679, 246, 0, 262144, 246, 0, 262145, 246, 0, 262146, 246, 0, 262147, 246, 0, 262148, 246, 0, 262149, 250, 0, 262150, 251, 0, 262151, 252, 0, 262152, 246, 0, 262153, 246, 0, 262154, 246, 0, 262155, 246, 0, 262156, 246, 0, 262157, 246, 0, 262158, 246, 0, 262159, 44, 0, 393213, 44, 0, 393214, 246, 0, 393215, 246, 0, 327680, 246, 0, 327681, 246, 0, 327682, 246, 0, 327683, 246, 0, 327684, 246, 0, 327685, 253, 0, 327686, 254, 0, 327687, 255, 0, 327688, 246, 0, 327689, 246, 0, 327690, 246, 0, 327691, 246, 0, 327692, 246, 0, 327693, 246, 0, 327694, 246, 0, 327695, 44, 0, 458749, 44, 0, 458750, 246, 0, 458751, 246, 0, 393216, 246, 0, 393217, 246, 0, 393218, 246, 0, 393219, 246, 0, 393220, 246, 0, 393221, 246, 0, 393222, 246, 0, 393223, 246, 0, 393224, 246, 0, 393225, 246, 0, 393226, 246, 0, 393227, 246, 0, 393228, 246, 0, 393229, 246, 0, 393230, 246, 0, 393231, 44, 0, 524285, 44, 0, 524286, 246, 0, 524287, 246, 0, 458752, 246, 0, 458753, 246, 0, 458754, 246, 0, 458755, 246, 0, 458756, 246, 0, 458757, 246, 0, 458758, 246, 0, 458759, 246, 0, 458760, 302, 0, 458761, 246, 0, 458762, 246, 0, 458763, 246, 0, 458764, 246, 0, 458765, 246, 0, 458766, 246, 0, 458767, 44, 0, 589821, 44, 0, 589822, 246, 0, 589823, 246, 0, 524288, 246, 0, 524289, 246, 0, 524290, 246, 0, 524291, 246, 0, 524292, 246, 0, 524293, 43, 0, 524294, 301, 0, 524295, 42, 0, 524296, 246, 0, 524297, 246, 0, 524298, 246, 0, 524299, 246, 0, 524300, 246, 0, 524301, 246, 0, 524302, 246, 0, 524303, 44, 0, 655357, 44, 0, 655358, 44, 0, 655359, 44, 0, 589824, 44, 0, 589825, 44, 0, 589826, 44, 0, 589827, 44, 0, 589828, 44, 0, 589832, 44, 0, 589833, 44, 0, 589834, 44, 0, 589835, 44, 0, 589836, 44, 0, 589837, 44, 0, 589838, 44, 0, 589839, 44, 0 )
+script = ExtResource( 5 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 10, 0 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 119, 83 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( 119, 84 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Sprite"]
+anims/idle_e = SubResource( 2 )
+anims/idle_n = SubResource( 3 )
+anims/idle_s = SubResource( 4 )
+anims/idle_w = SubResource( 5 )
+anims/walk_e = SubResource( 6 )
+anims/walk_n = SubResource( 7 )
+anims/walk_s = SubResource( 8 )
+anims/walk_w = SubResource( 9 )
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="Player/Sprite"]
+current = true
+smoothing_speed = 3.0
+
+[node name="Exit To Gladridge" type="Area2D" parent="."]
+script = ExtResource( 6 )
+destination = "Joejoe/GladridgeCity/overworld"
+coord = Vector2( 240, -648 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit To Gladridge"]
+position = Vector2( 104, 153 )
+shape = SubResource( 10 )
+
+[node name="NPC" type="Area2D" parent="."]
+script = ExtResource( 7 )
+npc_name = "pete_on_call"
+texts = [ "Ring... Ring...", "Pete: So, you made it to the first gate!", "Pete: Here's what I have to tell you about this one:", "Pete: Since this is your first gate, I'd like to introduce you to Gate Mechanics.", "Pete: To sum it up, a Gate Mechanic is a condition that applies to all battles in a Gate.", "Pete: This Gate's mechanic is called the Alternator: Here's how it works.", "Pete: The Alternator determines the target of all Thunder-element attacks.", "Pete: It flips 30 times a second, so learn how creatures' speeds interact with it.", "Pete: However, the good news:", "Pete: You don't need to use Thunder-element attacks at all!", "Pete: So, the Alternator affects Voma's Elecree more than it affects yours!", "Pete: Just remember, Thunder is weak to Earth and Fire.", "Pete: Anyways, I believe in you, go get that first Medallion!", "Click..." ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2( 136.5, 119.5 )
+shape = SubResource( 11 )
+
+[connection signal="body_entered" from="NPC" to="NPC" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="NPC" to="NPC" method="_on_Area2D_body_exited"]

@@ -184,6 +184,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://move_selector.gd"
 }, {
+"base": "Area2D",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://npc_generic.gd"
+}, {
 "base": "Node2D",
 "class": "NewOrLoad",
 "language": "GDScript",
@@ -310,6 +315,7 @@ _global_script_class_icons={
 "MainMenu": "",
 "Mart": "",
 "MoveSelector": "",
+"NPC": "",
 "NewOrLoad": "",
 "NicknamingScript": "",
 "OpponentAI": "",
