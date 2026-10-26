@@ -4,6 +4,9 @@ class_name CreatureSwitcher
 var page: int = 0
 var select: int = 1
 
+export var default_color: Color = Color(0, 0, 0)
+export var select_color: Color = Color(1, 1, 1)
+
 func _ready():
 	self.visible = false
 	get_node("TileMap").visible = false
@@ -63,13 +66,13 @@ func _process(delta):
 			self.visible = false
 			get_parent().lock = 1
 	
-	get_node("VBoxContainer/Label" ).add_color_override("font_color", Color(1, 1, 1) if select == 1 else Color(0, 0, 0))
-	get_node("VBoxContainer/Label2").add_color_override("font_color", Color(1, 1, 1) if select == 2 else Color(0, 0, 0))
-	get_node("VBoxContainer/Label3").add_color_override("font_color", Color(1, 1, 1) if select == 3 else Color(0, 0, 0))
-	get_node("VBoxContainer/Label4").add_color_override("font_color", Color(1, 1, 1) if select == 4 else Color(0, 0, 0))
-	get_node("VBoxContainer/Label5").add_color_override("font_color", Color(1, 1, 1) if select == 5 else Color(0, 0, 0))
-	get_node("VBoxContainer/Label6").add_color_override("font_color", Color(1, 1, 1) if select == 6 else Color(0, 0, 0))
-	get_node("VBoxContainer/Label7").add_color_override("font_color", Color(1, 1, 1) if select == 7 else Color(0, 0, 0))
+	get_node("VBoxContainer/Label" ).add_color_override("font_color", select_color if select == 1 else default_color)
+	get_node("VBoxContainer/Label2").add_color_override("font_color", select_color if select == 2 else default_color)
+	get_node("VBoxContainer/Label3").add_color_override("font_color", select_color if select == 3 else default_color)
+	get_node("VBoxContainer/Label4").add_color_override("font_color", select_color if select == 4 else default_color)
+	get_node("VBoxContainer/Label5").add_color_override("font_color", select_color if select == 5 else default_color)
+	get_node("VBoxContainer/Label6").add_color_override("font_color", select_color if select == 6 else default_color)
+	get_node("VBoxContainer/Label7").add_color_override("font_color", select_color if select == 7 else default_color)
 
 func switch_creature():
 	if get_parent().get_node("PlayerElecree").data != TEAM.team[select - 1] && TEAM.team[select - 1].currenthp > 0:

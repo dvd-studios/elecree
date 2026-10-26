@@ -201,6 +201,3 @@ texts = [ "Ring... Ring...", "Pete: So, you made it to the first gate!", "Pete: 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
 position = Vector2( 136.5, 119.5 )
 shape = SubResource( 11 )
-
-[connection signal="body_entered" from="NPC" to="NPC" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="NPC" to="NPC" method="_on_Area2D_body_exited"]

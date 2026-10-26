@@ -53,3 +53,7 @@ func get_random_level_and_species(scene: String) -> Array:
 
 func get_random_item(input: Array):
 	return input[rand_range(0, input.size())]
+
+
+func _on_NPC_body_entered(body):
+	pass # Replace with function body.

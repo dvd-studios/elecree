@@ -14,6 +14,10 @@ var winning_sequence: bool = false
 
 var usable_items: Dictionary = BAG.usable_items
 
+export var default_color: Color = Color(0, 0, 0)
+export var select_color: Color = Color(1, 1, 1)
+
+
 func generate_bag_ui() -> Array:
 	var items: Array
 	var amounts: Array
@@ -60,7 +64,7 @@ func refresh():
 
 func color_selection() -> String:
 	var splitted_string: Array = precolor.split("\n")
-	splitted_string[select] = "[color=white]" + splitted_string[select] + "[/color]"
+	splitted_string[select] = "[color=#" + select_color.to_html(false) + "]" + splitted_string[select] + "[/color]"
 	var postcolor: String = "\n".join(splitted_string)
 	return postcolor
 	

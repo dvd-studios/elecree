@@ -12,6 +12,9 @@ var use_cycle: int = 0
 var use_cycle_cache: int = 0
 var current_item: String = ""
 
+export var default_color: Color = Color(0, 0, 0)
+export var select_color: Color = Color(1, 1, 1)
+
 func hide_items():
 	hide()
 	get_node("TileMap").hide()
@@ -115,7 +118,7 @@ func _process(delta: float):
 			if Input.is_action_just_pressed("ui_cancel"):
 				hide_items()
 				var scene_name: String = get_tree().current_scene.filename
-				if ["res://battle.tscn"].has(scene_name):
+				if ["res://battle.tscn", "res://Joejoe/GladridgeCity/gatebattle.tscn"].has(scene_name):
 					get_parent().selecting_creature = 0
 				else:
 					GLOBAL_VARS.cutscenePlaying = false
@@ -142,9 +145,9 @@ func _process(delta: float):
 	
 	for l in labels.size():
 		if l == creature:
-			labels[l].add_color_override("font_color", Color(1, 1, 1))
+			labels[l].add_color_override("font_color", select_color)
 		else:
-			labels[l].add_color_override("font_color", Color(0, 0, 0))
+			labels[l].add_color_override("font_color", default_color)
 
 func use_on_creature(item: String, elecree: Elecree) -> String:
 	var success: bool = false

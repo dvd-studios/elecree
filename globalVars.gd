@@ -128,7 +128,10 @@ func start_wild_battle(creature: Elecree, lastPos: Vector2, lastLoc: String):
 	cutscenePlaying = true
 	last_pos = lastPos
 	last_loc = lastLoc
-	get_tree().change_scene("res://battle.tscn")
+	if devMode:
+		get_tree().change_scene("res://Joejoe/GladridgeCity/gatebattle.tscn")
+	else:
+		get_tree().change_scene("res://battle.tscn")
 	wild = true
 	opponent_creatures = [creature, null, null, null, null, null, null]
 
@@ -140,7 +143,10 @@ func start_battler_battle(creatures: Array, lastPos: Vector2, lastLoc: String, w
 	self.battler_name = battler_name
 	self.prize_credits = prize_credits
 	opponent_creatures = creatures
-	get_tree().change_scene("res://battle.tscn")
+	if devMode:
+		get_tree().change_scene("res://Joejoe/GladridgeCity/gatebattle.tscn")
+	else:
+		get_tree().change_scene("res://battle.tscn")
 	wild = false
 
 func get_flag(what: String) -> bool:

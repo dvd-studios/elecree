@@ -6,6 +6,9 @@ var creature: int
 var attack: int
 var offset: int
 
+export var default_color: Color = Color(0, 0, 0)
+export var select_color: Color = Color(1, 1, 1)
+
 func _process(delta: float):
 	if visible:
 		if Input.is_action_just_pressed("ui_left"):
@@ -59,9 +62,9 @@ func color_lines(number: int) -> String:
 	var arr: Array = attack_list.split("\n")
 	for s in arr.size():
 		if number == s:
-			arr[s] = "[color=#FFFFFF]" + arr[s] + "[/color]"
+			arr[s] = "[color=#" + select_color.to_html(false) +"]" + arr[s] + "[/color]"
 		else:
-			arr[s] = "[color=#000000]" + arr[s] + "[/color]"
+			arr[s] = "[color=#" + default_color.to_html(false) + "]" + arr[s] + "[/color]"
 	return "\n".join(arr)
 
 func get_first_five_attacks(elecree: Elecree, _offset: int = 0) -> String:

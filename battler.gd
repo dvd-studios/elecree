@@ -9,6 +9,11 @@ export var win_flag: String
 
 signal z_press()
 
+func _ready():
+	if GLOBAL_VARS.get_flag(win_flag):
+		print("Setting active to true")
+		get_node("NPC").active = true
+
 func _process(delta: float):
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("z_press")

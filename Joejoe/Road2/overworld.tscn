@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
 [ext_resource path="res://OverSprites/sheet_ice.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://retrogaming.tres" type="DynamicFont" id=10]
 [ext_resource path="res://town_title.gd" type="Script" id=11]
 [ext_resource path="res://situple.gd" type="Script" id=12]
+[ext_resource path="res://npc_generic.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_e"
@@ -146,14 +147,22 @@ extents = Vector2( 8, 23.5 )
 
 [sub_resource type="Resource" id=12]
 script = ExtResource( 12 )
-a = 8
-b = 16
+a = 6
+b = 18
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 44.25, 1.25 )
+extents = Vector2( 2.125, 37.3125 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 9, 17 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 8, 34 )
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 12 )
+a = 7
+b = 18
 
 [node name="overworld" type="Node2D"]
 
@@ -204,7 +213,7 @@ relative = true
 position = Vector2( 156, 139 )
 shape = SubResource( 9 )
 
-[node name="Battler" type="StaticBody2D" parent="."]
+[node name="Kid Joey" type="StaticBody2D" parent="."]
 position = Vector2( 1234, 185 )
 script = ExtResource( 9 )
 flavor_text = "Kid Joey: Look at what I captured in a Capture Cube!"
@@ -213,22 +222,33 @@ battler_name = "Kid Joey"
 prize_money = 5
 win_flag = "road2:battler:kid_joey"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Battler"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kid Joey"]
 position = Vector2( 0, -1 )
 shape = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="Battler"]
+[node name="Sprite" type="Sprite" parent="Kid Joey"]
 texture = ExtResource( 8 )
 hframes = 3
 vframes = 4
 frame = 9
 
-[node name="Area2D" type="Area2D" parent="Battler"]
+[node name="Area2D" type="Area2D" parent="Kid Joey"]
 position = Vector2( -1337, -351 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Battler/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kid Joey/Area2D"]
 position = Vector2( 1285, 361 )
 shape = SubResource( 10 )
+
+[node name="NPC" type="Area2D" parent="Kid Joey"]
+position = Vector2( -1234, -185 )
+script = ExtResource( 13 )
+npc_name = "kid_joey"
+texts = [ "Kid Joey: Come on, I leveled it up for nothing?" ]
+active = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kid Joey/NPC"]
+position = Vector2( 1234, 184 )
+shape = SubResource( 13 )
 
 [node name="GladridgeCityWarp" type="Area2D" parent="."]
 position = Vector2( -68, -51 )
@@ -259,8 +279,47 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 10 )
 text = "Road 2"
 
+[node name="Kid Benny" type="StaticBody2D" parent="."]
+position = Vector2( 388, -175 )
+script = ExtResource( 9 )
+flavor_text = "Kid Benny: Pyrirp is my favorite Elecree!"
+team = [ SubResource( 12 ), SubResource( 14 ) ]
+battler_name = "Kid Benny"
+prize_money = 7
+win_flag = "road2:battler:kid_benny"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kid Benny"]
+position = Vector2( 0, -1 )
+shape = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Kid Benny"]
+texture = ExtResource( 8 )
+hframes = 3
+vframes = 4
+
+[node name="Area2D" type="Area2D" parent="Kid Benny"]
+position = Vector2( -1337, -351 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kid Benny/Area2D"]
+position = Vector2( 1340, 405 )
+shape = SubResource( 10 )
+
+[node name="NPC" type="Area2D" parent="Kid Benny"]
+position = Vector2( -1234, -185 )
+script = ExtResource( 13 )
+npc_name = "kid_benny"
+texts = [ "Kid Benny: Did you know that Pyrirps can fly but are not Wind-element?" ]
+active = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kid Benny/NPC"]
+position = Vector2( 1234, 184 )
+shape = SubResource( 13 )
+
 [connection signal="body_entered" from="AmityTownWarp" to="AmityTownWarp" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Battler/Area2D" to="Battler" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Battler/Area2D" to="Battler/Area2D" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Battler/Area2D" to="Battler/Area2D" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Kid Joey/Area2D" to="Kid Joey" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Kid Joey/Area2D" to="Kid Joey/Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Kid Joey/Area2D" to="Kid Joey/Area2D" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="GladridgeCityWarp" to="GladridgeCityWarp" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Kid Benny/Area2D" to="Kid Benny" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Kid Benny/Area2D" to="Kid Benny/Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Kid Benny/Area2D" to="Kid Benny/Area2D" method="_on_Area2D_body_exited"]
