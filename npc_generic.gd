@@ -7,16 +7,19 @@ var max_interact: int
 
 export var npc_name: String
 export var texts: Array
+export var active: bool = true
 
 
 func _ready():
 	interact_number = 0
 	max_interact = texts.size()
+	connect("body_entered", self, "_on_NPC_body_entered")
+	connect("body_exited", self, "_on_NPC_body_exited")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if active && Input.is_action_just_pressed("ui_accept"):
 		print(interact_number)
 		if GLOBAL_VARS.closestInteractable == npc_name:
 			if interact_number == 0 && !GLOBAL_VARS.cutscenePlaying:
@@ -36,12 +39,12 @@ func _process(delta):
 
 
 
-func _on_Area2D_body_entered(body):
+func _on_NPC_body_entered(body):
 	print(body)
 	if body.name == "Player":
 		GLOBAL_VARS.closestInteractable = npc_name
 	
-func _on_Area2D_body_exited(body):
+func _on_NPC_body_exited(body):
 	if body.name == "Player":
 		if GLOBAL_VARS.closestInteractable == npc_name:
 			while interact_number != 0:

@@ -4,6 +4,9 @@ class_name AttackSelector
 var page: int = 0
 var select: int = 1
 
+export var default_color: Color = Color(0, 0, 0)
+export var select_color: Color = Color(1, 1, 1)
+
 func _ready():
 	self.visible = false
 
@@ -57,9 +60,9 @@ func _process(delta):
 		page -= 1
 		select = 1
 	
-	get_node("VBoxContainer/Attack1").add_color_override("font_color", Color(1, 1, 1) if select == 1 else Color(0, 0, 0))
-	get_node("VBoxContainer/Attack2").add_color_override("font_color", Color(1, 1, 1) if select == 2 else Color(0, 0, 0))
-	get_node("VBoxContainer/Attack3").add_color_override("font_color", Color(1, 1, 1) if select == 3 else Color(0, 0, 0))
+	get_node("VBoxContainer/Attack1").add_color_override("font_color", select_color if select == 1 else default_color)
+	get_node("VBoxContainer/Attack2").add_color_override("font_color", select_color if select == 2 else default_color)
+	get_node("VBoxContainer/Attack3").add_color_override("font_color", select_color if select == 3 else default_color)
 
 func wait_and_show():
 	yield(get_tree(), "idle_frame")

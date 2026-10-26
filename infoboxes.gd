@@ -15,6 +15,9 @@ onready var opponent = $OpposingElecree.data
 var creatures_that_will_gain_exp: Array = []
 var winning_sequence: bool = false
 
+export var default_color: Color = Color(0, 0, 0)
+export var select_color: Color = Color(1, 1, 1)
+
 func _ready():
 	creatures_that_will_gain_exp.push_back(player)
 	if GLOBAL_VARS.wild:
@@ -109,15 +112,15 @@ func _process(delta):
 				opponent.recharge = 0
 	
 	if lock == 1:
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", Color(1.0, 1.0, 1.0))
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").add_color_override("font_color", Color(1.0, 1.0, 1.0))
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").add_color_override("font_color", Color(1.0, 1.0, 1.0))
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").add_color_override("font_color", Color(1.0, 1.0, 1.0))
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", select_color)
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").add_color_override("font_color", select_color)
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").add_color_override("font_color", select_color)
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").add_color_override("font_color", select_color)
 	else:
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", Color(0.0, 0.0, 0.0))
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").add_color_override("font_color", Color(0.0, 0.0, 0.0))
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").add_color_override("font_color", Color(0.0, 0.0, 0.0))
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").add_color_override("font_color", Color(0.0, 0.0, 0.0))
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", default_color)
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").add_color_override("font_color", default_color)
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Status").add_color_override("font_color", default_color)
+		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").add_color_override("font_color", default_color)
 	
 	get_node("CanvasLayer/OpponentInfoBox/Name").text = opponent.get_name() if !GLOBAL_VARS.wild else dict[opponent.species]["name"]
 	get_node("CanvasLayer/OpponentInfoBox/Level").text = ":L" + str(opponent.level)
