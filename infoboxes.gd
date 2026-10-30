@@ -21,7 +21,7 @@ export var select_color: Color = Color(1, 1, 1)
 func _ready():
 	creatures_that_will_gain_exp.push_back(player)
 	if GLOBAL_VARS.wild:
-		yield(display_text(["A wild " + opponent.get_name() + " appeared!"]), "completed")
+		yield(display_text(["A wild " + opponent.get_name() + " jumped out at you!"]), "completed")
 	else:
 		battler_name = GLOBAL_VARS.battler_name
 		win_flag = GLOBAL_VARS.win_flag

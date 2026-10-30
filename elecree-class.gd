@@ -278,19 +278,19 @@ func damage(target: Elecree, power: int, element: int = 0) -> String:
 	var effectiveness: float = Creatures.multiplier(element, Creatures.data[target.species]["element"])
 	var effectiveness_log = log(effectiveness) / log(1.5)
 	if effectiveness_log < -2.5:
-		effectiveness_text = "It's barely effective..."
+		effectiveness_text = "The attack bounced right off!"
 	elif effectiveness_log < -1.5:
-		effectiveness_text = "It's somewhat effective..."
+		effectiveness_text = "The attack barely hit..."
 	elif effectiveness_log < -0.5:
-		effectiveness_text = "It's not very effective..."
+		effectiveness_text = "The attack was resisted..."
 	elif effectiveness_log < .5:
 		effectiveness_text = ""
 	elif effectiveness_log < 1.5:
-		effectiveness_text = "It's super effective!"
+		effectiveness_text = "The attack was strong!"
 	elif effectiveness_log < 2.5:
-		effectiveness_text = "It's hyper effective!"
+		effectiveness_text = "The attack went right through!"
 	else:
-		effectiveness_text = "It's EXTREMELY effective!"
+		effectiveness_text = "The attack DESTROYED the target!"
 	var dmg: int = (power * (float(currentat) / float(target.currentdf)) * effectiveness) / 10
 	if target.status == 3:
 		dmg /= 1.5
