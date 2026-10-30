@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://opponent.gd" type="Script" id=1]
+[ext_resource path="res://graffiti-14.tres" type="DynamicFont" id=2]
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=3]
 [ext_resource path="res://infoboxes.gd" type="Script" id=4]
 [ext_resource path="res://player_elecree.gd" type="Script" id=5]
@@ -15,6 +16,9 @@
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 0.0 ]
+}
 default_color = Color( 0.980392, 1, 0.623529, 1 )
 select_color = Color( 0.592157, 0.74902, 1, 1 )
 
@@ -33,9 +37,10 @@ format = 1
 tile_data = PoolIntArray( 0, 312, 0, 1, 313, 0, 2, 313, 0, 3, 313, 0, 4, 313, 0, 5, 313, 0, 6, 313, 0, 7, 313, 0, 8, 313, 0, 9, 313, 0, 10, 313, 0, 11, 313, 0, 12, 313, 0, 13, 313, 0, 14, 314, 0, 65545, 312, 0, 65546, 313, 0, 65547, 313, 0, 65548, 313, 0, 65549, 313, 0, 65550, 314, 0, 327680, 312, 0, 327681, 313, 0, 327682, 313, 0, 327683, 313, 0, 327684, 313, 0, 327685, 314, 0, 393216, 303, 0, 393217, 304, 0, 393218, 304, 0, 393219, 304, 0, 393220, 304, 0, 393221, 304, 0, 393222, 304, 0, 393223, 304, 0, 393224, 304, 0, 393225, 304, 0, 393226, 304, 0, 393227, 304, 0, 393228, 304, 0, 393229, 304, 0, 393230, 305, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 307, 0, 458757, 307, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 307, 0, 524293, 307, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 310, 0, 589829, 310, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
 
 [node name="InfoBox" type="VBoxContainer" parent="CanvasLayer"]
+margin_left = 2.0
 margin_top = 96.0
-margin_right = 240.0
-margin_bottom = 160.0
+margin_right = 238.0
+margin_bottom = 158.0
 
 [node name="FullBox" type="Label" parent="CanvasLayer/InfoBox"]
 visible = false
@@ -46,7 +51,7 @@ custom_fonts/font = ExtResource( 11 )
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/InfoBox"]
-margin_right = 240.0
+margin_right = 236.0
 margin_bottom = 16.0
 
 [node name="Name" type="Label" parent="CanvasLayer/InfoBox/HBoxContainer"]
@@ -78,8 +83,10 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
 
 [node name="OpponentInfoBox" type="HBoxContainer" parent="CanvasLayer"]
-margin_right = 240.0
-margin_bottom = 16.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 238.0
+margin_bottom = 18.0
 
 [node name="Name" type="Label" parent="CanvasLayer/OpponentInfoBox"]
 margin_right = 40.0
@@ -113,10 +120,10 @@ custom_fonts/font = ExtResource( 11 )
 text = "100"
 
 [node name="OpponentHPBox" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 144.0
-margin_top = 16.0
+margin_left = 146.0
+margin_top = 17.0
 margin_right = 240.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 
 [node name="HP" type="Label" parent="CanvasLayer/OpponentHPBox"]
 margin_right = 26.0
@@ -134,9 +141,10 @@ custom_fonts/font = ExtResource( 11 )
 text = "S:35"
 
 [node name="PlayerHPBox" type="HBoxContainer" parent="CanvasLayer"]
-margin_top = 80.0
+margin_left = 2.0
+margin_top = 81.0
 margin_right = 96.0
-margin_bottom = 96.0
+margin_bottom = 97.0
 
 [node name="HP" type="Label" parent="CanvasLayer/PlayerHPBox"]
 margin_right = 27.0
@@ -165,26 +173,27 @@ format = 1
 tile_data = PoolIntArray( 393216, 303, 0, 393217, 304, 0, 393218, 304, 0, 393219, 304, 0, 393220, 304, 0, 393221, 304, 0, 393222, 304, 0, 393223, 304, 0, 393224, 304, 0, 393225, 304, 0, 393226, 304, 0, 393227, 304, 0, 393228, 304, 0, 393229, 304, 0, 393230, 305, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 307, 0, 458757, 307, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 307, 0, 524293, 307, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 310, 0, 589829, 310, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Attack Selector"]
+margin_left = 2.0
 margin_top = 96.0
-margin_right = 240.0
-margin_bottom = 160.0
+margin_right = 238.0
+margin_bottom = 158.0
 
 [node name="Attack1" type="Label" parent="Attack Selector/VBoxContainer"]
-margin_right = 240.0
+margin_right = 236.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
 
 [node name="Attack2" type="Label" parent="Attack Selector/VBoxContainer"]
 margin_top = 20.0
-margin_right = 240.0
+margin_right = 236.0
 margin_bottom = 36.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
 
 [node name="Attack3" type="Label" parent="Attack Selector/VBoxContainer"]
 margin_top = 40.0
-margin_right = 240.0
+margin_right = 236.0
 margin_bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -211,26 +220,27 @@ format = 1
 tile_data = PoolIntArray( 393216, 303, 0, 393217, 304, 0, 393218, 304, 0, 393219, 304, 0, 393220, 304, 0, 393221, 304, 0, 393222, 304, 0, 393223, 304, 0, 393224, 304, 0, 393225, 304, 0, 393226, 304, 0, 393227, 304, 0, 393228, 304, 0, 393229, 304, 0, 393230, 305, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 307, 0, 458757, 307, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 307, 0, 524293, 307, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 310, 0, 589829, 310, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MoveSelector"]
+margin_left = 2.0
 margin_top = 96.0
-margin_right = 240.0
-margin_bottom = 160.0
+margin_right = 238.0
+margin_bottom = 158.0
 
 [node name="Attack1" type="Label" parent="MoveSelector/VBoxContainer"]
-margin_right = 240.0
+margin_right = 236.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
 
 [node name="Attack2" type="Label" parent="MoveSelector/VBoxContainer"]
 margin_top = 20.0
-margin_right = 240.0
+margin_right = 236.0
 margin_bottom = 36.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
 
 [node name="Attack3" type="Label" parent="MoveSelector/VBoxContainer"]
 margin_top = 40.0
-margin_right = 240.0
+margin_right = 236.0
 margin_bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -249,11 +259,13 @@ format = 1
 tile_data = PoolIntArray( 0, 303, 0, 1, 304, 0, 2, 304, 0, 3, 304, 0, 4, 304, 0, 5, 304, 0, 6, 304, 0, 7, 304, 0, 8, 304, 0, 9, 304, 0, 10, 304, 0, 11, 304, 0, 12, 304, 0, 13, 304, 0, 14, 305, 0, 65536, 306, 0, 65537, 307, 0, 65538, 307, 0, 65539, 307, 0, 65540, 307, 0, 65541, 307, 0, 65542, 307, 0, 65543, 307, 0, 65544, 307, 0, 65545, 307, 0, 65546, 307, 0, 65547, 307, 0, 65548, 307, 0, 65549, 307, 0, 65550, 308, 0, 131072, 306, 0, 131073, 307, 0, 131074, 307, 0, 131075, 307, 0, 131076, 307, 0, 131077, 307, 0, 131078, 307, 0, 131079, 307, 0, 131080, 307, 0, 131081, 307, 0, 131082, 307, 0, 131083, 307, 0, 131084, 307, 0, 131085, 307, 0, 131086, 308, 0, 196608, 306, 0, 196609, 307, 0, 196610, 307, 0, 196611, 307, 0, 196612, 307, 0, 196613, 307, 0, 196614, 307, 0, 196615, 307, 0, 196616, 307, 0, 196617, 307, 0, 196618, 307, 0, 196619, 307, 0, 196620, 307, 0, 196621, 307, 0, 196622, 308, 0, 262144, 306, 0, 262145, 307, 0, 262146, 307, 0, 262147, 307, 0, 262148, 307, 0, 262149, 307, 0, 262150, 307, 0, 262151, 307, 0, 262152, 307, 0, 262153, 307, 0, 262154, 307, 0, 262155, 307, 0, 262156, 307, 0, 262157, 307, 0, 262158, 308, 0, 327680, 306, 0, 327681, 307, 0, 327682, 307, 0, 327683, 307, 0, 327684, 307, 0, 327685, 307, 0, 327686, 307, 0, 327687, 307, 0, 327688, 307, 0, 327689, 307, 0, 327690, 307, 0, 327691, 307, 0, 327692, 307, 0, 327693, 307, 0, 327694, 308, 0, 393216, 306, 0, 393217, 307, 0, 393218, 307, 0, 393219, 307, 0, 393220, 307, 0, 393221, 307, 0, 393222, 307, 0, 393223, 307, 0, 393224, 307, 0, 393225, 307, 0, 393226, 307, 0, 393227, 307, 0, 393228, 307, 0, 393229, 307, 0, 393230, 308, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 307, 0, 458757, 307, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 307, 0, 524293, 307, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 310, 0, 589829, 310, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreatureSwitcher"]
+margin_left = 2.0
+margin_top = 2.0
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 138.0
 
 [node name="Label" type="Label" parent="CreatureSwitcher/VBoxContainer"]
-margin_right = 40.0
+margin_right = 38.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -261,7 +273,7 @@ text = "1"
 
 [node name="Label2" type="Label" parent="CreatureSwitcher/VBoxContainer"]
 margin_top = 20.0
-margin_right = 40.0
+margin_right = 38.0
 margin_bottom = 36.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -269,7 +281,7 @@ text = "2"
 
 [node name="Label3" type="Label" parent="CreatureSwitcher/VBoxContainer"]
 margin_top = 40.0
-margin_right = 40.0
+margin_right = 38.0
 margin_bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -277,7 +289,7 @@ text = "3"
 
 [node name="Label4" type="Label" parent="CreatureSwitcher/VBoxContainer"]
 margin_top = 60.0
-margin_right = 40.0
+margin_right = 38.0
 margin_bottom = 76.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -285,7 +297,7 @@ text = "4"
 
 [node name="Label5" type="Label" parent="CreatureSwitcher/VBoxContainer"]
 margin_top = 80.0
-margin_right = 40.0
+margin_right = 38.0
 margin_bottom = 96.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -293,7 +305,7 @@ text = "5"
 
 [node name="Label6" type="Label" parent="CreatureSwitcher/VBoxContainer"]
 margin_top = 100.0
-margin_right = 40.0
+margin_right = 38.0
 margin_bottom = 116.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -301,7 +313,7 @@ text = "6"
 
 [node name="Label7" type="Label" parent="CreatureSwitcher/VBoxContainer"]
 margin_top = 120.0
-margin_right = 40.0
+margin_right = 38.0
 margin_bottom = 136.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -320,13 +332,13 @@ format = 1
 tile_data = PoolIntArray( 0, 303, 0, 1, 304, 0, 2, 304, 0, 3, 304, 0, 4, 305, 0, 5, 303, 0, 6, 304, 0, 7, 304, 0, 8, 304, 0, 9, 304, 0, 10, 304, 0, 11, 304, 0, 12, 304, 0, 13, 304, 0, 14, 305, 0, 65536, 306, 0, 65537, 307, 0, 65538, 307, 0, 65539, 307, 0, 65540, 308, 0, 65541, 309, 0, 65542, 310, 0, 65543, 310, 0, 65544, 310, 0, 65545, 310, 0, 65546, 310, 0, 65547, 310, 0, 65548, 310, 0, 65549, 310, 0, 65550, 311, 0, 131072, 306, 0, 131073, 307, 0, 131074, 307, 0, 131075, 307, 0, 131076, 308, 0, 131077, 303, 0, 131078, 304, 0, 131079, 304, 0, 131080, 304, 0, 131081, 304, 0, 131082, 304, 0, 131083, 304, 0, 131084, 304, 0, 131085, 304, 0, 131086, 305, 0, 196608, 306, 0, 196609, 307, 0, 196610, 307, 0, 196611, 307, 0, 196612, 308, 0, 196613, 306, 0, 196614, 307, 0, 196615, 307, 0, 196616, 307, 0, 196617, 307, 0, 196618, 307, 0, 196619, 307, 0, 196620, 307, 0, 196621, 307, 0, 196622, 308, 0, 262144, 309, 0, 262145, 310, 0, 262146, 310, 0, 262147, 310, 0, 262148, 311, 0, 262149, 306, 0, 262150, 307, 0, 262151, 307, 0, 262152, 307, 0, 262153, 307, 0, 262154, 307, 0, 262155, 307, 0, 262156, 307, 0, 262157, 307, 0, 262158, 308, 0, 327680, 303, 0, 327681, 304, 0, 327682, 304, 0, 327683, 304, 0, 327684, 305, 0, 327685, 306, 0, 327686, 307, 0, 327687, 307, 0, 327688, 307, 0, 327689, 307, 0, 327690, 307, 0, 327691, 307, 0, 327692, 307, 0, 327693, 307, 0, 327694, 308, 0, 393216, 306, 0, 393217, 307, 0, 393218, 307, 0, 393219, 307, 0, 393220, 308, 0, 393221, 306, 0, 393222, 307, 0, 393223, 307, 0, 393224, 307, 0, 393225, 307, 0, 393226, 307, 0, 393227, 307, 0, 393228, 307, 0, 393229, 307, 0, 393230, 308, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 308, 0, 458757, 306, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 308, 0, 524293, 306, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 311, 0, 589829, 309, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
 
 [node name="Stats" type="Label" parent="CreatureSwitcher/CreatureDetails"]
-margin_left = 1.0
-margin_top = 80.0
-margin_right = 79.0
-margin_bottom = 159.0
+margin_left = 2.0
+margin_top = 82.0
+margin_right = 77.0
+margin_bottom = 162.0
 custom_colors/font_color = Color( 0.980392, 1, 0.623529, 1 )
 custom_constants/line_spacing = 0
-custom_fonts/font = ExtResource( 11 )
+custom_fonts/font = ExtResource( 2 )
 text = "HP
 AT
 DF
@@ -344,12 +356,12 @@ text = "No. XX"
 align = 1
 
 [node name="NameAndLevel" type="Label" parent="CreatureSwitcher/CreatureDetails"]
-margin_left = 81.0
-margin_top = 1.0
+margin_left = 82.0
+margin_top = 2.0
 margin_right = 238.0
 margin_bottom = 30.0
 custom_colors/font_color = Color( 0.980392, 1, 0.623529, 1 )
-custom_fonts/font = ExtResource( 11 )
+custom_fonts/font = ExtResource( 2 )
 text = "Creature :L99"
 
 [node name="Attacks" type="RichTextLabel" parent="CreatureSwitcher/CreatureDetails"]
@@ -365,7 +377,7 @@ bbcode_enabled = true
 [node name="MoveDetails" type="Node2D" parent="CreatureSwitcher/CreatureDetails"]
 
 [node name="ZToSwitch" type="Label" parent="CreatureSwitcher/CreatureDetails"]
-margin_left = 80.0
+margin_left = 82.0
 margin_top = 143.0
 margin_right = 239.0
 margin_bottom = 161.0
@@ -390,13 +402,16 @@ format = 1
 tile_data = PoolIntArray( 0, 303, 0, 1, 304, 0, 2, 304, 0, 3, 304, 0, 4, 304, 0, 5, 304, 0, 6, 304, 0, 7, 304, 0, 8, 304, 0, 9, 304, 0, 10, 304, 0, 11, 304, 0, 12, 304, 0, 13, 304, 0, 14, 305, 0, 65536, 306, 0, 65537, 307, 0, 65538, 307, 0, 65539, 307, 0, 65540, 307, 0, 65541, 307, 0, 65542, 307, 0, 65543, 307, 0, 65544, 307, 0, 65545, 307, 0, 65546, 307, 0, 65547, 307, 0, 65548, 307, 0, 65549, 307, 0, 65550, 308, 0, 131072, 306, 0, 131073, 307, 0, 131074, 307, 0, 131075, 307, 0, 131076, 307, 0, 131077, 307, 0, 131078, 307, 0, 131079, 307, 0, 131080, 307, 0, 131081, 307, 0, 131082, 307, 0, 131083, 307, 0, 131084, 307, 0, 131085, 307, 0, 131086, 308, 0, 196608, 306, 0, 196609, 307, 0, 196610, 307, 0, 196611, 307, 0, 196612, 307, 0, 196613, 307, 0, 196614, 307, 0, 196615, 307, 0, 196616, 307, 0, 196617, 307, 0, 196618, 307, 0, 196619, 307, 0, 196620, 307, 0, 196621, 307, 0, 196622, 308, 0, 262144, 306, 0, 262145, 307, 0, 262146, 307, 0, 262147, 307, 0, 262148, 307, 0, 262149, 307, 0, 262150, 307, 0, 262151, 307, 0, 262152, 307, 0, 262153, 307, 0, 262154, 307, 0, 262155, 307, 0, 262156, 307, 0, 262157, 307, 0, 262158, 308, 0, 327680, 306, 0, 327681, 307, 0, 327682, 307, 0, 327683, 307, 0, 327684, 307, 0, 327685, 307, 0, 327686, 307, 0, 327687, 307, 0, 327688, 307, 0, 327689, 307, 0, 327690, 307, 0, 327691, 307, 0, 327692, 307, 0, 327693, 307, 0, 327694, 308, 0, 393216, 306, 0, 393217, 307, 0, 393218, 307, 0, 393219, 307, 0, 393220, 307, 0, 393221, 307, 0, 393222, 307, 0, 393223, 307, 0, 393224, 307, 0, 393225, 307, 0, 393226, 307, 0, 393227, 307, 0, 393228, 307, 0, 393229, 307, 0, 393230, 308, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 307, 0, 458757, 307, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 307, 0, 524293, 307, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 310, 0, 589829, 310, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BagInBattle"]
-margin_right = 240.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 238.0
 margin_bottom = 158.0
 custom_colors/default_color = Color( 0.980392, 1, 0.623529, 1 )
 custom_fonts/normal_font = ExtResource( 11 )
 bbcode_enabled = true
 
 [node name="UseOnCreature" type="CanvasLayer" parent="BagInBattle"]
+visible = false
 script = ExtResource( 9 )
 default_color = Color( 0.980392, 1, 0.623529, 1 )
 select_color = Color( 0.592157, 0.74902, 1, 1 )
@@ -409,11 +424,13 @@ format = 1
 tile_data = PoolIntArray( 0, 303, 0, 1, 304, 0, 2, 304, 0, 3, 304, 0, 4, 304, 0, 5, 304, 0, 6, 304, 0, 7, 304, 0, 8, 304, 0, 9, 304, 0, 10, 304, 0, 11, 304, 0, 12, 304, 0, 13, 304, 0, 14, 305, 0, 65536, 306, 0, 65537, 307, 0, 65538, 307, 0, 65539, 307, 0, 65540, 307, 0, 65541, 307, 0, 65542, 307, 0, 65543, 307, 0, 65544, 307, 0, 65545, 307, 0, 65546, 307, 0, 65547, 307, 0, 65548, 307, 0, 65549, 307, 0, 65550, 308, 0, 131072, 306, 0, 131073, 307, 0, 131074, 307, 0, 131075, 307, 0, 131076, 307, 0, 131077, 307, 0, 131078, 307, 0, 131079, 307, 0, 131080, 307, 0, 131081, 307, 0, 131082, 307, 0, 131083, 307, 0, 131084, 307, 0, 131085, 307, 0, 131086, 308, 0, 196608, 306, 0, 196609, 307, 0, 196610, 307, 0, 196611, 307, 0, 196612, 307, 0, 196613, 307, 0, 196614, 307, 0, 196615, 307, 0, 196616, 307, 0, 196617, 307, 0, 196618, 307, 0, 196619, 307, 0, 196620, 307, 0, 196621, 307, 0, 196622, 308, 0, 262144, 306, 0, 262145, 307, 0, 262146, 307, 0, 262147, 307, 0, 262148, 307, 0, 262149, 307, 0, 262150, 307, 0, 262151, 307, 0, 262152, 307, 0, 262153, 307, 0, 262154, 307, 0, 262155, 307, 0, 262156, 307, 0, 262157, 307, 0, 262158, 308, 0, 327680, 306, 0, 327681, 307, 0, 327682, 307, 0, 327683, 307, 0, 327684, 307, 0, 327685, 307, 0, 327686, 307, 0, 327687, 307, 0, 327688, 307, 0, 327689, 307, 0, 327690, 307, 0, 327691, 307, 0, 327692, 307, 0, 327693, 307, 0, 327694, 308, 0, 393216, 306, 0, 393217, 307, 0, 393218, 307, 0, 393219, 307, 0, 393220, 307, 0, 393221, 307, 0, 393222, 307, 0, 393223, 307, 0, 393224, 307, 0, 393225, 307, 0, 393226, 307, 0, 393227, 307, 0, 393228, 307, 0, 393229, 307, 0, 393230, 308, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 307, 0, 458757, 307, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 307, 0, 524293, 307, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 310, 0, 589829, 310, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BagInBattle/UseOnCreature"]
+margin_left = 2.0
+margin_top = 2.0
 margin_right = 239.0
-margin_bottom = 140.0
+margin_bottom = 158.0
 
 [node name="Label" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -421,7 +438,7 @@ text = "1"
 
 [node name="Label2" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
 margin_top = 20.0
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 36.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -429,7 +446,7 @@ text = "2"
 
 [node name="Label3" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
 margin_top = 40.0
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -437,7 +454,7 @@ text = "3"
 
 [node name="Label4" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
 margin_top = 60.0
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 76.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -445,7 +462,7 @@ text = "4"
 
 [node name="Label5" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
 margin_top = 80.0
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 96.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -453,7 +470,7 @@ text = "5"
 
 [node name="Label6" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
 margin_top = 100.0
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 116.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -461,7 +478,7 @@ text = "6"
 
 [node name="Label7" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
 margin_top = 120.0
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 136.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
@@ -469,7 +486,7 @@ text = "7"
 
 [node name="Label8" type="Label" parent="BagInBattle/UseOnCreature/VBoxContainer"]
 margin_top = 140.0
-margin_right = 239.0
+margin_right = 237.0
 margin_bottom = 156.0
 custom_colors/font_color = Color( 0.980392, 1, 0.623529, 1 )
 custom_fonts/font = ExtResource( 11 )

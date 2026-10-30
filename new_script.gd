@@ -8,7 +8,7 @@ onready var data = load("res://creatures.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize() # No more predictable seeding!
-	print("==[ Elecree v0.0.80 ]==")
+	print("==[ Elecree v0.0.81 ]==")
 	global.cutscenePlaying = true
 	print(data.attack_list)
 
@@ -18,6 +18,7 @@ func _ready():
 
 # Will advance to game
 func _process(delta):
+	GLOBAL_VARS.cutscenePlaying = true
 	if Input.is_action_pressed("ui_accept"):
 		print("Switching to game...")
 		get_tree().change_scene("res://new_or_load.tscn")

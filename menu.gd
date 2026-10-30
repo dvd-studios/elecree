@@ -43,7 +43,7 @@ func _process(delta):
 			menu_number = 6
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(1, 1, 1, 1))
 		
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") && menu_number != 7:
 		self.visible = false
 		menu_number = 7
 		for i in 6:

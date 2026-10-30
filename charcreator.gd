@@ -9,7 +9,7 @@ func _ready():
 	var textbox_label = textbox.get_node("VBoxContainer/Label")
 	textbox_label.text = "Loading Elecree League Registration Terminal..."
 	yield(get_tree().create_timer(3), "timeout")
-	textbox_label.text = "To continue, upload an image."
+	textbox_label.text = "To continue, upload an image of yourself."
 	yield(self, "z_press")
 	textbox.hide()
 	get_node("CharSelector").wait_and_show()
