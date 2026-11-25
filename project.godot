@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Sprite",
+"class": "AlternatorFrontend",
+"language": "GDScript",
+"path": "res://Joejoe/GladridgeCity/alternator_frontend.gd"
+}, {
 "base": "CanvasLayer",
 "class": "AttackSelector",
 "language": "GDScript",
@@ -28,6 +33,11 @@ _global_script_classes=[ {
 "class": "BattleEDevice",
 "language": "GDScript",
 "path": "res://edeviceinbattle.gd"
+}, {
+"base": "Node2D",
+"class": "BattleGimmicks",
+"language": "GDScript",
+"path": "res://battle_gimmicks.gd"
 }, {
 "base": "Node2D",
 "class": "BattleManager",
@@ -143,6 +153,11 @@ _global_script_classes=[ {
 "class": "ElecreeTemplate",
 "language": "GDScript",
 "path": "res://elecree_template.gd"
+}, {
+"base": "BattleManager",
+"class": "Gate1Battle",
+"language": "GDScript",
+"path": "res://Joejoe/GladridgeCity/gatebattle.gd"
 }, {
 "base": "TileMap",
 "class": "GetTileType",
@@ -280,10 +295,12 @@ _global_script_classes=[ {
 "path": "res://question.gd"
 } ]
 _global_script_class_icons={
+"AlternatorFrontend": "",
 "AttackSelector": "",
 "Bag": "",
 "BattleBag": "",
 "BattleEDevice": "",
+"BattleGimmicks": "",
 "BattleManager": "",
 "Battler": "",
 "BattlerCard": "",
@@ -307,6 +324,7 @@ _global_script_class_icons={
 "ElecreeNode": "",
 "ElecreeStatic": "",
 "ElecreeTemplate": "",
+"Gate1Battle": "",
 "GetTileType": "",
 "Globals": "",
 "ItemTosser": "",
@@ -359,6 +377,7 @@ NICKNAMING="*res://nicknaming.tscn"
 CREATURE_BOX="*res://creaturebox.tscn"
 MART="*res://mart.tscn"
 STARTER_SELECTOR="*res://starting_creature.tscn"
+GIMMICKS="*res://battle_gimmicks.tscn"
 
 [display]
 

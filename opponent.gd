@@ -63,6 +63,8 @@ func get_attack_scores() -> Array:
 				attack_scores[i] += 3
 			attack_scores[i] += int(log(player.statdf / player.floatdf) / log(1.5))
 			attack_scores[i] += int(log(Creatures.multiplier(Creatures.get_element(attacks[i]), Creatures.data[player.species]["element"])) / log(1.5))
+			if GIMMICKS.gate_number == 1 && GIMMICKS.alternator == 1 && Creatures.get_element(attacks[i]) == 3:
+				attack_scores[i] -= 10
 	return attack_scores
 		
 func sort_by_score(a, b) -> bool:
@@ -83,6 +85,9 @@ func enemy_ai() -> String:
 	
 func attack(target: Elecree, attack: String):
 	if attack != "Defend":
+		if GIMMICKS.gate_number == 1:
+			if Creatures.get_element(attack) == 3:
+				target = GIMMICKS.alternator_targets[GIMMICKS.alternator]
 		yield(get_parent().display_text(["The opposing " + data.get_name() + " used " + attack + "!"]), "completed")
 		var result = get_parent().display_text(data.attack(target, attack, true))
 		if result is Object:
@@ -124,6 +129,8 @@ func _process(delta: float):
 		if ElecreeStatic.get_alive_creatures(party) != 0:
 			yield(get_parent().display_text([data.get_name() + " was sent out!"]), "completed")
 			data = party[ElecreeStatic.select_next_alive_creature(party)]
+			if GIMMICKS.gate_number == 1:
+				GIMMICKS.alternator_targets[1] = data
 			get_parent().refresh_creatures()
 			#print(data.currenthp)
 			displaying_text = false

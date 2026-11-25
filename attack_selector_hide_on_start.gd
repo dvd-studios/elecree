@@ -39,8 +39,13 @@ func _process(delta):
 		select -= 1 if get_attack(page, select - 1) != "" else 0
 	
 	if self.visible && Input.is_action_just_pressed("ui_accept"):
-		var attack = get_attack(page, select)
-		var target = get_parent().get_node("OpposingElecree").data
+		var attack: String = get_attack(page, select)
+		var target: Elecree = get_parent().get_node("OpposingElecree").data
+		
+		if GIMMICKS.gate_number == 1:
+			if Creatures.get_element(attack) == 3:
+				target = GIMMICKS.alternator_targets[GIMMICKS.alternator]
+		
 		self.visible = false
 		yield(get_parent().get_node("PlayerElecree").attack(target, attack), "completed")
 		#get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))

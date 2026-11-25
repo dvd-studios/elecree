@@ -129,8 +129,10 @@ func start_wild_battle(creature: Elecree, lastPos: Vector2, lastLoc: String):
 	last_pos = lastPos
 	last_loc = lastLoc
 	if devMode:
+		GIMMICKS.gate_number = 1
 		get_tree().change_scene("res://Joejoe/GladridgeCity/gatebattle.tscn")
 	else:
+		GIMMICKS.gate_number = 0
 		get_tree().change_scene("res://battle.tscn")
 	wild = true
 	opponent_creatures = [creature, null, null, null, null, null, null]
@@ -144,8 +146,10 @@ func start_battler_battle(creatures: Array, lastPos: Vector2, lastLoc: String, w
 	self.prize_credits = prize_credits
 	opponent_creatures = creatures
 	if devMode:
+		GIMMICKS.gate_number = 1
 		get_tree().change_scene("res://Joejoe/GladridgeCity/gatebattle.tscn")
 	else:
+		GIMMICKS.gate_number = 0
 		get_tree().change_scene("res://battle.tscn")
 	wild = false
 
