@@ -31,6 +31,8 @@ func switch_creature(creature: int):
 	yield(get_parent().display_text([data.get_name() + ", come back!"]), "completed")
 	data.recharge = 0
 	data = TEAM.team[creature]
+	if GIMMICKS.gate_number == 1:
+		GIMMICKS.alternator_targets[0] = data
 	get_parent().refresh_creatures()
 	if !(get_parent().creatures_that_will_gain_exp.has(data)):
 		get_parent().creatures_that_will_gain_exp.push_back(data)

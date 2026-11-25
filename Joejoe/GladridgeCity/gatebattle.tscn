@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://opponent.gd" type="Script" id=1]
 [ext_resource path="res://graffiti-14.tres" type="DynamicFont" id=2]
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=3]
-[ext_resource path="res://infoboxes.gd" type="Script" id=4]
+[ext_resource path="res://Joejoe/GladridgeCity/gatebattle.gd" type="Script" id=4]
 [ext_resource path="res://player_elecree.gd" type="Script" id=5]
 [ext_resource path="res://attack_selector_hide_on_start.gd" type="Script" id=6]
 [ext_resource path="res://move_selector.gd" type="Script" id=7]
@@ -11,8 +11,11 @@
 [ext_resource path="res://useoncreature.gd" type="Script" id=9]
 [ext_resource path="res://battlebag.gd" type="Script" id=10]
 [ext_resource path="res://GraffitiPaintBrush.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Joejoe/GladridgeCity/alternator-away.png" type="Texture" id=12]
 [ext_resource path="res://edeviceinbattle.gd" type="Script" id=13]
 [ext_resource path="res://creature_details_battle.gd" type="Script" id=14]
+[ext_resource path="res://Joejoe/GladridgeCity/alternator_frontend.gd" type="Script" id=15]
+[ext_resource path="res://Joejoe/GladridgeCity/alternator-towards.png" type="Texture" id=16]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 4 )
@@ -35,6 +38,13 @@ tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 312, 0, 1, 313, 0, 2, 313, 0, 3, 313, 0, 4, 313, 0, 5, 313, 0, 6, 313, 0, 7, 313, 0, 8, 313, 0, 9, 313, 0, 10, 313, 0, 11, 313, 0, 12, 313, 0, 13, 313, 0, 14, 314, 0, 65545, 312, 0, 65546, 313, 0, 65547, 313, 0, 65548, 313, 0, 65549, 313, 0, 65550, 314, 0, 327680, 312, 0, 327681, 313, 0, 327682, 313, 0, 327683, 313, 0, 327684, 313, 0, 327685, 314, 0, 393216, 303, 0, 393217, 304, 0, 393218, 304, 0, 393219, 304, 0, 393220, 304, 0, 393221, 304, 0, 393222, 304, 0, 393223, 304, 0, 393224, 304, 0, 393225, 304, 0, 393226, 304, 0, 393227, 304, 0, 393228, 304, 0, 393229, 304, 0, 393230, 305, 0, 458752, 306, 0, 458753, 307, 0, 458754, 307, 0, 458755, 307, 0, 458756, 307, 0, 458757, 307, 0, 458758, 307, 0, 458759, 307, 0, 458760, 307, 0, 458761, 307, 0, 458762, 307, 0, 458763, 307, 0, 458764, 307, 0, 458765, 307, 0, 458766, 308, 0, 524288, 306, 0, 524289, 307, 0, 524290, 307, 0, 524291, 307, 0, 524292, 307, 0, 524293, 307, 0, 524294, 307, 0, 524295, 307, 0, 524296, 307, 0, 524297, 307, 0, 524298, 307, 0, 524299, 307, 0, 524300, 307, 0, 524301, 307, 0, 524302, 308, 0, 589824, 309, 0, 589825, 310, 0, 589826, 310, 0, 589827, 310, 0, 589828, 310, 0, 589829, 310, 0, 589830, 310, 0, 589831, 310, 0, 589832, 310, 0, 589833, 310, 0, 589834, 310, 0, 589835, 310, 0, 589836, 310, 0, 589837, 310, 0, 589838, 311, 0 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 120, 58 )
+texture = ExtResource( 12 )
+script = ExtResource( 15 )
+towards_player = ExtResource( 16 )
+away_from_player = ExtResource( 12 )
 
 [node name="InfoBox" type="VBoxContainer" parent="CanvasLayer"]
 margin_left = 2.0

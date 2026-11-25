@@ -19,6 +19,10 @@ export var default_color: Color = Color(0, 0, 0)
 export var select_color: Color = Color(1, 1, 1)
 
 func _ready():
+	
+	if GIMMICKS.gate_number == 1:
+		GIMMICKS.alternator_targets = [player, opponent]
+	
 	creatures_that_will_gain_exp.push_back(player)
 	if GLOBAL_VARS.wild:
 		yield(display_text(["A wild " + opponent.get_name() + " jumped out at you!"]), "completed")
